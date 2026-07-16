@@ -25,11 +25,26 @@ function saveAll(all) {
 
 export function getQuizProgress(quizId) {
   const all = loadAll();
-  return all[quizId] ?? createEmptyQuizProgress();
+  const stored = all[quizId];
+  if (!stored) return createEmptyQuizProgress();
+  // 相容 Phase 2.6 之前存的舊資料(缺 sessionId / pendingVotes 欄位):補上預設值,
+  // 已有的 answers / completedAt 不受影響。
+  return { ...createEmptyQuizProgress(), ...stored };
 }
 
 export function saveQuizProgress(quizId, quizProgress) {
   const all = loadAll();
   all[quizId] = quizProgress;
   saveAll(all);
+}
+
+/** 所有題庫的 progress(Phase 2.6 補送掃描全題庫用,見 src/lib/voteQueue.js)。
+ *  key 為 quizId,值皆已補上預設欄位(同 getQuizProgress)。 */
+export function getAllQuizProgress() {
+  const all = loadAll();
+  const normalized = {};
+  for (const quizId of Object.keys(all)) {
+    normalized[quizId] = getQuizProgress(quizId);
+  }
+  return normalized;
 }

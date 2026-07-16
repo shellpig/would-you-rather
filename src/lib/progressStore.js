@@ -1,9 +1,11 @@
 // 單一題庫的作答進度邏輯(純函式,不碰 localStorage)。
-// 資料結構照規格書 §6:{ answers: { questionId: "a"|"b" }, completedAt: number|null }
+// 資料結構照規格書 §6(Phase 2.6 擴充 sessionId / pendingVotes):
+// { answers: { questionId: "a"|"b" }, sessionId: string|null,
+//   pendingVotes: { questionId: { choice, queuedAt } }, completedAt: number|null }
 // 由 src/lib/storage.js 負責讀寫 localStorage、呼叫這裡的純函式做狀態轉換。
 
 export function createEmptyQuizProgress() {
-  return { answers: {}, completedAt: null };
+  return { answers: {}, sessionId: null, pendingVotes: {}, completedAt: null };
 }
 
 export function hasAnswered(quizProgress, questionId) {
@@ -45,4 +47,51 @@ export function isCompleted(quizProgress) {
 export function markCompleted(quizProgress, timestamp) {
   if (isCompleted(quizProgress)) return quizProgress;
   return { ...quizProgress, completedAt: timestamp };
+}
+
+// ---- Phase 2.6:可靠送票(pendingVotes / sessionId) ----
+
+/** 確保 progress 有 sessionId(規格書 §5.2);已有則原樣回傳,同一題庫的作答與補送
+ *  全程共用同一個 sessionId。id 產生方式由呼叫端注入(見 src/lib/sessionId.js),
+ *  這裡保持純函式、不直接依賴 crypto。 */
+export function ensureSessionId(quizProgress, generateId) {
+  if (quizProgress.sessionId) return quizProgress;
+  return { ...quizProgress, sessionId: generateId() };
+}
+
+/** 把一票放進 pendingVotes(規格書 §6:{ questionId: { choice, queuedAt } })。 */
+export function queuePendingVote(quizProgress, questionId, choice, queuedAt) {
+  return {
+    ...quizProgress,
+    pendingVotes: { ...quizProgress.pendingVotes, [questionId]: { choice, queuedAt } },
+  };
+}
+
+/** 移除一筆已送達成功(或已判定丟棄)的 pending 票;沒有該筆時原樣回傳。 */
+export function clearPendingVote(quizProgress, questionId) {
+  if (!Object.prototype.hasOwnProperty.call(quizProgress.pendingVotes, questionId)) {
+    return quizProgress;
+  }
+  const rest = { ...quizProgress.pendingVotes };
+  delete rest[questionId];
+  return { ...quizProgress, pendingVotes: rest };
+}
+
+const PENDING_VOTE_MAX_AGE_MS = 7 * 24 * 60 * 60 * 1000;
+
+/** 丟棄超過 7 天的 pending 票(規格書 §5.2 補送規則);沒有需丟棄的項目時原樣回傳
+ *  (呼叫端可用 `=== ` 判斷是否需要重新寫回 localStorage)。 */
+export function prunePendingVotes(quizProgress, now) {
+  const entries = Object.entries(quizProgress.pendingVotes);
+  const kept = {};
+  let droppedAny = false;
+  for (const [questionId, entry] of entries) {
+    if (now - entry.queuedAt > PENDING_VOTE_MAX_AGE_MS) {
+      droppedAny = true;
+      continue;
+    }
+    kept[questionId] = entry;
+  }
+  if (!droppedAny) return quizProgress;
+  return { ...quizProgress, pendingVotes: kept };
 }

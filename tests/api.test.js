@@ -10,6 +10,7 @@ import { mkdtempSync, rmSync } from "node:fs";
 import path from "node:path";
 import os from "node:os";
 import { fileURLToPath } from "node:url";
+import { randomUUID } from "node:crypto";
 
 const PROJECT_ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const TEST_PORT = 18788;
@@ -100,6 +101,12 @@ async function stats(quizId) {
   return { status: res.status, body: await res.json() };
 }
 
+// Phase 2.6:vote 現在需要合法格式的 sessionId(見 functions/api/vote.js)。
+// 每個測試各自產生獨立 session id,模擬不同使用者/不同題庫回合。
+function newSessionId() {
+  return randomUUID();
+}
+
 test("GET /api/stats/demo 對尚未有票的題目回傳預設 {a:0,b:0}", async () => {
   const { status, body } = await stats("demo");
   assert.equal(status, 200);
@@ -114,7 +121,12 @@ test("GET /api/stats/:quizId 對不存在的 quizId 回 404", async () => {
 
 test("合法 POST /api/vote 使對應計數 +1", async () => {
   const before = (await stats("demo")).body["work-break"];
-  const res = await vote({ quizId: "demo", questionId: "work-break", choice: "a" });
+  const res = await vote({
+    quizId: "demo",
+    questionId: "work-break",
+    choice: "a",
+    sessionId: newSessionId(),
+  });
   assert.equal(res.status, 200);
   const after = (await stats("demo")).body["work-break"];
   assert.equal(after.a, before.a + 1);
@@ -122,7 +134,12 @@ test("合法 POST /api/vote 使對應計數 +1", async () => {
 });
 
 test("非法 quizId 的 vote 被拒絕(4xx),不產生垃圾 row", async () => {
-  const res = await vote({ quizId: "no-such-quiz", questionId: "morning-drink", choice: "a" });
+  const res = await vote({
+    quizId: "no-such-quiz",
+    questionId: "morning-drink",
+    choice: "a",
+    sessionId: newSessionId(),
+  });
   assert.ok(res.status >= 400 && res.status < 500);
   const notFound = await fetch(`${BASE_URL}/api/stats/no-such-quiz`);
   assert.equal(notFound.status, 404); // 合法清單裡本來就沒有這個 quiz,自然查不到
@@ -130,7 +147,12 @@ test("非法 quizId 的 vote 被拒絕(4xx),不產生垃圾 row", async () => {
 
 test("非法 questionId 的 vote 被拒絕(4xx),該題庫其餘計數不受影響", async () => {
   const before = await stats("demo");
-  const res = await vote({ quizId: "demo", questionId: "no-such-question", choice: "a" });
+  const res = await vote({
+    quizId: "demo",
+    questionId: "no-such-question",
+    choice: "a",
+    sessionId: newSessionId(),
+  });
   assert.ok(res.status >= 400 && res.status < 500);
   const after = await stats("demo");
   assert.deepEqual(after.body, before.body);
@@ -138,7 +160,12 @@ test("非法 questionId 的 vote 被拒絕(4xx),該題庫其餘計數不受影�
 });
 
 test("非法 choice 的 vote 被拒絕(4xx)", async () => {
-  const res = await vote({ quizId: "demo", questionId: "morning-drink", choice: "c" });
+  const res = await vote({
+    quizId: "demo",
+    questionId: "morning-drink",
+    choice: "c",
+    sessionId: newSessionId(),
+  });
   assert.ok(res.status >= 400 && res.status < 500);
 });
 
@@ -154,15 +181,94 @@ test("缺欄位 / 非法 JSON body 被拒絕(4xx)", async () => {
   assert.ok(res2.status >= 400 && res2.status < 500);
 });
 
-test("並發投票不掉票:同一題同時發 40 發,增量等於發出數", async () => {
+test("缺 sessionId 的 vote 被拒絕(4xx),不寫入計數(Phase 2.6)", async () => {
+  const before = (await stats("demo")).body["morning-drink"];
+  const res = await vote({ quizId: "demo", questionId: "morning-drink", choice: "a" });
+  assert.ok(res.status >= 400 && res.status < 500);
+  const after = (await stats("demo")).body["morning-drink"];
+  assert.deepEqual(after, before);
+});
+
+test("sessionId 格式不合法的 vote 被拒絕(4xx)(Phase 2.6)", async () => {
+  const before = (await stats("demo")).body["morning-drink"];
+  const res = await vote({
+    quizId: "demo",
+    questionId: "morning-drink",
+    choice: "a",
+    sessionId: "not-a-uuid",
+  });
+  assert.ok(res.status >= 400 && res.status < 500);
+  const after = (await stats("demo")).body["morning-drink"];
+  assert.deepEqual(after, before);
+});
+
+test("並發投票不掉票:不同 session 同一題同時發 40 發,增量等於發出數", async () => {
   const N = 40;
   const before = (await stats("demo")).body["rainy-day"];
   await Promise.all(
-    Array.from({ length: N }, () => vote({ quizId: "demo", questionId: "rainy-day", choice: "b" }))
+    Array.from({ length: N }, () =>
+      vote({ quizId: "demo", questionId: "rainy-day", choice: "b", sessionId: newSessionId() })
+    )
   );
   const after = (await stats("demo")).body["rainy-day"];
   assert.equal(after.b, before.b + N);
   assert.equal(after.a, before.a);
+});
+
+// ---- Phase 2.6:收據表冪等 / 並發唯一鍵 / 交易原子性 ----
+
+test("同一 (sessionId, questionId) 重送 10 次(相同 choice)→ 皆回成功、計數只 +1", async () => {
+  const sessionId = newSessionId();
+  const before = (await stats("demo")).body["dessert-pair"];
+
+  for (let i = 0; i < 10; i++) {
+    const res = await vote({
+      quizId: "demo",
+      questionId: "dessert-pair",
+      choice: "a",
+      sessionId,
+    });
+    assert.equal(res.status, 200);
+  }
+
+  const after = (await stats("demo")).body["dessert-pair"];
+  assert.equal(after.a, before.a + 1);
+  assert.equal(after.b, before.b);
+});
+
+test("同一 (sessionId, questionId) 重送但 choice 不同 → 回成功、計數不變、既有 choice 不被改寫", async () => {
+  const sessionId = newSessionId();
+  const questionId = "work-break";
+
+  const first = await vote({ quizId: "demo", questionId, choice: "a", sessionId });
+  assert.equal(first.status, 200);
+  const afterFirst = (await stats("demo")).body[questionId];
+
+  // 同一 session 同一題,這次改送 "b":不得加 b_count、也不得把已計入的 a_count 扣回。
+  const second = await vote({ quizId: "demo", questionId, choice: "b", sessionId });
+  assert.equal(second.status, 200);
+  const afterSecond = (await stats("demo")).body[questionId];
+
+  assert.deepEqual(afterSecond, afterFirst);
+});
+
+test("並發補送:同一 session 同一題同時發 10 發 → 唯一鍵擋住,計數恰 +1", async () => {
+  const sessionId = newSessionId();
+  const questionId = "rainy-day";
+  const before = (await stats("demo")).body[questionId];
+
+  const results = await Promise.all(
+    Array.from({ length: 10 }, () =>
+      vote({ quizId: "demo", questionId, choice: "a", sessionId })
+    )
+  );
+  for (const res of results) {
+    assert.equal(res.status, 200); // 重複送達仍回成功(只是不加票)
+  }
+
+  const after = (await stats("demo")).body[questionId];
+  assert.equal(after.a, before.a + 1);
+  assert.equal(after.b, before.b);
 });
 
 test("GET /api/played-counts 回傳所有合法題庫,值為該題庫第一題 a+b", async () => {

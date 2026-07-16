@@ -11,8 +11,11 @@ import {
   firstUnansweredQuestionId,
   isCompleted,
   markCompleted,
+  ensureSessionId,
+  queuePendingVote,
 } from "../lib/progressStore.js";
-import { submitVote } from "../lib/voteStub.js";
+import { sendVote } from "../lib/voteQueue.js";
+import { generateSessionId } from "../lib/sessionId.js";
 import { PLAYED_COUNT_THRESHOLD } from "../config.js";
 
 export async function renderQuizFlow(app, { slug }) {
@@ -190,10 +193,23 @@ export async function renderQuizFlow(app, { slug }) {
     const choice = currentChoices[question.id];
     const { progress: nextProgress, isFirstAnswer } = recordAnswer(progress, question.id, choice);
     progress = nextProgress;
+
+    if (isFirstAnswer) {
+      // pendingVotes 可能已被前一題背景送票的成功回呼直接改寫 localStorage(見
+      // src/lib/voteQueue.js 的 sendVote),但那個回呼不會更新這裡的記憶體內 progress
+      // 變數。寫入新 pending 前先同步一次最新的 pendingVotes,否則會用記憶體裡的舊值
+      // 整包覆寫回去,把剛清除的 pending 重新救回來(答完題但 pending 卻沒清空)。
+      progress = { ...progress, pendingVotes: getQuizProgress(slug).pendingVotes };
+      // 先把答案、sessionId、pendingVotes 一起原子寫入 localStorage,再背景送出
+      // (規格書 §5.2、§6,Phase 2.6):即使送票失敗或分頁立刻關閉,pending 紀錄
+      // 已經落地,開站 / 恢復連線時仍能補送。
+      progress = ensureSessionId(progress, generateSessionId);
+      progress = queuePendingVote(progress, question.id, choice, Date.now());
+    }
     saveQuizProgress(slug, progress);
 
     if (isFirstAnswer) {
-      submitVote(slug, question.id, choice); // Phase 1:只 console.log,不發網路請求。
+      sendVote(slug, question.id, choice, progress.sessionId); // 不 await,不阻塞切題。
     }
 
     if (currentIndex + 1 >= questionIds.length) {
