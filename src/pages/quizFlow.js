@@ -154,15 +154,34 @@ export async function renderQuizFlow(app, { slug }) {
     // 第一次選擇:比例條播放變長動畫,transitionend 後才淡入數字。
     fillEl.classList.remove("no-anim");
     numEl.classList.remove("show");
-    const onDone = (e) => {
-      if (e.propertyName !== "width") return;
+
+    // done 旗標防止 transitionend 與 timeout fallback 重複觸發淡入。
+    let done = false;
+    let timeoutId;
+    const finish = () => {
+      if (done) return;
+      done = true;
       numEl.classList.add("show");
       fillEl.removeEventListener("transitionend", onDone);
+      clearTimeout(timeoutId);
+    };
+    const onDone = (e) => {
+      if (e.propertyName !== "width") return;
+      finish();
     };
     fillEl.addEventListener("transitionend", onDone);
-    // 觸發 transition:先確保目前是 0%,下一影格再設成目標值。
+    // transitionend 可能因 reduced motion、元素剛從 hidden 轉可見等情況不觸發,
+    // 加上與 CSS transition(width 0.6s)時長相符的 timeout fallback 兜底。
+    timeoutId = setTimeout(finish, 650);
+
+    // 觸發 transition 前,先用雙層 requestAnimationFrame 可靠提交初始 0% 寬度:
+    // 元素剛從 hidden 轉為可見時,單層 rAF 仍可能與「取消 hidden」這次樣式套用被
+    // 瀏覽器合併成同一次繪製,導致瀏覽器認為寬度從一開始就是目標值而不觸發 transition。
+    fillEl.style.width = "0%";
     requestAnimationFrame(() => {
-      fillEl.style.width = `${percent}%`;
+      requestAnimationFrame(() => {
+        fillEl.style.width = `${percent}%`;
+      });
     });
   }
 
