@@ -18,7 +18,7 @@
 |---|---|---|---|---|---|
 | 1 | `cat-dog` | 貓派 | 狗派 | A 暖 / B 冷 | ✅ 已生成(assets/generated/daily-life/) |
 | 2 | `romcom-horror` | 愛情喜劇 | 恐怖片 | A 暖 / B 冷 | ⬜ |
-| 3 | `coffee-tea` | 喝咖啡 | 喝茶 | A 暖 / B 冷 | ✅ 可沿用 demo 圖(latte / teapot) |
+| 3 | `coffee-tea` | 喝咖啡 | 喝茶 | A 暖 / B 冷 | ✅ 沿用 demo 圖,已轉檔落地 `public/img/daily-life/`(latte.webp / tea.webp,2026-07-16) |
 | 4 | `cook-dine-out` | 自己煮 | 外食 | A 暖 / B 冷 | ⬜ |
 | 5 | `movie-book` | 看電影 | 看書 | A 冷 / B 暖 | ⬜ |
 | 6 | `stay-home-go-out` | 宅在家 | 出門玩 | A 暖 / B 冷 | ⬜ |
