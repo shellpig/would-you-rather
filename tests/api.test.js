@@ -278,3 +278,45 @@ test("GET /api/played-counts 回傳所有合法題庫,值為該題庫第一題 a
   const demoFirstQuestion = (await stats("demo")).body["morning-drink"];
   assert.equal(body.demo, demoFirstQuestion.a + demoFirstQuestion.b);
 });
+
+// ---- Phase 3:WAE 產品事件(POST /api/event) ----
+
+async function sendEvent(body) {
+  return fetch(`${BASE_URL}/api/event`, {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify(body),
+  });
+}
+
+test("POST /api/event: 四種合法事件皆回 200 { ok: true }", async () => {
+  for (const event of ["quiz_start", "question_answered", "quiz_completed", "share_clicked"]) {
+    const res = await sendEvent({ event, quizId: "demo", questionId: "morning-drink", choice: "a" });
+    assert.equal(res.status, 200);
+    assert.deepEqual(await res.json(), { ok: true });
+  }
+});
+
+test("POST /api/event: 不認得的 event 名稱回 4xx", async () => {
+  const res = await sendEvent({ event: "not_a_real_event", quizId: "demo" });
+  assert.ok(res.status >= 400 && res.status < 500);
+});
+
+test("POST /api/event: 非法 JSON body 回 4xx", async () => {
+  const res = await fetch(`${BASE_URL}/api/event`, {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: "not json",
+  });
+  assert.ok(res.status >= 400 && res.status < 500);
+});
+
+test("POST /api/event: quizId 不在合法清單時仍回 200(埋點格式問題不得擋住前端)", async () => {
+  const res = await sendEvent({ event: "quiz_start", quizId: "no-such-quiz" });
+  assert.equal(res.status, 200);
+});
+
+test("POST /api/event: 缺 quizId/questionId 的事件(如單純 share_clicked)仍回 200", async () => {
+  const res = await sendEvent({ event: "share_clicked" });
+  assert.equal(res.status, 200);
+});

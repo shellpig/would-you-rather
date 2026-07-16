@@ -11,3 +11,11 @@ pages_build_output_dir = "dist"
 binding = "DB"
 database_name = "would-you-rather-db"
 database_id = "516fda74-99bf-479f-843a-91fb759e67e9"
+
+# Phase 3:WAE 產品事件(quiz_start / question_answered / quiz_completed / share_clicked,
+# functions/api/event.js)。本機 `wrangler pages dev` 在 local 模式下會提供這個 binding 的
+# 模擬實作,不需要 Cloudflare 帳號即可開發與測試(已實測確認)。dataset 名稱 Phase 5 部署到
+# 正式環境前需在 Cloudflare dashboard 建立同名 dataset,詳見 開發設計方針.md > Phase 3。
+[[analytics_engine_datasets]]
+binding = "ANALYTICS"
+dataset = "would_you_rather_events"

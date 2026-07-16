@@ -8,6 +8,7 @@
     "dev:worker": "wrangler pages dev public --port 8788",
     "prebuild": "node scripts/generate-legal-list.mjs",
     "build": "vite build",
+    "postbuild": "node scripts/generate-og-pages.mjs",
     "preview": "vite preview",
     "db:migrate": "wrangler d1 migrations apply would-you-rather-db --local",
     "db:seed": "node scripts/seed-votes.mjs",

@@ -1,7 +1,7 @@
 // 題庫首頁 + 答題頁 + 完成頁,同一個 URL `/quiz/:slug` 內的 SPA 內部流程
 // (規格書 §2.2、§2.3、§3;返回鍵決策見 src/router.js 開頭註解)。
 
-import { fetchQuiz } from "../lib/quizData.js";
+import { fetchQuiz, fetchManifest } from "../lib/quizData.js";
 import { fetchStats, fetchPlayedCount } from "../lib/statsClient.js";
 import { computeRatio, shouldShowPlayedCount } from "../lib/ratio.js";
 import { getQuizProgress, saveQuizProgress } from "../lib/storage.js";
@@ -17,6 +17,17 @@ import {
 import { sendVote } from "../lib/voteQueue.js";
 import { generateSessionId } from "../lib/sessionId.js";
 import { PLAYED_COUNT_THRESHOLD } from "../config.js";
+import {
+  computeQuestionResults,
+  deriveIdentityLabel,
+  pickLoneliestQuestion,
+  computeMatchScore,
+  buildShareSummary,
+  lookupLoneliestTitle,
+} from "../lib/resultSummary.js";
+import { pickRecommendedQuizzes } from "../lib/recommend.js";
+import { canUseWebShare, shareResult, copyResultLink } from "../lib/share.js";
+import { trackEvent } from "../lib/analytics.js";
 
 export async function renderQuizFlow(app, { slug }) {
   const quiz = await fetchQuiz(slug);
@@ -63,6 +74,7 @@ export async function renderQuizFlow(app, { slug }) {
       showStatsError();
       return;
     }
+    trackEvent("quiz_start", { quizId: slug });
 
     const nextUnanswered = firstUnansweredQuestionId(progress, questionIds);
     const startId = nextUnanswered ?? questionIds[0]; // 全答完(重玩)則從第一題開始
@@ -211,6 +223,7 @@ export async function renderQuizFlow(app, { slug }) {
   // ---- 下一題 / 完成 ----
   function goNext(question) {
     const choice = currentChoices[question.id];
+    trackEvent("question_answered", { quizId: slug, questionId: question.id, choice });
     const { progress: nextProgress, isFirstAnswer } = recordAnswer(progress, question.id, choice);
     progress = nextProgress;
 
@@ -243,32 +256,146 @@ export async function renderQuizFlow(app, { slug }) {
   function finishFlow() {
     progress = markCompleted(progress, Date.now());
     saveQuizProgress(slug, progress);
+    trackEvent("quiz_completed", { quizId: slug });
     showComplete();
   }
 
-  // ---- 完成頁(佔位版;完整總結卡為 Phase 3 範圍,見 開發設計方針.md > Phase 1) ----
+  // ---- 完成頁:正式總結卡(規格書 §2.4;開發設計方針.md > Phase 3) ----
   function showComplete() {
+    // 資料一律取自 progress.answers(第一次真正送出統計的選擇)與 snapshot(開始作答時的
+    // 快照)——與答題頁 selectChoice 用同一套 computeRatio,口徑一致(§2.4 驗收)。
+    const results = computeQuestionResults(quiz, progress.answers, snapshot);
+    const total = results.length;
+    const minorityCount = results.filter((r) => r.isMinority).length;
+    const identityLabel = deriveIdentityLabel(minorityCount, total);
+    const loneliest = pickLoneliestQuestion(results);
+    const matchScore = computeMatchScore(results);
+    // 孤獨稱號查表(規格書 §2.4 擴充,Phase 3.5):題庫無 titles 欄位時回傳 null,
+    // 勳章元件不顯示、分享文字沿用 Phase 3 原格式(降級,demo 等舊題庫零改動)。
+    const loneliestTitle = lookupLoneliestTitle(quiz, loneliest);
+    const shareText = buildShareSummary(minorityCount, total, loneliest, identityLabel, loneliestTitle);
+    const shareUrl = `${location.origin}/quiz/${slug}`;
+    const shareLabel = canUseWebShare() ? "分享結果" : "複製連結";
+
+    const loneliestHtml = loneliest.isFallback
+      ? `<p class="result-hero__lonely-label">你最大眾的一題</p>
+         <p class="result-hero__lonely-text">${loneliest.text}</p>
+         <p class="result-hero__lonely-percent"><strong>${loneliest.percent}%</strong> 的人都和你一樣</p>`
+      : `<p class="result-hero__lonely-label">最孤獨的一題</p>
+         <p class="result-hero__lonely-text">${loneliest.text}</p>
+         <p class="result-hero__lonely-percent">只有 <strong>${loneliest.percent}%</strong> 的人和你一樣</p>`;
+
+    // 勳章元件(規格書 §2.4 擴充):有稱號時在原「最孤獨的一題」內容外包一層稱號名 +
+    // 判詞;無稱號(loneliestTitle 為 null)時 badgeHtml 就是原本的 loneliestHtml,
+    // 版面與 Phase 3 完全一致(規格書 §2.4 擴充「降級」)。
+    const badgeHtml = loneliestTitle
+      ? `<p class="result-badge__name">${loneliestTitle.name}</p>
+         ${loneliestHtml}
+         <p class="result-badge__blurb">${loneliestTitle.blurb}</p>`
+      : loneliestHtml;
+
     app.innerHTML = `
-      <section class="complete-page">
-        <h1>測驗完成!</h1>
-        <p>你回答了 ${questionIds.length} 題。完整總結卡(比對比例、匹配度、分享)於 Phase 3 實作。</p>
-        <ul class="complete-list">
-          ${questionIds
-            .map((id) => {
-              const q = quiz.questions.find((qq) => qq.id === id);
-              const choice = progress.answers[id];
-              const text = choice === "a" ? q.a.text : q.b.text;
-              return `<li>${text}</li>`;
-            })
+      <section class="result-card">
+        <div class="result-hero">
+          <p class="result-hero__label">${identityLabel}</p>
+          <p class="result-hero__subtitle">你在 ${minorityCount}/${total} 題站在少數派</p>
+          <div class="result-hero__lonely${loneliestTitle ? " result-badge" : ""}">${badgeHtml}</div>
+          <p class="result-hero__match">你和 <strong>${matchScore}%</strong> 的人品味相同</p>
+        </div>
+
+        <ul class="result-list">
+          ${results
+            .map(
+              (r) => `
+            <li class="result-list__item">
+              <span class="result-list__text">${r.text}</span>
+              <span class="result-list__tag ${r.isMinority ? "is-minority" : "is-majority"}">${
+                r.isMinority ? "少數派" : "多數派"
+              }</span>
+            </li>`
+            )
             .join("")}
         </ul>
-        <button type="button" class="btn-secondary" data-replay>再玩一次</button>
-        <a class="btn-secondary" href="/" data-link>回首頁</a>
+
+        <div class="result-share">
+          <button type="button" class="btn-primary" data-share>${shareLabel}</button>
+          <p class="result-share__feedback" data-share-feedback hidden></p>
+        </div>
+
+        <div class="result-recommend" data-recommend hidden>
+          <h2 class="result-recommend__title">你可能也想玩</h2>
+          <div class="result-recommend__list" data-recommend-list></div>
+        </div>
+
+        <p class="result-channel"><a href="/" data-link>Would You Rather · 更多趣味測驗</a></p>
+
+        <div class="result-actions">
+          <button type="button" class="btn-secondary" data-replay>再玩一次</button>
+          <a class="btn-secondary" href="/" data-link>回首頁</a>
+        </div>
       </section>
     `;
+
+    wireShareButton(shareText, shareUrl);
+    loadRecommendations();
+
     app.querySelector("[data-replay]").addEventListener("click", () => {
       animatedQuestions.clear();
       showIntro();
     });
+  }
+
+  // ---- 分享 / 複製連結按鈕(規格書 §2.4:Web Share 優先,不支援時 fallback 複製連結) ----
+  function wireShareButton(shareText, shareUrl) {
+    const shareBtn = app.querySelector("[data-share]");
+    const feedbackEl = app.querySelector("[data-share-feedback]");
+    let feedbackTimer;
+
+    shareBtn.addEventListener("click", async () => {
+      trackEvent("share_clicked", { quizId: slug });
+
+      if (canUseWebShare()) {
+        try {
+          await shareResult(shareText, shareUrl);
+        } catch {
+          // 使用者取消分享(AbortError)或環境限制:規格未要求顯示錯誤提示,靜默即可。
+        }
+        return;
+      }
+
+      const ok = await copyResultLink(shareText, shareUrl);
+      feedbackEl.hidden = false;
+      feedbackEl.textContent = ok ? "已複製連結!" : "複製失敗,請手動複製連結";
+      clearTimeout(feedbackTimer);
+      feedbackTimer = setTimeout(() => {
+        feedbackEl.hidden = true;
+      }, 2000);
+    });
+  }
+
+  // ---- 「你可能也想玩」導流卡(規格書 §2.4:2 個其他題庫,不含當前題庫) ----
+  async function loadRecommendations() {
+    const manifest = await fetchManifest();
+    const recommended = pickRecommendedQuizzes(manifest.quizzes, slug, 2);
+    if (recommended.length === 0) return; // 站上題庫不足時不顯示空區塊(見方針 Phase 3 決策)。
+
+    const sectionEl = app.querySelector("[data-recommend]");
+    const listEl = app.querySelector("[data-recommend-list]");
+    if (!sectionEl || !listEl) return; // 使用者在 fetchManifest resolve 前已切走(如按了「再玩一次」)。
+
+    listEl.innerHTML = recommended.map(renderRecommendCard).join("");
+    sectionEl.hidden = false;
+  }
+
+  function renderRecommendCard(recommendedQuiz) {
+    return `
+      <a class="quiz-card" href="/quiz/${recommendedQuiz.id}" data-link>
+        <img class="quiz-card__cover" src="${recommendedQuiz.cover}" alt="${recommendedQuiz.title}" />
+        <div class="quiz-card__body">
+          <h2 class="quiz-card__title">${recommendedQuiz.title}</h2>
+          <p class="quiz-card__meta">共 ${recommendedQuiz.questionCount} 題</p>
+        </div>
+      </a>
+    `;
   }
 }
