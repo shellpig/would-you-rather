@@ -1,0 +1,293 @@
+/* Phase 1 樣式:手機直式優先(規格書 §2.3 上下對決版面),桌機僅置中限寬。 */
+
+:root {
+  --color-primary: #ff6b5e;
+  --color-bg: #faf7f2;
+  --color-text: #2b2622;
+  --color-muted: #8a8078;
+  --color-card-bg: #ffffff;
+  --radius: 14px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+#app {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 16px;
+  min-height: 100vh;
+}
+
+button {
+  font: inherit;
+}
+
+/* ---- 共用按鈕 ---- */
+.btn-primary {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  margin-top: 16px;
+  border: none;
+  border-radius: var(--radius);
+  background: var(--color-primary);
+  color: #fff;
+  font-size: 17px;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn-primary:disabled {
+  background: #d9c9c6;
+  cursor: not-allowed;
+}
+.btn-secondary {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  border: 1px solid var(--color-primary);
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--color-primary);
+  font-size: 15px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* ---- 入口頁 ---- */
+.site-header {
+  text-align: center;
+  margin-bottom: 16px;
+}
+.site-header h1 {
+  margin: 0 0 4px;
+  font-size: 22px;
+}
+.tagline {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 13px;
+}
+
+.category-chips {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  margin-bottom: 12px;
+}
+.chip {
+  flex: none;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid #ddd;
+  background: #fff;
+  color: var(--color-text);
+  cursor: pointer;
+}
+.chip.active {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #fff;
+}
+
+.quiz-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.quiz-card {
+  display: block;
+  background: var(--color-card-bg);
+  border-radius: var(--radius);
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+.quiz-card__cover {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+.quiz-card__body {
+  padding: 12px 14px;
+}
+.quiz-card__title {
+  margin: 0 0 4px;
+  font-size: 17px;
+}
+.quiz-card__meta,
+.quiz-card__played {
+  margin: 0;
+  font-size: 13px;
+  color: var(--color-muted);
+}
+
+/* ---- 題庫首頁(intro) ---- */
+.quiz-intro__cover {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: var(--radius);
+}
+.quiz-intro__title {
+  font-size: 20px;
+  margin: 14px 0 6px;
+}
+.quiz-intro__desc {
+  color: var(--color-text);
+  font-size: 14px;
+  line-height: 1.6;
+}
+.quiz-intro__info {
+  text-align: center;
+  color: var(--color-muted);
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+/* ---- 答題頁 ---- */
+.progress-bar {
+  height: 4px;
+  background: #eee0da;
+  border-radius: 2px;
+  overflow: hidden;
+}
+.progress-bar__fill {
+  height: 100%;
+  background: var(--color-primary);
+  transition: width 0.3s ease;
+}
+.progress-text {
+  text-align: center;
+  font-size: 12px;
+  color: var(--color-muted);
+  margin: 4px 0 12px;
+}
+
+.option-card {
+  background: var(--color-card-bg);
+  border: 3px solid transparent;
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 4px;
+  cursor: pointer;
+  transition: transform 0.15s ease, opacity 0.15s ease, border-color 0.15s ease;
+}
+.option-card__img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+.option-card__body {
+  padding: 10px 12px;
+}
+.option-card__text {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+}
+.option-card__hint {
+  margin: 4px 0 0;
+  font-size: 12px;
+  color: var(--color-primary);
+  text-align: center;
+}
+
+.option-card.selected {
+  border-color: var(--color-primary);
+  transform: scale(1.02);
+}
+.option-card.dimmed {
+  opacity: 0.55;
+}
+
+.vs-divider {
+  text-align: center;
+  font-weight: 800;
+  color: var(--color-primary);
+  margin: 6px 0;
+  letter-spacing: 1px;
+}
+
+.ratio {
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.ratio[hidden] {
+  display: none;
+}
+.ratio-track {
+  flex: 1;
+  height: 8px;
+  background: #eee0da;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.ratio-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--color-primary);
+  transition: width 0.6s ease;
+}
+.ratio-fill.no-anim {
+  transition: none;
+}
+.ratio-num {
+  min-width: 34px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-primary);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.ratio-num.show {
+  opacity: 1;
+}
+
+/* ---- 完成頁(Phase 1 佔位) ---- */
+.complete-page h1 {
+  font-size: 22px;
+  text-align: center;
+}
+.complete-page p {
+  color: var(--color-muted);
+  font-size: 14px;
+  text-align: center;
+}
+.complete-list {
+  background: var(--color-card-bg);
+  border-radius: var(--radius);
+  padding: 14px 20px;
+  margin: 14px 0;
+}
+.complete-list li {
+  font-size: 14px;
+  padding: 4px 0;
+}
+
+.not-found {
+  text-align: center;
+  color: var(--color-muted);
+  margin-top: 40px;
+}

@@ -1,0 +1,15 @@
+# local tooling / archives (never commit)
+.claude/
+舊文件/
+
+# dependencies / build
+node_modules/
+dist/
+
+# cloudflare local
+.wrangler/
+.dev.vars
+
+# misc
+*.log
+Thumbs.db
