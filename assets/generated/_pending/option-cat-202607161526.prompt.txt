@@ -1,0 +1,19 @@
+用途:「貓派 vs 狗派」選項 A(貓,暖色組,4:3)。所屬正式題庫未定,暫存 _pending。
+注意:本題動物是主體,模板的「動物只能當配件」限制句不適用,negative 改用 multiple animals。
+
+PROMPT:
+Cute cozy game illustration, one single centered subject: a fluffy
+cream and orange cat sitting upright with a gentle sleepy smile, tail
+curled around its paws. The subject fills most of the frame, large and
+instantly recognizable even at small size. Simple minimal background
+in warm pastel tones (cream, soft peach, milky beige), at most one
+small prop such as a ball of yarn, no clutter, soft plain backdrop
+with gentle vignette. Rounded shapes, thick soft outlines, flat
+illustration with subtle soft shading, kawaii style but clean and not
+childish. Storybook game art style. No text, no letters, no watermark.
+4:3 aspect ratio.
+
+NEGATIVE:
+text, letters, typography, watermark, logo, realistic photo, 3d render,
+harsh shadows, saturated neon colors, cluttered background, human faces,
+multiple animals, split screen

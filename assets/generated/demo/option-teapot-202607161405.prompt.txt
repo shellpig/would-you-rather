@@ -1,0 +1,20 @@
+用途:demo 題庫選項 B(茶,冷色組,4:3)。已縮圖為 public/img/demo/tea.jpg 使用。
+
+PROMPT:
+Cute cozy game illustration, one single centered subject: a pale mint
+teapot pouring hot tea into a small tea cup, gentle steam swirl. The
+subject fills most of the frame, large and instantly recognizable even
+at small size. Simple minimal background in cool pastel tones (soft
+mint green, sage, pale aqua), at most one small prop, no clutter, soft
+plain backdrop with gentle vignette. Rounded shapes, thick soft
+outlines, flat illustration with subtle soft shading, kawaii style but
+clean and not childish. Storybook game art style. If any animal appears
+it must be a tiny background accessory, not prominent. No text, no
+letters, no watermark. 4:3 aspect ratio.
+
+NEGATIVE:
+text, letters, typography, watermark, logo, realistic photo, 3d render,
+harsh shadows, saturated neon colors, cluttered background, human faces,
+large animals, split screen
+
+已知小瑕疵(接受):茶壺懸空未落桌;之後重生可加 teapot resting on the table。

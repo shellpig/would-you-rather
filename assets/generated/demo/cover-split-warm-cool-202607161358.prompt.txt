@@ -1,0 +1,24 @@
+用途:demo 題庫封面(16:9)。已裁切為 public/img/demo/cover.jpg 使用。
+
+PROMPT:
+Cute cozy game illustration, split-screen composition divided by a soft
+diagonal line, clear color contrast between the two halves:
+LEFT half in warm pastel tones (cream, soft peach, milky beige) — a
+steaming latte cup on a small wooden table, a sleepy calico cat curled
+up on a cushion nearby, morning window light.
+RIGHT half in cool pastel tones (soft mint green, sage, pale aqua) — a
+warm teapot and tea cup on a tray, green plant leaves, calm afternoon
+mood.
+Soft pastel color palette overall, the two sides clearly different in
+hue but harmonious together. Rounded shapes, thick soft outlines, flat
+illustration with subtle soft shading, kawaii style but clean and not
+childish. Warm comfortable atmosphere, storybook game art style.
+No text, no letters, no watermark. 16:9 aspect ratio.
+
+NEGATIVE:
+text, letters, typography, watermark, logo, realistic photo, 3d render,
+harsh shadows, saturated neon colors, cluttered background, human faces
+
+風格筆記(2026-07-16 定案):
+- 「粉色系」= pastel 柔和色調,不是整張粉紅;兩半邊各自指定暖/冷色組拉開對比。
+- 動物(貓等)是配件,畫面佔比必須小。

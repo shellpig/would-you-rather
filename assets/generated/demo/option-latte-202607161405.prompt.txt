@@ -1,0 +1,18 @@
+用途:demo 題庫選項 A(咖啡,暖色組,4:3)。已縮圖為 public/img/demo/latte.jpg 使用。
+
+PROMPT:
+Cute cozy game illustration, one single centered subject: a steaming
+cup of latte with heart latte art on a small wooden saucer. The subject
+fills most of the frame, large and instantly recognizable even at small
+size. Simple minimal background in warm pastel tones (cream, soft
+peach, milky beige), at most one small prop, no clutter, soft plain
+backdrop with gentle vignette. Rounded shapes, thick soft outlines,
+flat illustration with subtle soft shading, kawaii style but clean and
+not childish. Storybook game art style. If any animal appears it must
+be a tiny background accessory, not prominent. No text, no letters,
+no watermark. 4:3 aspect ratio.
+
+NEGATIVE:
+text, letters, typography, watermark, logo, realistic photo, 3d render,
+harsh shadows, saturated neon colors, cluttered background, human faces,
+large animals, split screen
