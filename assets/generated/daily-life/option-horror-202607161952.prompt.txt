@@ -1,0 +1,7 @@
+用途:「愛情喜劇 vs 恐怖片」選項 B(恐怖片,冷色組,4:3)。註記:此題為反幼稚調整首例,kawaii 改 stylish adult animation look;此張允許陰影營造氣氛(negative 移除 harsh shadows)。
+
+PROMPT:
+Cute cozy game illustration, one single centered subject: a large glowing cinema screen in a dark theater, the screen showing a genuinely spooky horror movie scene — a decaying haunted mansion on a hill at night, one upstairs window glowing with a pair of eerie eyes staring out, a shadowy silhouetted figure standing in the doorway, crooked gravestones on the hillside, a bare twisted tree, a few bats against a huge pale full moon, thick creeping fog, a faint lightning flash in the dark storm clouds, ominous and chilling but stylish, no gore. The subject fills most of the frame, large and instantly recognizable even at small size. Simple minimal surroundings in dark cool tones (deep twilight blue, dark sage, pale aqua glow from the screen), the theater seats mostly in shadow, at most one small prop such as a tipped-over popcorn box on a seat in the foreground, no clutter, gentle vignette. Rounded shapes, thick soft outlines, flat illustration with subtle soft shading, charming and clean, stylish adult animation look, not childish, not baby-toy style. Storybook game art style. No text, no letters, no watermark. 4:3 aspect ratio.
+
+NEGATIVE:
+text, letters, typography, watermark, logo, realistic photo, 3d render, saturated neon colors, cluttered background, visible human faces, large animals, split screen, cartoon faces on objects, googly eyes, chibi, baby toy style, nursery style, gore, blood, monsters attacking

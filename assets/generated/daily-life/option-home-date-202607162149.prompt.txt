@@ -1,0 +1,8 @@
+用途:daily-life 題庫「約會衝遊樂園 vs 約會在家追劇」選項 B(約會在家追劇,冷色組,4:3)。使用者提供最終成圖。
+來源註記:實際生成 prompt 未隨成圖提供;以下是依定稿成圖反推、供日後重生的方向,不是原始 prompt。
+
+PROMPT:
+Cute cozy game illustration of a relaxed at-home streaming date, designed as the cool-color companion to the amusement-park date illustration. Exactly two young adults sit closely together on a large floor cushion in a cozy living room, viewed from behind. They embrace around each other's backs under one shared checkered blanket; one holds a large bowl of popcorn. Both clearly watch a television showing a generic magical forest with no people or text. The couple is large and centered in the foreground. Include two armchairs, a low television console, one small bookshelf with a few plants, one warm table lamp, two mugs and a pair of slippers. Cool pastel mint, sage, pale aqua and muted teal, balanced with gentle cream lamplight. Clean medium-thick dark-brown outlines, broad readable shapes, smooth simplified hair, flat pastel coloring with a few large soft shadow shapes, polished kawaii storybook game illustration, complete but with controlled detail density. Exactly two people total; faces hidden from view. No readable interface, subtitles, text, letters, logo or watermark. 4:3 landscape.
+
+NEGATIVE:
+photorealistic, 3d render, intricate linework, fine crosshatching, excessive texture, extra people, human silhouettes on television, visible detailed faces, cinema, gaming controller, bedroom, crowded room, readable interface, copyrighted characters, text, letters, watermark, logo, split screen

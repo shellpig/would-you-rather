@@ -1,0 +1,7 @@
+用途:「住鄉下 vs 住城市」選項 B(住城市,冷色組,4:3)。
+
+PROMPT:
+Cute cozy game illustration, one single centered subject: a lively city street at dusk — rows of modern apartment buildings and a few tall towers with many small glowing windows, a convenience store front casting soft light onto the sidewalk, a crosswalk in the foreground, pedestrians shown only as soft dark silhouettes from behind, urban energy but cozy. The subject fills most of the frame, large and instantly recognizable even at small size. Cool pastel evening palette overall (soft mint green, sage, pale aqua, twilight blue sky), small warm window glows as accents, no clutter beyond the street itself, gentle vignette. Rounded shapes, thick soft outlines, flat illustration with subtle soft shading, charming and clean, stylish adult animation look, not childish, not baby-toy style. Storybook game art style. If any animal appears it must be a tiny background accessory, not prominent. No text, no letters, no watermark, blank signboards with no writing. 4:3 aspect ratio.
+
+NEGATIVE:
+text, letters, typography, fake letters, gibberish writing, watermark, logo, signboard text, menu text, realistic photo, 3d render, saturated neon colors, visible human faces, large animals, split screen, cartoon faces on objects, googly eyes, chibi, baby toy style, nursery style

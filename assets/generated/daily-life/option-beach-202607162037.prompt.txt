@@ -1,0 +1,15 @@
+用途:daily-life 題庫「去海邊 vs 去山上」選項 A(去海邊,暖色組,4:3)。由 Codex built-in imagegen 生成。
+
+PROMPT:
+Use case: illustration-story
+Asset type: would-you-rather option card, 4:3 landscape
+Primary request: Cute cozy game illustration of enjoying a sunny day at the beach. One cheerful simplified person already on a sandy beach, shown from a side-back angle while joyfully running barefoot toward the gentle ocean waves, carrying a small round swim ring under one arm. The entire scene takes place at the seaside and clearly communicates "going to the beach" even at small size.
+Scene/backdrop: warm sandy shore, calm turquoise water, a few soft white wave edges, one tiny beach umbrella far in the background, open sky; no buildings and no crowd.
+Style/medium: rounded shapes, thick soft outlines, flat illustration with subtle soft shading, kawaii but clean and not childish, cozy storybook game art.
+Composition/framing: 4:3 landscape. The active person is large and centered, filling much of the frame; clear beach and ocean remain visible around them.
+Lighting/mood: bright, relaxed, playful summer sunlight.
+Color palette: warm pastel cream, soft peach, milky beige and gentle golden yellow, balanced with soft turquoise water.
+Constraints: face hidden from view; no text, letters, logo or watermark.
+
+NEGATIVE:
+empty beach, isolated beach objects, sunset, person facing camera, visible detailed face, bikini close-up, crowded beach, resort buildings, boats, harsh shadows, saturated neon colors, realistic photo, 3D render, clutter, split screen

@@ -1,0 +1,7 @@
+用途:「自己煮 vs 外食」選項 A(自己煮,暖色組,4:3)。
+
+PROMPT:
+Cute cozy game illustration, one single centered subject: a cozy home kitchen stove with a big steaming pot mid-cooking, wooden spoon resting on the rim, fresh vegetables and a cutting board on the counter beside it, gentle golden window light, homey and inviting. The subject fills most of the frame, large and instantly recognizable even at small size. Simple minimal surroundings in warm pastel tones (cream, soft peach, milky beige, honey), at most one small prop such as a checkered kitchen towel hanging nearby, no clutter, gentle vignette. Rounded shapes, thick soft outlines, flat illustration with subtle soft shading, charming and clean, stylish adult animation look, not childish, not baby-toy style. Storybook game art style. If any animal appears it must be a tiny background accessory, not prominent. No text, no letters, no watermark. 4:3 aspect ratio.
+
+NEGATIVE:
+text, letters, typography, watermark, logo, realistic photo, 3d render, harsh shadows, saturated neon colors, cluttered background, visible human faces, large animals, split screen, cartoon faces on objects, googly eyes, chibi, baby toy style, nursery style

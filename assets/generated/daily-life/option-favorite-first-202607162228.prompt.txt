@@ -1,0 +1,7 @@
+用途:「最愛的先吃 vs 留最後」選項 A(先吃,暖色組,4:3)。兩張成對:同款餐盤與炸蝦,A 滿盤先夾蝦。
+
+PROMPT:
+Cute cozy game illustration, one single centered subject: a dinner plate seen from a slight top-down angle, a full untouched meal of rice and side dishes, and a pair of chopsticks lifting the single prized golden fried shrimp first, right at the start of the meal, a tiny motion sparkle around the shrimp, joyful indulgent mood. The subject fills most of the frame, large and instantly recognizable even at small size. Simple minimal surroundings in warm pastel tones (cream, soft peach, milky beige, honey), at most one small prop such as a cup of tea beside the plate, no clutter, soft plain tabletop backdrop with gentle vignette. Rounded shapes, thick soft outlines, flat illustration with subtle soft shading, charming and clean, stylish adult animation look, not childish, not baby-toy style. Storybook game art style. If any animal appears it must be a tiny background accessory, not prominent. No text, no letters, no watermark. 4:3 aspect ratio.
+
+NEGATIVE:
+text, letters, typography, watermark, logo, realistic photo, 3d render, harsh shadows, saturated neon colors, cluttered background, visible human faces, hands, large animals, split screen, cartoon faces on objects, googly eyes, chibi, baby toy style, nursery style

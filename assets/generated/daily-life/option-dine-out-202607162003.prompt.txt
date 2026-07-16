@@ -1,0 +1,7 @@
+用途:「自己煮 vs 外食」選項 B(外食,冷色組夜市街景,4:3)。註記:首版單一孤攤被打回,改整條夜市;人群一律背影剪影。
+
+PROMPT:
+Cute cozy game illustration, one single centered subject: a lively bustling night market street, rows of glowing food stalls with striped awnings and hanging lanterns on both sides leading into the distance, steam rising from many food counters, strings of warm lights overhead, a crowd of people strolling and eating shown only as soft dark silhouettes from behind, energetic and full of life. The subject fills most of the frame, large and instantly recognizable even at small size. Cool pastel evening palette overall (soft mint green, sage, pale aqua, twilight blue night sky) with small warm lantern glows, no clutter beyond the market itself, gentle vignette. Rounded shapes, thick soft outlines, flat illustration with subtle soft shading, charming and clean, stylish adult animation look, not childish, not baby-toy style. Storybook game art style. If any animal appears it must be a tiny background accessory, not prominent. No text, no letters, no watermark, blank signboards with no writing. 4:3 aspect ratio.
+
+NEGATIVE:
+text, letters, typography, fake letters, gibberish writing, watermark, logo, signboard text, menu text, realistic photo, 3d render, saturated neon colors, visible human faces, large animals, split screen, cartoon faces on objects, googly eyes, chibi, baby toy style, nursery style

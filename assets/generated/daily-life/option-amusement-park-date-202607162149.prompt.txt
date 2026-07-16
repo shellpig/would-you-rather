@@ -1,0 +1,8 @@
+用途:daily-life 題庫「約會衝遊樂園 vs 約會在家追劇」選項 A(約會衝遊樂園,暖色組,4:3)。使用者提供最終成圖。
+來源註記:實際生成 prompt 未隨成圖提供;以下是依定稿成圖反推、供日後重生的方向,不是原始 prompt。
+
+PROMPT:
+Cute cozy game illustration of an exciting amusement park date. Exactly two cheerful young adults are already inside an amusement park, shown from behind while running side by side along a curved stone path, one person happily pointing toward a large Ferris wheel. A carousel, Ferris wheel, small stalls, trees and string lights create a complete but controlled amusement-park scene. The dating couple is large and centered in the foreground, with clear energetic body language and matching small backpacks. Warm pastel cream, soft peach, coral, muted gold and lavender sunset tones. Clean medium-thick dark-brown outlines, broad readable shapes, smooth simplified hair, flat pastel coloring with a few large soft shadow shapes, polished kawaii storybook game illustration, detailed enough to feel complete but without intricate texture. Exactly two main people; both faces mostly turned away. No readable signs, text, letters, logo or watermark. 4:3 landscape.
+
+NEGATIVE:
+photorealistic, 3d render, intricate linework, fine crosshatching, excessive texture, crowded park, entrance gate, ticket booth, visible detailed faces, children with parents, dark neon night, readable signs, text, letters, watermark, logo, split screen

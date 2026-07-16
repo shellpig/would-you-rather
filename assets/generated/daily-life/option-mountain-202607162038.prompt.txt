@@ -1,0 +1,15 @@
+用途:daily-life 題庫「去海邊 vs 去山上」選項 B(去山上,冷色組,4:3)。由 Codex built-in imagegen 生成。
+
+PROMPT:
+Use case: illustration-story
+Asset type: would-you-rather option card, 4:3 landscape
+Primary request: Cute cozy game illustration of enjoying a refreshing mountain outing. One cheerful simplified person already high in the mountains, shown from behind while hiking along a gentle ridge trail with a small day backpack and one arm raised toward the scenic view. The entire scene takes place in the mountains and clearly communicates "going to the mountains" even at small size.
+Scene/backdrop: layered rounded green mountain peaks, a winding trail, a few pine trees and soft drifting clouds; no buildings, no city and no crowd.
+Style/medium: rounded shapes, thick soft outlines, flat illustration with subtle soft shading, kawaii but clean and not childish, cozy storybook game art.
+Composition/framing: 4:3 landscape. The hiker is large and centered in the foreground, with the mountain landscape clearly visible behind and around them.
+Lighting/mood: fresh, peaceful and adventurous daytime atmosphere.
+Color palette: cool pastel soft mint green, sage, pale aqua and muted blue.
+Constraints: face completely hidden; casual day hike, not extreme climbing; no text, letters, logo or watermark.
+
+NEGATIVE:
+beach, ocean, snowstorm, dangerous cliff, rock climbing gear, camping tent, heavy expedition backpack, person facing camera, visible detailed face, crowded trail, city skyline, harsh shadows, saturated neon colors, realistic photo, 3D render, clutter, split screen

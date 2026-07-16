@@ -1,0 +1,9 @@
+用途:「夏天 vs 冬天」選項 B(冬天,冷色組,4:3)。雪人不可有卡通臉。
+
+PROMPT:
+Cute cozy game illustration, one single centered subject: a quiet snowy evening scene — a snow-covered lane with a plump smiling-free snowman wearing a knitted scarf, soft snowflakes falling, bare trees dusted with snow, a lamppost casting a small pool of gentle light, peaceful crisp winter night mood. The subject fills most of the frame, large and instantly recognizable even at small size. Simple minimal surroundings in cool pastel tones (soft mint green, sage, pale aqua, twilight blue night sky), one small warm glow accent from a distant cottage window, at most one small prop such as a pair of mittens resting on a bench, no clutter, gentle vignette. Rounded shapes, thick soft outlines, flat illustration with subtle soft shading, charming and clean, stylish adult animation look, not childish, not baby-toy style. Storybook game art style. If any animal appears it must be a tiny background accessory, not prominent. No text, no letters, no watermark. 4:3 aspect ratio.
+
+NEGATIVE:
+text, letters, typography, watermark, logo, realistic photo, 3d render, harsh shadows, saturated neon colors, cluttered background, visible human faces, large animals, split screen, cartoon faces on objects, googly eyes, chibi, snowman with cartoon face, baby toy style, nursery style
+
+已知瑕疵:實際輸出的雪人有笑臉(眼睛/微笑/紅蘿蔔鼻),未完全遵守 negative 的 "snowman with cartoon face"。已知並接受此瑕疵,未重生。

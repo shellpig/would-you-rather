@@ -1,0 +1,7 @@
+用途:「最愛的先吃 vs 留最後」選項 B(留最後,冷色組,4:3)。兩張成對:B 空盤獨留炸蝦壓軸。
+
+PROMPT:
+Cute cozy game illustration, one single centered subject: a dinner plate seen from a slight top-down angle, the meal almost completely finished with only neat traces and a few grains of rice left, and one single perfect golden fried shrimp carefully saved at the center of the plate, spotlighted like a treasure, chopsticks resting quietly beside the plate, patient savoring mood. The subject fills most of the frame, large and instantly recognizable even at small size. Simple minimal surroundings in cool pastel tones (soft mint green, sage, pale aqua), at most one small prop such as a glass of water beside the plate, no clutter, soft plain tabletop backdrop with gentle vignette. Rounded shapes, thick soft outlines, flat illustration with subtle soft shading, charming and clean, stylish adult animation look, not childish, not baby-toy style. Storybook game art style. If any animal appears it must be a tiny background accessory, not prominent. No text, no letters, no watermark. 4:3 aspect ratio.
+
+NEGATIVE:
+text, letters, typography, watermark, logo, realistic photo, 3d render, harsh shadows, saturated neon colors, cluttered background, visible human faces, hands, large animals, split screen, cartoon faces on objects, googly eyes, chibi, baby toy style, nursery style
