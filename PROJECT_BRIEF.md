@@ -12,8 +12,9 @@
 > Turnstile 防灌票 → 維持暫緩、Phase 2.6 收據表已留插座(sessionId per-quiz、格式驗證但不驗身份);
 > 產品統計 → WAE 四事件併入 Phase 3。「日常生活二選一」題庫 15 題已定稿(`subdocs/題庫/daily-life.md`)。
 > Phase 2.6 手動驗收過程中另外發現一個 Phase 2 遺留的邊界 bug(`GET /api/stats` 失敗時
-> `computeRatio(undefined, ...)` 會拋例外、選項點擊失效),記錄於 `開發設計方針.md > Phase 2.6`,
-> 建議 verifier 列入 `驗證後已知問題.md`;不在 Phase 2.6 範圍內未修改。
+> `computeRatio(undefined, ...)` 會拋例外、選項點擊失效),已於 2026-07-16 修復並自我驗收通過
+> (兩層防呆:整體失敗顯示可重試錯誤畫面、單題快照缺項防呆 `{a:0,b:0}`),詳見
+> `驗證後已知問題.md`。
 > 下一步:Phase 2.6 待 verifier 覆核,之後進 Phase 3。
 
 ---

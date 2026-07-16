@@ -56,12 +56,29 @@ export async function renderQuizFlow(app, { slug }) {
 
   // ---- 開始作答:一次抓統計快照,決定從哪一題開始 ----
   async function startFlow() {
-    snapshot = await fetchStats(slug);
+    try {
+      snapshot = await fetchStats(slug);
+    } catch {
+      // stats 抓取整體失敗(網路錯誤、5xx):不進入題目頁,顯示可重試錯誤。
+      showStatsError();
+      return;
+    }
 
     const nextUnanswered = firstUnansweredQuestionId(progress, questionIds);
     const startId = nextUnanswered ?? questionIds[0]; // 全答完(重玩)則從第一題開始
     currentIndex = questionIds.indexOf(startId);
     showQuestion();
+  }
+
+  // ---- 統計快照抓取失敗:簡單的可重試錯誤畫面 ----
+  function showStatsError() {
+    app.innerHTML = `
+      <section class="quiz-intro">
+        <p class="quiz-intro__error">載入失敗,請再試一次</p>
+        <button type="button" class="btn-primary" data-retry>重試</button>
+      </section>
+    `;
+    app.querySelector("[data-retry]").addEventListener("click", startFlow);
   }
 
   // ---- 單題畫面 ----
@@ -126,7 +143,10 @@ export async function renderQuizFlow(app, { slug }) {
     otherCard.classList.remove("selected");
     otherCard.classList.add("dimmed");
 
-    const { aPercent, bPercent } = computeRatio(snapshot[question.id], choice);
+    // 快照缺該題 key 時(合法情境:新題尚未種子票)防呆為 {a:0,b:0},
+    // 比例仍照「快照 + 自己一票」規則計算。
+    const questionSnapshot = snapshot[question.id] ?? { a: 0, b: 0 };
+    const { aPercent, bPercent } = computeRatio(questionSnapshot, choice);
     const alreadyAnimated = animatedQuestions.has(question.id);
 
     updateRatioSide(cardA, aPercent, alreadyAnimated);

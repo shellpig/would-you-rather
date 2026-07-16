@@ -2,10 +2,12 @@
 // 呼叫端(home.js、quizFlow.js)一律用 await 呼叫,介面不變、呼叫端不需改動。
 
 /** 對應規格書 §5.2 GET /api/stats/:quizId:回傳該題庫所有題目的 {questionId: {a,b}}。
- *  「開始作答」時呼叫一次,之後整個答題流程不再呼叫(規格書 §2.2 驗收)。 */
+ *  「開始作答」時呼叫一次,之後整個答題流程不再呼叫(規格書 §2.2 驗收)。
+ *  失敗(網路錯誤或非 2xx)一律拋錯,不降級回傳 `{}`——呼叫端(quizFlow.js)需接住
+ *  並顯示可重試錯誤,避免帶著空快照進入答題頁導致 computeRatio 收到 undefined。 */
 export async function fetchStats(quizId) {
   const res = await fetch(`/api/stats/${encodeURIComponent(quizId)}`);
-  if (!res.ok) return {};
+  if (!res.ok) throw new Error(`fetchStats failed: ${res.status}`);
   return res.json();
 }
 
