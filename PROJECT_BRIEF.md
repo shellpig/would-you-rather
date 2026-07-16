@@ -4,11 +4,11 @@
 
 最後更新:2026-07-16
 
-> **當前進度**:Phase 2(後端 Workers + D1)實作完成,既有自我驗收 13 條全數通過,待 verifier 覆核。
-> 公開上線檢視後已插入 Phase 2.5「公開統計可靠性」:規格 / 實作契約 / 24 條驗收清單已定稿,
-> **尚未實作**。Phase 2.5 會以 Turnstile 匿名 session、D1 後端防重、pending queue、真人統計與
-> 每日彙總取代 Phase 2 的 production seed + 失敗即丟棄策略;完成前不得把目前比例宣稱為可信的
-> 公開真人統計。Phase 1 前端答題流程先前已實作、自我驗收通過,同樣待 verifier 覆核。
+> **當前進度**:Phase 1、2 實作完成(自我驗收通過,待 verifier 覆核)。Phase 2.5「公開統計可靠性」
+> 經站方決策(2026-07-16)**整體暫緩、條件觸發**,但其中三項經逐項評估後部分吸收:可靠送票
+> → 新 Phase 2.6(規格 / 驗收清單已定稿,未實作);Turnstile 防灌票 → 維持暫緩、2.6 收據表預留插座;
+> 產品統計 → WAE 四事件併入 Phase 3。「日常生活二選一」題庫 15 題已定稿(`subdocs/題庫/daily-life.md`)。
+> 下一步:實作 Phase 2.6,再 Phase 3。
 
 ---
 
@@ -25,10 +25,10 @@
 | 層 | 選型 |
 |---|---|
 | 前端 | Vanilla JS + Vite 靜態 SPA @ Cloudflare Pages |
-| 後端 | Cloudflare Pages Functions(Phase 2 基礎 3 API;Phase 2.5 擴充匿名 session / 事件端點) |
-| 資料庫 | Cloudflare D1(真人累積統計、匿名防重收據、累積 / 每日彙總) |
-| 分析 | Cloudflare Web Analytics(流量) + D1 第一方彙總事件(Phase 2.5) |
-| 防護 | Turnstile 匿名 session + WAF rate limit(Phase 2.5 / 5) |
+| 後端 | Cloudflare Pages Functions(3 支 API:stats / vote / played-counts) |
+| 資料庫 | Cloudflare D1(一張 stats 表) |
+| 分析 | Cloudflare Web Analytics |
+| 防護 | WAF rate limit(Phase 5);進階加固為 §5.4 暫緩預案 |
 
 ## Phase 進度
 
@@ -36,20 +36,15 @@
 |---|---|---|
 | 1 | 前端答題流程(mock 統計) | ✅ 實作完成,待 verifier 覆核 |
 | 2 | 後端(Workers + D1) | ✅ 實作完成,待 verifier 覆核 |
-| 2.5 | 公開統計可靠性 | 📝 文件定稿,⬜ 尚未實作 |
-| 3 | 總結卡 + 分享 | ⬜ |
+| 2.5 | 公開統計可靠性 | ⏸️ 暫緩(條件觸發預案,見規格書 §5.4) |
+| 2.6 | 可靠送票(pending queue + 冪等收據) | 📝 規格定稿,⬜ 未實作 |
+| 3 | 總結卡 + 分享 + WAE 產品事件 | ⬜ |
 | 4 | 題庫內容 ×3(逐庫子階段) | ⬜ |
 | 5 | 上線(部署 / 網域 / rate limit / 實測) | ⬜ |
 
 Flag off 待開(不排 Phase):分類 chips、點選後 2 秒自動下一題。
 
-Phase 2.5 的統計語意:
-
-- 公開 A/B、匹配度只計後端接受的真人有效票,並顯示樣本數;production 新題庫從 0 票開始。
-- 「N 人玩過」= 成功送出至少一票的唯一匿名 session,不再用第一題票數或種子票推估。
-- Turnstile + session + rate limit 是趣味網站的降噪 / 防低成本濫用,不是自然人身分證明或科學民調。
-- 票先進 local pending queue,後端以 session + question 冪等;暫時斷線可補送且不重複計票。
-- 長期保存累積與每日彙總;不持久化 IP、User-Agent 或瀏覽器指紋。
+統計定位(站方決策,2026-07-16):本站是趣味測驗不是民調;種子票(每題兩邊合計約 100 票)計入比例與「N 人玩過」;若上線後出現灌票或流量成長到數字可信度變重要,再啟動 Phase 2.5 預案(種子/真人分離、Turnstile、pending queue)。
 
 ## 文件索引
 
@@ -69,6 +64,6 @@ Phase 2.5 的統計語意:
 
 ## 下一步建議
 
-先實作 Phase 2.5,再由 verifier 依 `測試指南.md > Phase 2` 與 `Phase 2.5` 合併覆核後端公開上線邊界;
-通過後才開工 Phase 3(總結卡 + 分享)。Phase 2.5 實作不得順手修改由 verifier 維護的
-`測試指南.md` / `驗證後已知問題.md`;若驗收清單需調整,由 verifier 另行處理。
+1. 實作 Phase 2.6(可靠送票):規格書 §9、測試指南 9 條清單已備,方針契約開工時展開。
+2. Phase 3(總結卡 + 分享 + WAE 事件):開工前待站方拍板——結果主標敘事(少數派題數、
+   「最孤獨的一題」,競品研究建議)是否納入 §2.4。競品研究參考 `競品研究_challengembti.md`。
