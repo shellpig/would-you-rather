@@ -1,0 +1,7 @@
+用途:daily-life 題庫「看電影 vs 看書」選項 A(看電影,冷色組,4:3)。
+
+PROMPT:
+Cute cozy game illustration of the activity of watching a movie. A cozy cinema interior viewed from behind the audience: one simplified person sitting comfortably in a large theater seat, clearly facing and watching a bright widescreen movie screen, holding a small bucket of popcorn. The person's face is completely hidden because they are shown from behind. The movie screen displays a simple cinematic night landscape with stars and distant mountains, with no text and no recognizable characters. The cinema screen and seated viewer form one clear unified composition, filling most of the frame and instantly communicating “watching a movie” even at small size. Cool pastel tones with soft mint green, sage, pale aqua and muted blue. Keep the theater environment simple, with only a few seat silhouettes and subtle wall lights, no clutter. Rounded shapes, thick soft outlines, flat illustration with subtle soft shading, kawaii style but clean and not childish. Cozy storybook game art style. No visible faces, no text, no letters, no watermark. 4:3 aspect ratio.
+
+NEGATIVE:
+standalone film projector, isolated projector, projector product shot, empty cinema, person facing camera, visible face, detailed facial features, crowded audience, movie poster, copyrighted character, text on screen, subtitles, letters, typography, watermark, logo, realistic photo, 3d render, harsh shadows, saturated neon colors, cluttered background, split screen

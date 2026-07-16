@@ -1,0 +1,7 @@
+用途:daily-life 題庫「壽司 vs 義大利麵」選項 B(義大利麵,暖色組,4:3)。
+
+PROMPT:
+Cute cozy game illustration, one single centered subject: a generous plate of spaghetti with rich tomato sauce, neatly twirled noodles, several small meatballs and a light sprinkle of grated cheese, resting firmly on a simple round ceramic plate. The pasta fills most of the frame, looks warm and appetizing, and is instantly recognizable even at small size. Simple minimal background in warm pastel tones with cream, soft peach and milky beige. Include only one tiny basil leaf garnish on top, no extra dishes and no clutter. Rounded shapes, thick soft outlines, flat illustration with subtle soft shading, kawaii style but clean and not childish. Cozy storybook game art style. No people, no animals, no text, no letters, no watermark. 4:3 aspect ratio.
+
+NEGATIVE:
+instant noodles, ramen, soup noodles, macaroni, pizza, multiple plates, excessive garnish, oversized basil, deformed noodles, floating food, human hands, fork lifting pasta, faces, animals, text, Italian words, letters, typography, watermark, logo, realistic photo, 3d render, harsh shadows, saturated neon colors, cluttered background, split screen

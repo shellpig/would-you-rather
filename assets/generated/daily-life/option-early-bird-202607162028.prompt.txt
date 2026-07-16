@@ -1,0 +1,7 @@
+用途:daily-life 題庫「睡到自然醒 vs 早睡早起」選項 B(早睡早起,暖色組,4:3)。
+
+PROMPT:
+Cute cozy game illustration of waking up early feeling refreshed. One cheerful simplified person already awake beside a neatly made bed, shown from a side-back angle while stretching both arms upward in the gentle morning sunlight. Warm golden dawn light streams through an open window, with a soft sunrise sky and one tiny bird silhouette outside. The person's energetic morning pose, tidy bed and sunrise form one clear unified composition, instantly communicating “waking up early with a healthy routine” even at small size. Warm pastel tones with cream, soft peach, milky beige and gentle golden yellow. Include one very small round alarm clock resting quietly on the bedside table, not ringing and not the main subject. Keep the bedroom simple, fresh and uncluttered. Rounded shapes, thick soft outlines, flat illustration with subtle soft shading, kawaii style but clean and not childish. Cozy storybook game art style. No visible detailed face, no text, no letters, no watermark. 4:3 aspect ratio.
+
+NEGATIVE:
+person still sleeping, person lying in bed, dark night, moonlit room, ringing alarm, oversized alarm clock, exhausted expression, office commute, person facing camera, visible detailed face, messy bedroom, text, letters, typography, watermark, logo, realistic photo, 3d render, harsh shadows, saturated neon colors, cluttered background, split screen

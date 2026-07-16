@@ -20,10 +20,10 @@
 | 2 | `romcom-horror` | 愛情喜劇 | 恐怖片 | A 暖 / B 冷 | ⬜ |
 | 3 | `coffee-tea` | 喝咖啡 | 喝茶 | A 暖 / B 冷 | ✅ 沿用 demo 圖,已轉檔落地 `public/img/daily-life/`(latte.webp / tea.webp,2026-07-16) |
 | 4 | `cook-dine-out` | 自己煮 | 外食 | A 暖 / B 冷 | ⬜ |
-| 5 | `movie-book` | 看電影 | 看書 | A 冷 / B 暖 | ⬜ |
-| 6 | `stay-home-go-out` | 宅在家 | 出門玩 | A 暖 / B 冷 | ⬜ |
-| 7 | `sleep-in-early-bird` | 睡到自然醒 | 早睡早起 | A 冷(賴床夜感)/ B 暖(晨光) | ⬜(既有鬧鐘=早起暖、月亮燈=夜,可評估沿用) |
-| 8 | `sushi-pasta` | 壽司 | 義大利麵 | A 冷 / B 暖 | ⬜ |
+| 5 | `movie-book` | 看電影 | 看書 | A 冷 / B 暖 | ✅ 已生成並轉檔落地 `public/img/daily-life/`(movie.webp / book.webp,2026-07-16) |
+| 6 | `stay-home-go-out` | 宅在家 | 出門玩 | A 暖 / B 冷 | ✅ 已生成並轉檔落地 `public/img/daily-life/`(stay-home.webp / go-out.webp,2026-07-16) |
+| 7 | `sleep-in-early-bird` | 睡到自然醒 | 早睡早起 | A 冷(賴床夜感)/ B 暖(晨光) | ✅ 已生成並轉檔落地 `public/img/daily-life/`(sleep-in.webp / early-bird.webp,2026-07-16) |
+| 8 | `sushi-pasta` | 壽司 | 義大利麵 | A 冷 / B 暖 | ✅ 已生成並轉檔落地 `public/img/daily-life/`(sushi.webp / pasta.webp,2026-07-16) |
 | 9 | `beach-mountain` | 去海邊 | 去山上 | A 暖(陽光沙灘)/ B 冷(青山) | ⬜ |
 | 10 | `park-home-date` | 約會衝遊樂園 | 約會在家追劇 | A 暖 / B 冷 | ⬜ |
 | 11 | `world-local-travel` | 環遊世界 | 在地小旅行 | A 冷 / B 暖 | ⬜ |

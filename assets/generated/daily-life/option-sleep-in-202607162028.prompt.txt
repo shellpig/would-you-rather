@@ -1,0 +1,7 @@
+用途:daily-life 題庫「睡到自然醒 vs 早睡早起」選項 A(睡到自然醒,冷色組,4:3)。
+
+PROMPT:
+Cute cozy game illustration of peacefully sleeping in with no alarm. One simplified person deeply and comfortably asleep in a soft bed, curled up under a fluffy blanket and hugging a pillow, completely relaxed with no sign of needing to wake up. Show the person from a gentle side angle with most of the face naturally hidden by the pillow and blanket. Cool dim daylight filters softly through closed pale-aqua curtains, creating a calm late-sleep atmosphere without making the room completely dark. The sleeping person and cozy bed form one large centered composition, instantly communicating “sleeping until naturally waking up” even at small size. Cool pastel tones with soft mint green, sage, pale aqua and muted blue. Keep the bedroom minimal with only one small bedside table, no alarm clock, no phone and no clutter. Rounded shapes, thick soft outlines, flat illustration with subtle soft shading, kawaii style but clean and not childish. Cozy storybook game art style. No visible detailed face, no text, no letters, no watermark. 4:3 aspect ratio.
+
+NEGATIVE:
+alarm clock, ringing alarm, phone alarm, person awake, person getting out of bed, sunrise activity, office clothes, stressed expression, visible detailed face, messy bedroom, nighttime moon as main subject, text, letters, typography, watermark, logo, realistic photo, 3d render, harsh shadows, saturated neon colors, cluttered background, split screen

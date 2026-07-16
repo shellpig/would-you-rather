@@ -1,0 +1,7 @@
+用途:daily-life 題庫「宅在家 vs 出門玩」選項 A(宅在家,暖色組,4:3)。
+
+PROMPT:
+Cute cozy game illustration of happily staying at home. One simplified person relaxing comfortably on a soft sofa in cozy home clothes, wrapped in a fluffy blanket and holding a game controller, clearly enjoying a quiet day indoors. Show the person from a gentle side-back angle with the face hidden. A television directly in front of the sofa displays a simple colorful game scene with only abstract shapes, no text and no recognizable characters. The person, sofa and television form one clear unified composition that instantly communicates “staying home” even at small size. Warm pastel tones with cream, soft peach and milky beige. Include only one small side table with a warm drink; plain wall and soft rug, no clutter. Rounded shapes, thick soft outlines, flat illustration with subtle soft shading, kawaii style but clean and not childish. Cozy storybook game art style. No visible faces, no text, no letters, no watermark. 4:3 aspect ratio.
+
+NEGATIVE:
+empty sofa, isolated furniture, reading a book, cinema, movie theater, person outdoors, person facing camera, visible face, detailed facial features, crowded room, realistic video game, copyrighted character, text on screen, letters, typography, watermark, logo, realistic photo, 3d render, harsh shadows, saturated neon colors, cluttered background, split screen

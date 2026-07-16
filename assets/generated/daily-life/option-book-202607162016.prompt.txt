@@ -1,0 +1,7 @@
+用途:daily-life 題庫「看電影 vs 看書」選項 B(看書,暖色組,4:3)。
+
+PROMPT:
+Cute cozy game illustration of the activity of reading a book. A cozy living-room scene with one simplified person curled up comfortably on a soft sofa, actively holding and reading an open book with both hands. Show the person from a gentle side-back angle, with their face completely hidden behind the open book, making the reading action unmistakable without showing facial features. The reader and sofa form one clear unified composition, large and centered, filling most of the frame and instantly communicating “reading a book” even at small size. Warm pastel tones with cream, soft peach and milky beige. Include one small floor lamp casting a gentle warm glow; keep the rest of the room minimal with a plain wall and one soft cushion, no clutter. The book cover and pages are completely blank, with no writing or symbols. Rounded shapes, thick soft outlines, flat illustration with subtle soft shading, kawaii style but clean and not childish. Cozy storybook game art style. No visible faces, no text, no letters, no watermark. 4:3 aspect ratio.
+
+NEGATIVE:
+standalone book, isolated open book, book product shot, book on table, empty sofa, person facing camera, visible face, detailed facial features, library shelves, cluttered room, readable book text, letters, typography, watermark, logo, realistic photo, 3d render, harsh shadows, saturated neon colors, large animals, split screen

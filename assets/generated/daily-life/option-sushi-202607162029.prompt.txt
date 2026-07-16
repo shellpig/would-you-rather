@@ -1,0 +1,7 @@
+用途:daily-life 題庫「壽司 vs 義大利麵」選項 A(壽司,冷色組,4:3)。
+
+PROMPT:
+Cute cozy game illustration, one single centered subject: an appetizing Japanese sushi set neatly arranged on a small pale ceramic plate, featuring two salmon nigiri, two tuna nigiri and three simple maki rolls. The sushi pieces are large, clearly separated and instantly recognizable even at small size. Simple minimal background in cool pastel tones with soft mint green, sage and pale aqua. Include only one tiny soy sauce dish beside the plate, no chopsticks crossing the food, no clutter. Rounded shapes, thick soft outlines, flat illustration with subtle soft shading, kawaii style but clean and not childish. Cozy storybook game art style. No people, no animals, no text, no letters, no watermark. 4:3 aspect ratio.
+
+NEGATIVE:
+sashimi platter, raw whole fish, seafood market, ramen, rice bowl, bento box, excessive food variety, duplicate sushi pieces, deformed food, floating food, human hands, chopsticks holding sushi, faces, animals, text, Japanese characters, letters, typography, watermark, logo, realistic photo, 3d render, harsh shadows, saturated neon colors, cluttered background, split screen
