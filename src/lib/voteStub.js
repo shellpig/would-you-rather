@@ -1,7 +1,14 @@
-// Phase 1 送票 stub。規格書 §5.2 的 POST /api/vote 在此 phase 不發任何網路請求,
-// 只 console.log,方便驗收「按下一題才送票、改選不送票、已答題不重送」等規則(§3、§6)。
-// Phase 2 會把這裡換成 fetch(..., { keepalive: true }) fire-and-forget。
+// 送票:規格書 §5.2 POST /api/vote,fire-and-forget——不等回應、失敗不重試、
+// 不阻塞 UI(呼叫端 quizFlow.js 也不 await 這個函式)。keepalive:true 確保按下
+// 「下一題」瞬間切頁時,請求仍會在背景送出而不被頁面卸載中斷。
 
 export function submitVote(quizId, questionId, choice) {
-  console.log(`[mock-vote] quiz=${quizId} question=${questionId} choice=${choice}`);
+  fetch("/api/vote", {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify({ quizId, questionId, choice }),
+    keepalive: true,
+  }).catch(() => {
+    // 失敗（斷網、被拒等）不影響前端流程，規格書 §5 驗收。
+  });
 }

@@ -3,12 +3,18 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "predev": "node scripts/generate-legal-list.mjs",
     "dev": "vite",
+    "dev:worker": "wrangler pages dev public --port 8788",
+    "prebuild": "node scripts/generate-legal-list.mjs",
     "build": "vite build",
     "preview": "vite preview",
+    "db:migrate": "wrangler d1 migrations apply would-you-rather-db --local",
+    "db:seed": "node scripts/seed-votes.mjs",
     "test": "node --test tests/**/*.test.js"
   },
   "devDependencies": {
-    "vite": "^6.4.3"
+    "vite": "^6.4.3",
+    "wrangler": "^4.111.0"
   }
 }

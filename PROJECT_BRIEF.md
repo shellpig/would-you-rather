@@ -4,7 +4,7 @@
 
 最後更新:2026-07-16
 
-> **當前進度**:Phase 1(前端答題流程,mock 統計)實作完成,自我驗收依 `測試指南.md` Phase 1 清單 15 條全數走查通過。前端選型:vanilla JS + Vite(見 `開發設計方針.md > Phase 1`)。待 verifier 覆核。
+> **當前進度**:Phase 2(後端 Workers + D1)實作完成,自我驗收依 `測試指南.md` Phase 2 清單 13 條走查(自動化 9 條 + 手動/瀏覽器實測 4 條)全數通過。後端載體:Cloudflare Pages Functions(見 `開發設計方針.md > Phase 2`)。待 verifier 覆核。Phase 1 前端答題流程(mock 統計)先前已完成、自我驗收通過。
 
 ---
 
@@ -31,7 +31,7 @@
 | Phase | 內容 | 狀態 |
 |---|---|---|
 | 1 | 前端答題流程(mock 統計) | ✅ 實作完成,待 verifier 覆核 |
-| 2 | 後端(Workers + D1) | ⬜ |
+| 2 | 後端(Workers + D1) | ✅ 實作完成,待 verifier 覆核 |
 | 3 | 總結卡 + 分享 | ⬜ |
 | 4 | 題庫內容 ×3(逐庫子階段) | ⬜ |
 | 5 | 上線(部署 / 網域 / rate limit / 實測) | ⬜ |
@@ -53,8 +53,7 @@ Flag off 待開(不排 Phase):分類 chips、點選後 2 秒自動下一題。
 ## 待決事項
 
 - 網站名稱與網域(影響 OG 品牌感,不阻擋開發)。
-- 「N 人玩過 / 已有 N 人作答」的真實資料來源,規格書 §4/§5 未定義,Phase 2 設計後端時需決定(詳見 `開發設計方針.md > Phase 1 > Mock 統計來源`)。
 
 ## 下一步建議
 
-Phase 1 已完成,待 verifier 依 `測試指南.md > Phase 1` 清單覆核。覆核通過後可開工 Phase 2(後端 Workers + D1)。
+Phase 2 已完成,待 verifier 依 `測試指南.md > Phase 2` 清單覆核。覆核通過後可開工 Phase 3(總結卡 + 分享)。

@@ -6,6 +6,9 @@
 node_modules/
 dist/
 
+# 由 scripts/generate-legal-list.mjs 自 manifest.json + quizzes/*.json 產生,勿手動編輯
+src/data/legalList.generated.json
+
 # cloudflare local
 .wrangler/
 .dev.vars

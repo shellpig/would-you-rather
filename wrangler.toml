@@ -1,0 +1,13 @@
+name = "would-you-rather"
+compatibility_date = "2026-07-16"
+pages_build_output_dir = "dist"
+
+# Phase 2 本機開發用 D1 綁定。database_id 為本機佔位值:
+# `wrangler d1 migrations apply` / `wrangler pages dev` 在 --local 模式下只用它
+# 命名 .wrangler/state 內的本機 SQLite 檔,不會連線 Cloudflare 帳號驗證,故本機開發可直接使用。
+# Phase 5 正式部署前需執行 `wrangler d1 create would-you-rather-db` 取得正式 database_id 並替換此值,
+# 詳見 開發設計方針.md > Phase 2 > 本機開發與部署備忘。
+[[d1_databases]]
+binding = "DB"
+database_name = "would-you-rather-db"
+database_id = "516fda74-99bf-479f-843a-91fb759e67e9"
