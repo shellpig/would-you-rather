@@ -313,6 +313,7 @@ export async function renderQuizFlow(app, { slug }) {
               (r) => `
             <li class="result-list__item">
               <span class="result-list__text">${r.text}</span>
+              <span class="result-list__percent">${r.percent}%</span>
               <span class="result-list__tag ${r.isMinority ? "is-minority" : "is-majority"}">${
                 r.isMinority ? "少數派" : "多數派"
               }</span>

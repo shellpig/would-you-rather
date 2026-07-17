@@ -397,6 +397,12 @@ button {
 .result-list__text {
   flex: 1;
 }
+.result-list__percent {
+  flex: none;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-muted);
+}
 .result-list__tag {
   flex: none;
   font-size: 11px;
