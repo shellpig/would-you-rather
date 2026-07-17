@@ -356,9 +356,36 @@ button {
 /* ---- 孤獨稱號勳章(規格書 §2.4 擴充;開發設計方針.md > Phase 3.5)---- */
 /* 題庫無 titles 欄位時 .result-badge 不會被加上,.result-hero__lonely 維持 Phase 3 原樣。 */
 .result-hero__lonely.result-badge {
-  border: 1px solid var(--color-primary);
+  position: relative;
+  margin-top: 26px;
+  border: 2px solid var(--color-primary);
   border-radius: var(--radius);
-  padding: 14px 12px 12px;
+  padding: 20px 12px 14px;
+  background: linear-gradient(180deg, #fff4f0 0%, #fffdfc 65%);
+}
+/* 內圈虛線 + 頂上「孤獨稱號」小標籤,純裝飾(CSS 偽元素),markup 零改動。 */
+.result-hero__lonely.result-badge::before {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  border: 1px dashed rgba(255, 107, 94, 0.4);
+  border-radius: calc(var(--radius) - 5px);
+  pointer-events: none;
+}
+.result-hero__lonely.result-badge::after {
+  content: "孤獨稱號";
+  position: absolute;
+  top: -13px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-primary);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  padding: 3px 14px;
+  border-radius: 999px;
+  white-space: nowrap;
 }
 .result-badge__name {
   margin: 0 0 6px;
