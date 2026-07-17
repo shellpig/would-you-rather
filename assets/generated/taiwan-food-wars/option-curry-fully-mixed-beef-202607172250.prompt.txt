@@ -1,0 +1,12 @@
+用途:taiwan-food-wars 題庫第 2 題「咖哩飯要怎麼吃?」選項 A「全部拌勻」加牛肉修正版(暖色組,4:3)。由 Codex built-in imagegen 編修既有成圖。
+
+PROMPT:
+Use case: precise-object-edit
+Asset type: would-you-rather food option card revision, 4:3 landscape
+Input image: edit `option-curry-fully-mixed-202607172232.png`.
+Primary request: Add exactly four clearly visible bite-sized braised beef cubes on top of the fully mixed curry rice. The beef cubes should be deep warm brown, irregular but neat, with softly rounded edges and a subtle stewed-meat fiber texture, clearly different in color and shape from the orange carrot and golden potato pieces. Distribute the four beef cubes naturally across the upper surface without covering the stirred rice pattern.
+Preserve exactly: the completely mixed curry-coated rice with zero white rice, all existing carrot and potato pieces, plate, spoon, warm peach backdrop, wooden tabletop, camera angle, framing, scale, outline weight, pastel storybook illustration style, lighting and every other element.
+Constraints: add beef only; exactly four beef cubes; no pork, chicken or other meat; no text, logo, watermark, people or hands.
+
+NEGATIVE:
+raw meat, steak slices, ground meat, pork, chicken, meatballs, oversized beef chunks, more than four beef cubes, white rice, separate rice and curry, changing plate or spoon, photorealism, 3d render, text, letters, watermark, cartoon faces

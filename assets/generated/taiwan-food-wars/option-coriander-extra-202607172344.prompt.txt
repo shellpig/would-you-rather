@@ -1,0 +1,5 @@
+用途:taiwan-food-wars 題庫第 11 題「遇到香菜時?」選項 A「香菜加爆」(冷色組,4:3)。Codex built-in imagegen 單次首版；與 B 刻意採不同碗型、角度與表面配置。
+PROMPT:
+Use case: illustration-story. Asset type: quiz option illustration. Cute cozy storybook game illustration of one bowl of Taiwanese savory wonton soup almost buried under an exuberant mountain of fresh chopped coriander leaves. Use a deep pale-celadon bowl at a low front three-quarter angle; several wontons and a little clear broth remain visible around the edges, while bright leafy cilantro is unmistakably the dominant centered topping. Cool mint, sage and pale aqua minimal backdrop with gentle vignette. Rounded forms, thick soft outlines, flat illustration, subtle shading, clean kawaii style. No text, no faces, no extra dishes. 4:3.
+NEGATIVE:
+text, letters, typography, watermark, logo, realistic photo, 3d render, harsh shadows, saturated neon colors, cluttered background, human faces, large animals, split screen, parsley, basil, tiny garnish only, copied companion composition

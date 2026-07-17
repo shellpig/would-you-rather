@@ -1,0 +1,5 @@
+用途:taiwan-food-wars 題庫第 8 題「牛肉麵湯頭你選?」選項 A「濃郁紅燒」(暖色組,4:3)。Codex built-in imagegen 單次首版；與 B 刻意採不同碗型、視角和配料位置。
+PROMPT:
+Use case: illustration-story. Asset type: quiz option illustration. Cute cozy storybook game illustration of Taiwanese braised beef noodle soup in one deep dark-rimmed ceramic bowl, seen from a lower front three-quarter angle. Rich reddish-brown braised broth, broad pale noodles, three chunky braised beef cubes grouped on the right, one small bok choy on the left, and a tiny pinch of scallion. The bowl fills most of the frame and looks hearty and aromatic. Warm pastel cream, soft peach and milky beige plain backdrop with gentle vignette. Rounded forms, thick soft outlines, flat illustration, subtle soft shading, clean kawaii style. No text, no faces, no extra tableware. 4:3.
+NEGATIVE:
+text, letters, typography, watermark, logo, realistic photo, 3d render, harsh shadows, saturated neon colors, cluttered background, human faces, large animals, split screen, ramen egg, Japanese ramen, copied companion composition

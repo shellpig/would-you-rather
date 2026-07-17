@@ -1,0 +1,16 @@
+用途:taiwan-food-wars 題庫第 4 題「肉圓你選哪一種?」選項 A「炸肉圓」(暖色組,4:3)。由 Codex built-in imagegen 單次生成,依站方規則不做二次修圖。
+
+PROMPT:
+Use case: illustration-story
+Asset type: would-you-rather Taiwanese food option card, 4:3 landscape
+Input image: use `option-danbing-thick-batter-202607172300.png` as a visual-style reference only. Match its rounded shapes, thick soft dark-brown outlines, flat pastel coloring, subtle soft shading, cream plate design and clean storybook game-art finish. Do not copy egg pancake or its arrangement.
+Primary request: Cute cozy game illustration of Taiwanese deep-fried ba-wan, also called rouyuan or 肉圓. This is not a Western meatball: it is one large flattened oval dome-shaped dumpling made from translucent sweet-potato-starch skin. Show one whole deep-fried ba-wan and one cut half leaning beside it on a shallow cream ceramic bowl. The fried wrapper is glossy translucent amber-gold with tiny blistered bubbles, lightly wrinkled crisp patches and a gently chewy interior. The cut half clearly reveals a savory filling of minced pork, bamboo-shoot cubes and small shiitake pieces. Add only a restrained ribbon of reddish sweet-savory sauce and pale garlic sauce near the base, leaving most fried skin visible.
+Scene/backdrop: simple minimal warm pastel backdrop in cream, soft peach and milky beige with a gentle vignette. The bowl rests firmly on a plain tabletop; no restaurant scene and no clutter.
+Style/medium: rounded shapes, thick soft dark-brown outlines, flat pastel illustration with subtle soft shading, kawaii but clean and not childish, polished storybook game art matching the established quiz illustrations.
+Composition/framing: 4:3 landscape, slightly elevated three-quarter view. One shallow cream bowl fills most of the frame and is fully visible, centered. The whole fried ba-wan is the main subject; the cut half exposes the filling without becoming a separate dish. No extra prop and no split screen.
+Lighting/mood: warm, freshly fried and appetizing with gentle diffuse light.
+Color palette: warm pastel cream, soft peach and milky beige background, amber-gold translucent wrapper, muted pork brown and bamboo beige; harmonious low saturation.
+Constraints: unmistakably Taiwanese fried ba-wan/rouyuan; flattened oval dumpling rather than ball; fried blistered wrapper clearly visible; one whole plus one cut half; no people, hands, faces, text, letters, labels, logo or watermark.
+
+NEGATIVE:
+round meatballs, Swedish meatballs, Italian meatballs, fish balls, takoyaki, arancini, croquette, bao bun, soup dumpling, gyoza, fried bread, opaque breading, thick breadcrumbs, steamed white wrapper, smooth unblistered skin, many dumplings, sauce covering entire subject, chopsticks, fork, spoon, two bowls, split screen, text, letters, typography, fake writing, watermark, logo, realistic photo, photorealistic food, 3d render, harsh shadows, saturated neon colors, cluttered restaurant background, cartoon faces, googly eyes

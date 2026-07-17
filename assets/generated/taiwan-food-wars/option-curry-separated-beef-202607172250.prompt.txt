@@ -1,0 +1,26 @@
+用途:taiwan-food-wars 題庫第 2 題「咖哩飯要怎麼吃?」選項 B「一口飯配一口咖哩」加牛肉修正版(冷色組,4:3)。由 Codex built-in imagegen 編修既有成圖。
+
+PROMPT:
+Use case: precise-object-edit
+Asset type: would-you-rather food option card revision, 4:3 landscape
+Input image: edit `option-curry-separated-202607172232.png`.
+Primary request: Add exactly four clearly visible bite-sized braised beef cubes inside the smooth curry sauce on the RIGHT half of the plate. The beef cubes should be deep warm brown, irregular but neat, with softly rounded edges and a subtle stewed-meat fiber texture, clearly different in color and shape from the orange carrot and golden potato pieces. Space the four beef cubes naturally in the curry sauce and keep them fully off the white rice.
+Preserve exactly: the untouched snow-white rice mound on the left, the smooth grain-free curry sauce on the right, the crisp clean boundary with no sauce on the rice, all existing carrot and potato pieces, plate, spoon, cool mint backdrop, tabletop, camera angle, framing, scale, outline weight, pastel storybook illustration style, lighting and every other element.
+Constraints: add beef only; exactly four beef cubes; beef stays entirely on the curry side; no pork, chicken or other meat; no text, logo, watermark, people or hands.
+
+NEGATIVE:
+raw meat, steak slices, ground meat, pork, chicken, meatballs, oversized beef chunks, more than four beef cubes, beef on white rice, curry on white rice, rice grains in curry sauce, mixed curry rice, changing plate or spoon, photorealism, 3d render, text, letters, watermark, cartoon faces
+
+REGENERATION NOTE:
+首版 `option-curry-separated-beef-202607172250-v1.png` 生成了 5 塊牛肉,超出 prompt 指定數量。正式候選 `option-curry-separated-beef-202607172250.png` 移除最右側最小牛肉塊,保留 4 塊。
+
+CORRECTION PROMPT:
+Use case: precise-object-edit
+Asset type: final count correction for a would-you-rather curry-rice option card
+Input image: edit `option-curry-separated-beef-202607172250-v1.png`.
+Primary request: Remove only the smallest dark-brown beef cube at the far right edge of the curry sauce, near the 3 o'clock position. Fill that small area naturally with the same smooth amber-brown curry sauce. After removal, exactly four dark-brown beef cubes must remain: upper-right, upper-middle-left, center-right, and lower-left within the curry side.
+Preserve exactly: the four specified remaining beef cubes, every carrot and potato piece, untouched white rice, smooth curry sauce, crisp rice-curry boundary, plate, spoon, mint background, tabletop, camera, framing, illustration style, lighting and all other pixels as closely as possible.
+Constraints: remove one beef cube only; exactly four beef cubes remain; no new ingredients, text, logo, people or other changes.
+
+CORRECTION NEGATIVE:
+removing carrot or potato, adding meat, changing food layout, changing plate or spoon, sauce on white rice, photorealism, text, watermark

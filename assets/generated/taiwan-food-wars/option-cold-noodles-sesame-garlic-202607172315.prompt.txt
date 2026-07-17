@@ -1,0 +1,16 @@
+用途:taiwan-food-wars 題庫第 5 題「涼麵醬汁你選?」選項 A「麻醬蒜泥」(暖色組,4:3)。由 Codex built-in imagegen 單次生成,依站方規則不做二次修圖。
+
+PROMPT:
+Use case: illustration-story
+Asset type: would-you-rather Taiwanese food option card, 4:3 landscape
+Input image: use `option-rouyuan-deep-fried-202607172308.png` as a visual-style reference only. Match its rounded food shapes, thick soft dark-brown outlines, flat pastel coloring, subtle soft shading, cream bowl design and clean storybook game-art finish. Do not copy ba-wan, filling or sauce layout.
+Primary request: Cute cozy game illustration of Taiwanese cold noodles with sesame-garlic sauce, 麻醬蒜泥涼麵. One generous mound of thin pale-yellow wheat noodles sits in a shallow cream ceramic bowl. The noodles are evenly coated with a thick, glossy warm beige-tan sesame paste sauce, with broad creamy ribbons settling between the strands and a few tiny visible minced-garlic flecks. A neat small bundle of julienned cucumber and a few carrot strips rests on top as restrained garnish. The rich tan sesame sauce must be the unmistakable visual focus.
+Scene/backdrop: simple minimal warm pastel backdrop in cream, soft peach and milky beige with a gentle vignette. The bowl rests firmly on a plain tabletop; no restaurant scene and no clutter.
+Style/medium: rounded shapes, thick soft dark-brown outlines, flat pastel illustration with subtle soft shading, kawaii but clean and not childish, polished storybook game art matching the established quiz illustrations.
+Composition/framing: 4:3 landscape, slightly elevated three-quarter view. One shallow cream bowl fills most of the frame and is fully visible, centered. The noodle mound is large and instantly recognizable at small card size. No extra prop and no split screen.
+Lighting/mood: warm, creamy and appetizing with gentle diffuse light.
+Color palette: warm pastel cream, soft peach and milky beige background, pale-yellow noodles, beige-tan sesame sauce, muted cucumber green and carrot orange; harmonious low saturation.
+Constraints: unmistakably Taiwanese sesame-garlic cold noodles; thick tan sesame sauce visibly coating noodles; one bowl only; no people, hands, faces, text, letters, labels, logo or watermark.
+
+NEGATIVE:
+white mayonnaise sauce, white vinegar dressing, Alfredo pasta, spaghetti, Italian pasta, peanut butter sandwich, soup noodles, broth, dry plain noodles, black sauce, red tomato sauce, sesame seeds covering everything, large garlic cloves, excessive garnish, meat, egg, chopsticks, fork, spoon, second bowl, split screen, text, letters, typography, fake writing, watermark, logo, realistic photo, photorealistic food, 3d render, harsh shadows, saturated neon colors, cluttered restaurant background, cartoon faces, googly eyes

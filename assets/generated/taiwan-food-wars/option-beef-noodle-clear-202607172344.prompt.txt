@@ -1,0 +1,5 @@
+用途:taiwan-food-wars 題庫第 8 題「牛肉麵湯頭你選?」選項 B「清爽清燉」(冷色組,4:3)。Codex built-in imagegen 單次首版；與 A 刻意採不同碗型、視角和配料位置。
+PROMPT:
+Use case: illustration-story. Asset type: quiz option illustration. Cute cozy storybook game illustration of Taiwanese clear-broth beef noodle soup in one wide pale-celadon bowl, viewed from a higher right-side angle. Crystal-clear pale golden broth with a visible broth ring, gently coiled noodles, three thin beef-shank slices arranged at the upper-left, white radish cubes at the lower-right and a few scallion rings. Airy, clean and refreshing; single large centered bowl. Cool pastel mint, sage and pale aqua minimal backdrop with gentle vignette. Rounded forms, thick soft outlines, flat illustration, subtle shading, clean kawaii style. No text, no faces, no extra tableware. 4:3.
+NEGATIVE:
+text, letters, typography, watermark, logo, realistic photo, 3d render, harsh shadows, saturated neon colors, cluttered background, human faces, large animals, split screen, red broth, Japanese ramen, copied deep-bowl composition

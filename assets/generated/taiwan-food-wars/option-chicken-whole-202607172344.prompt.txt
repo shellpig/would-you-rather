@@ -1,0 +1,5 @@
+用途:taiwan-food-wars 題庫第 15 題「雞排要不要切?」選項 B「整片不切,肉汁不流失」(冷色組,4:3)。Codex built-in imagegen 單次首版；與 A 刻意採不同容器、角度與外形。
+PROMPT:
+Use case: illustration-story. Asset type: quiz option illustration. Cute cozy storybook game illustration of one entire uncut Taiwanese giant fried chicken cutlet held upright at a gentle diagonal inside a plain pale-aqua paper sleeve, viewed from a lower right three-quarter angle. The single broad irregular cutlet remains completely intact with no cuts, golden craggy peppered crust and a subtle juicy sheen near one edge. It fills most of the frame and is instantly recognizable. Cool mint, sage and pale aqua minimal backdrop, gentle vignette. Rounded shapes, thick soft outlines, flat illustration, subtle shading, clean kawaii style. No text, no hands, no faces, no extra dishes. 4:3.
+NEGATIVE:
+text, letters, typography, watermark, logo, realistic photo, 3d render, harsh shadows, saturated neon colors, cluttered background, human faces, hands, large animals, split screen, sliced pieces, strips, nuggets, tray, copied companion composition

@@ -1,0 +1,15 @@
+用途:taiwan-food-wars 題庫第 1 題「芋頭能不能進火鍋?」選項 A「要,煮到鬆化融入湯頭」(暖色組,4:3)。由 Codex built-in imagegen 生成。
+
+PROMPT:
+Use case: illustration-story
+Asset type: would-you-rather food option card, 4:3 landscape
+Primary request: Cute cozy game illustration of a Taiwanese hot pot with taro cooked until tender and beginning to melt into the broth. The hot pot is the one large centered subject, resting firmly on a simple tabletop. Several clearly recognizable pale lavender taro chunks sit in the rich creamy golden broth; one or two pieces have softly crumbled edges that visibly blend into and thicken the soup. Include a restrained amount of leafy greens, tofu and mushrooms only as supporting hot-pot ingredients, with the taro remaining the unmistakable focus. A few gentle curls of steam may rise without obscuring the food.
+Scene/backdrop: simple minimal warm pastel backdrop with cream, soft peach and milky beige, gentle vignette, no restaurant scene and no clutter.
+Style/medium: rounded shapes, thick soft dark-brown outlines, flat pastel illustration with subtle soft shading, kawaii but clean and not childish, polished storybook game art matching the existing daily-life quiz illustrations.
+Composition/framing: 4:3 landscape, slightly elevated three-quarter view. The round ceramic hot pot fills most of the frame and is fully visible, centered, instantly recognizable at small card size. No split screen and no separate ingredient display.
+Lighting/mood: warm, cozy, appetizing, gentle diffuse light.
+Color palette: warm pastel cream, soft peach, milky beige and muted golden broth, with pale lavender taro as the focal accent; harmonious low saturation.
+Constraints: same simple round cream ceramic pot design intended to pair with the clear-broth companion image; pot must rest on the table; taro must look edible and visibly present in the broth; no people or faces; no text, letters, labels, logo or watermark.
+
+NEGATIVE:
+text, letters, typography, fake writing, watermark, logo, realistic photo, photorealistic food, 3d render, harsh shadows, saturated neon colors, cluttered restaurant background, human faces, hands, chopsticks, ladle, separate bowl of taro, raw whole taro root, purple sweet potato, taro balls, dessert soup, split screen, floating pot, cartoon faces on food, googly eyes

@@ -1,0 +1,5 @@
+用途:taiwan-food-wars 題庫第 13 題「滷肉飯上桌後?」選項 A「先拌開才入味」(暖色組,4:3)。Codex built-in imagegen 單次首版；與 B 刻意採不同碗型、視角與飯肉分布。
+PROMPT:
+Use case: illustration-story. Asset type: quiz option illustration. Cute cozy storybook game illustration of one bowl of Taiwanese braised pork rice after being fully mixed. Use a wide shallow warm-cream bowl viewed from a higher left angle; every rice grain is evenly coated light caramel-brown, and small glossy braised pork bits are dispersed throughout rather than piled on top. A small wooden spoon rests at the lower-right rim, suggesting the just-finished mixing. Single centered bowl filling the frame. Warm cream, peach and milky beige minimal backdrop, gentle vignette. Rounded forms, thick soft outlines, flat illustration, subtle shading, clean kawaii style. No text, no faces. 4:3.
+NEGATIVE:
+text, letters, typography, watermark, logo, realistic photo, 3d render, harsh shadows, saturated neon colors, cluttered background, human faces, large animals, split screen, white rice half, toppings separated on top, copied companion composition

@@ -1,0 +1,16 @@
+用途:taiwan-food-wars 題庫第 5 題「涼麵醬汁你選?」選項 B「白醋美乃滋(嘉義派)」(冷色組,4:3)。由 Codex built-in imagegen 單次生成,依站方規則不做二次修圖。
+
+PROMPT:
+Use case: illustration-story
+Asset type: would-you-rather Taiwanese food option card, 4:3 landscape
+Input image: use `option-cold-noodles-sesame-garlic-202607172315.png` as the paired visual-style and composition reference only. Create a new Chiayi-style white-vinegar mayonnaise cold-noodle image in the same shallow cream bowl, camera angle, scale, noodle amount, garnish amount, outline weight, flat pastel coloring and clean storybook game-art finish; do not retain the tan sesame sauce or warm background.
+Primary request: Cute cozy game illustration of Chiayi-style Taiwanese cold noodles with white-vinegar mayonnaise dressing, 白醋美乃滋涼麵. One generous mound of the same thin pale-yellow wheat noodles sits in a shallow cream ceramic bowl. The noodles are evenly dressed with a smooth ivory-white, lightly glossy sweet-and-tangy mayonnaise-vinegar sauce. The dressing is creamy but pourable, forming clear pale-white ribbons between and over the noodle strands without becoming a heavy blob. The same neat small bundle of julienned cucumber and a few carrot strips rests on top as restrained garnish. The distinctive ivory-white dressing must be the unmistakable visual focus.
+Scene/backdrop: simple minimal cool pastel backdrop in soft mint green, sage and pale aqua with a gentle vignette. The bowl rests firmly on a plain tabletop; no restaurant scene and no clutter.
+Style/medium: rounded shapes, thick soft dark-brown outlines, flat pastel illustration with subtle soft shading, kawaii but clean and not childish, polished storybook game art matching the established quiz illustrations.
+Composition/framing: 4:3 landscape, slightly elevated three-quarter view matching the companion option. One shallow cream bowl fills most of the frame and is fully visible, centered. The noodle mound is large and instantly recognizable at small card size. No extra prop and no split screen.
+Lighting/mood: fresh, tangy and appetizing with gentle diffuse light.
+Color palette: cool pastel mint, sage and pale aqua background, pale-yellow noodles, ivory-white dressing, muted cucumber green and carrot orange; harmonious low saturation.
+Constraints: unmistakably Taiwanese cold noodles with ivory-white vinegar-mayonnaise dressing; white dressing visibly coating noodles; same noodles and garnish as companion; one bowl only; no people, hands, faces, text, letters, labels, logo or watermark.
+
+NEGATIVE:
+tan sesame sauce, peanut sauce, sesame paste, Alfredo pasta, spaghetti, Italian pasta, ranch salad, coleslaw, potato salad, soup noodles, broth, dry plain noodles, black sauce, red tomato sauce, mayonnaise blob hiding noodles, excessive garnish, meat, egg, chopsticks, fork, spoon, second bowl, split screen, text, letters, typography, fake writing, watermark, logo, realistic photo, photorealistic food, 3d render, harsh shadows, saturated neon colors, cluttered restaurant background, cartoon faces, googly eyes

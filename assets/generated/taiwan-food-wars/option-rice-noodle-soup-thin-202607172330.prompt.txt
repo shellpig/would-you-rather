@@ -1,0 +1,16 @@
+用途:taiwan-food-wars 題庫第 6 題「米粉湯要哪種米粉?」選項 B「細米粉」(冷色組,4:3)。由 Codex built-in imagegen 單次生成；同基底選項刻意使用不同構圖,不做複製貼上或二次修圖。
+
+PROMPT:
+Use case: illustration-story
+Asset type: would-you-rather Taiwanese food option card, 4:3 landscape
+Input image: use `option-rice-noodle-soup-thick-202607172330.png` as a paired visual-style reference only. Create a new thin-rice-vermicelli soup with deliberately different bowl shape, camera height, noodle arrangement and topping placement. Match the same outline weight, pastel rendering and ingredient quantities, but do not copy the thick-noodle image's composition.
+Primary request: Cute cozy game illustration of Taiwanese thin rice-vermicelli soup, 細米粉湯. Use many very fine off-white rice-vermicelli strands, hair-thin and delicate, gathered into an airy circular nest in clear pale-golden broth. Individual fine threads must be visible around the edges, clearly much thinner than the companion's coarse rice noodles and distinctly not wheat ramen. Add exactly the same two thin pork slices, a small pinch of fried shallots and a few chopped celery rounds, but arrange the pork at the upper-left edge and scatter the shallots and celery lightly over the center of the vermicelli nest.
+Scene/backdrop: simple minimal cool pastel backdrop in soft mint green, sage and pale aqua with a gentle vignette. A wide shallow celadon-and-cream ceramic soup bowl rests firmly on a plain tabletop; no restaurant scene and no clutter.
+Style/medium: rounded shapes, thick soft dark-brown outlines, flat pastel illustration with subtle soft shading, kawaii but clean and not childish, polished storybook game art matching the established quiz illustrations.
+Composition/framing: 4:3 landscape. Use a higher near-overhead three-quarter view from the right, revealing the full oval rim and a visible ring of broth around the airy noodle nest. Place the bowl slightly right of center and rotate it subtly clockwise. The circular fine-noodle nest and upper-left topping cluster must visibly differ from the companion's diagonal loose-noodle composition.
+Lighting/mood: fresh, light and comforting with gentle steam and diffuse light.
+Color palette: cool pastel mint, sage and pale aqua background, clear pale-golden broth, off-white fine vermicelli, muted pork brown and celery green; harmonious low saturation.
+Constraints: unmistakably Taiwanese thin rice vermicelli in soup; many fine hairlike rice-noodle threads; clear broth ring remains visible; exactly two pork slices; deliberately different composition from companion; one bowl only; no people, hands, faces, text, letters, labels, logo or watermark.
+
+NEGATIVE:
+thick rice noodles, coarse short noodles, blunt noodle ends, udon, ramen, wheat noodles, spaghetti, pho, flat rice ribbons, glass noodles, instant noodles, dry noodles, no broth, creamy soup, red soup, excessive meat, meatballs, shrimp, egg, chopsticks, fork, spoon, second bowl, copied diagonal thick-noodle composition, split screen, text, letters, typography, fake writing, watermark, logo, realistic photo, photorealistic food, 3d render, harsh shadows, saturated neon colors, cluttered restaurant background, cartoon faces, googly eyes

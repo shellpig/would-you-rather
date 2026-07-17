@@ -1,0 +1,16 @@
+用途:taiwan-food-wars 題庫第 2 題「咖哩飯要怎麼吃?」選項 A「全部拌勻」(暖色組,4:3)。由 Codex built-in imagegen 參考同題封面風格生成。
+
+PROMPT:
+Use case: illustration-story
+Asset type: would-you-rather food option card, 4:3 landscape
+Input image: use `cover-curry-mixed-vs-separated-202607172015.png` as a visual-style and food-design reference only. Preserve its soft pastel storybook rendering and the appearance of the fully mixed curry rice, but create a new single-option composition rather than a crop or split scene.
+Primary request: Cute cozy game illustration of one generous plate of Japanese-style curry rice that has been completely and thoroughly mixed together. Every grain of rice is evenly coated in glossy golden-brown curry sauce, forming one uniform warm-colored serving with a visible circular stirred texture. Absolutely no white rice remains visible. Include only a few small carrot and potato cubes distributed through the mixed rice so the dish stays readable and appetizing.
+Scene/backdrop: simple minimal warm pastel backdrop in cream, soft peach and milky beige with a gentle vignette. The plate rests firmly on a plain honey-colored tabletop; no café interior and no clutter.
+Style/medium: rounded shapes, thick soft dark-brown outlines, flat pastel illustration with subtle soft shading, kawaii but clean and not childish, polished storybook game art matching the established daily-life quiz illustrations and the curry cover reference.
+Composition/framing: 4:3 landscape, slightly elevated three-quarter view. One large round cream ceramic plate fills most of the frame and is fully visible, centered, instantly recognizable at small card size. One simple spoon may rest beside the plate as the only prop. No split screen.
+Lighting/mood: warm, cozy and appetizing with gentle diffuse light.
+Color palette: warm pastel cream, soft peach, milky beige and glossy golden-brown curry; harmonious low saturation.
+Constraints: one plate only; plate must rest on the table; all rice completely coated in curry; no people or faces; no text, letters, labels, logo or watermark.
+
+NEGATIVE:
+white rice, separate rice mound, curry and rice divided, split plate, two plates, split screen, text, letters, typography, fake writing, watermark, logo, realistic photo, photorealistic food, 3d render, harsh shadows, saturated neon colors, cluttered restaurant background, people, hands, faces, chopsticks, fork, extra side dishes, floating plate, cartoon faces on food, googly eyes

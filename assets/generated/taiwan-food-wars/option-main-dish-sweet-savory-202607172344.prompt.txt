@@ -1,0 +1,5 @@
+用途:taiwan-food-wars 題庫第 14 題「主食你站哪一派?」選項 A「鹹中帶甜,味道才有層次」(暖色組,4:3)。Codex built-in imagegen 單次首版；用焦糖光澤的台式主食盤呈現鹹甜層次，與 B 刻意不同盛盤和視角。
+PROMPT:
+Use case: illustration-story. Asset type: quiz option illustration. Cute cozy storybook game illustration of a Taiwanese sweet-savory main dish: glossy caramelized braised pork slices and onion over a compact mound of white rice on a warm oval plate, viewed from a low three-quarter angle. The amber glaze is appetizing and clearly savory food with a gentle caramel sweetness, accompanied by one small golden braised tofu cube. Single centered meal filling most of frame. Warm cream, soft peach and milky beige minimal backdrop with gentle vignette. Rounded shapes, thick soft outlines, flat illustration, subtle shading, clean kawaii storybook style. No dessert, fruit, text, faces or extra dishes. 4:3.
+NEGATIVE:
+text, letters, typography, watermark, logo, realistic photo, 3d render, harsh shadows, saturated neon colors, cluttered background, human faces, large animals, split screen, cake, candy, syrup bottle, dessert, copied companion composition

@@ -1,0 +1,14 @@
+用途:taiwan-food-wars 題庫第 1 題「芋頭能不能進火鍋?」選項 B「不要,湯頭保持清爽」(冷色組,4:3)。由 Codex built-in imagegen 以同題選項 A 成圖為編修參考生成。
+
+PROMPT:
+Use case: precise-object-edit
+Asset type: matching companion image for a would-you-rather food option card, 4:3 landscape
+Input image: use `option-hotpot-taro-melted-202607172225.png` as the edit target and strict visual reference.
+Primary request: Create the no-taro companion option. Remove every pale lavender taro chunk and every crumb of taro from the hot pot. Replace them with generous open areas of clean, transparent pale-golden broth plus a restrained, neatly spaced selection of leafy greens, tofu cubes, two or three brown mushrooms, and a few thin white radish slices. The soup must look clear, light and refreshing, never creamy or cloudy. Absolutely no taro and no purple food.
+Background change: shift the simple backdrop from warm peach to cool pastel soft mint green, sage and pale aqua with the same gentle vignette. Keep the tabletop understated and harmonious.
+Preserve exactly: the same round cream ceramic pot design, handles, slightly elevated three-quarter camera angle, framing, scale, thick soft dark-brown outlines, rounded shapes, flat pastel storybook rendering, subtle soft shading, steam placement, appetizing food-illustration quality, and overall composition.
+Lighting/mood: fresh, calm, appetizing, gentle diffuse light.
+Constraints: one centered hot pot resting on the table and filling most of the 4:3 frame; no people or faces; no text, letters, labels, logo or watermark; no split screen.
+
+NEGATIVE:
+taro, purple chunks, purple sweet potato, taro balls, creamy broth, milky broth, muddy soup, packed ingredients covering the broth, text, typography, watermark, logo, photorealistic food, 3d render, harsh shadows, saturated neon colors, restaurant background, hands, chopsticks, ladle, floating pot, cartoon faces, googly eyes

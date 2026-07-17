@@ -1,0 +1,5 @@
+用途:taiwan-food-wars 題庫第 11 題「遇到香菜時?」選項 B「完全不要香菜」(暖色組,4:3)。Codex built-in imagegen 單次首版；與 A 刻意採不同碗型、角度與表面配置。
+PROMPT:
+Use case: illustration-story. Asset type: quiz option illustration. Cute cozy storybook game illustration of one clean bowl of Taiwanese wonton soup with absolutely no coriander and no green leafy herbs. Use a wide shallow cream bowl viewed from a higher near-overhead right angle; six neat wontons form a loose ring in clear golden broth, with only a tiny pinch of golden fried shallots in the center. Make the uncluttered herb-free surface obvious. Warm cream, soft peach and milky beige minimal backdrop with gentle vignette. Rounded forms, thick soft outlines, flat illustration, subtle shading, clean kawaii style. No text, no faces, no extra dishes. 4:3.
+NEGATIVE:
+text, letters, typography, watermark, logo, realistic photo, 3d render, harsh shadows, saturated neon colors, cluttered background, human faces, large animals, split screen, cilantro, coriander, parsley, scallion, green leaves, copied deep-bowl composition

@@ -1,0 +1,5 @@
+用途:taiwan-food-wars 題庫第 7 題「粽子你站哪一派?」選項 A「北部粽」(暖色組,4:3)。Codex built-in imagegen 單次首版；與 B 刻意採不同視角與盛盤。
+PROMPT:
+Use case: illustration-story. Asset type: quiz option illustration. Cute cozy storybook game illustration of one partially unwrapped Taiwanese northern zongzi on a small square bamboo tray, viewed from a low three-quarter angle. The steamed triangular rice dumpling is the single large centered subject; glossy brown seasoned rice grains stay individually distinct, with visible shiitake, pork and chestnut pieces in the cut face. Folded bamboo leaves fan behind it. Warm pastel cream, soft peach and milky beige minimal backdrop with gentle vignette. Rounded shapes, thick soft outlines, flat illustration, subtle soft shading, clean kawaii style. No text, no faces, no extra dishes. 4:3.
+NEGATIVE:
+text, letters, typography, watermark, logo, realistic photo, 3d render, harsh shadows, saturated neon colors, cluttered background, human faces, large animals, split screen, sticky porridge rice, identical composition to companion

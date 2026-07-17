@@ -1,0 +1,28 @@
+用途:taiwan-food-wars 題庫第 2 題「咖哩飯要怎麼吃?」選項 B「一口飯配一口咖哩」(冷色組,4:3)。由 Codex built-in imagegen 以同題選項 A 成圖為編修參考生成。
+
+PROMPT:
+Use case: precise-object-edit
+Asset type: matching companion image for a would-you-rather food option card, 4:3 landscape
+Input image: use `option-curry-fully-mixed-202607172232.png` as the edit target and strict visual reference.
+Primary request: Create the kept-separate curry-rice companion option. Replace the fully mixed serving with a bright snow-white mound of rice occupying the left half of the same plate and glossy amber-brown curry occupying the right half. The boundary between rice and curry must be crisp, obvious and completely untouched, with no sauce on top of the rice. Keep a few small carrot, potato and meat cubes only within the curry side. Both sides should look equally generous and appetizing.
+Background change: shift the simple backdrop from warm peach to cool pastel soft mint green, sage and pale aqua with the same gentle vignette. Keep the tabletop understated and harmonious.
+Preserve exactly: the same round cream ceramic plate, spoon design and position, slightly elevated three-quarter camera angle, framing, scale, thick soft dark-brown outlines, rounded shapes, flat pastel storybook rendering, subtle soft shading, and overall composition.
+Lighting/mood: fresh, calm and appetizing with gentle diffuse light.
+Constraints: one centered plate resting on the table and filling most of the 4:3 frame; white rice and curry must remain visibly separate; no people or faces; no text, letters, labels, logo or watermark; no split screen.
+
+NEGATIVE:
+mixed curry rice, curry coating the rice, sauce poured over white rice, blurry boundary, two plates, split screen, text, letters, typography, fake writing, watermark, logo, realistic photo, photorealistic food, 3d render, harsh shadows, saturated neon colors, cluttered restaurant background, people, hands, faces, chopsticks, fork, extra side dishes, floating plate, cartoon faces on food, googly eyes
+
+REGENERATION NOTE:
+首版 `option-curry-separated-202607172232-v1.png` 的右半仍呈現咖哩裹飯顆粒,未充分表達「一口飯配一口咖哩」,因此保留首版並以精準編修產生正式候選 `option-curry-separated-202607172232.png`。
+
+CORRECTION PROMPT:
+Use case: precise-object-edit
+Asset type: final correction for a would-you-rather curry-rice option card, 4:3 landscape
+Input image: edit `option-curry-separated-202607172232-v1.png`.
+Primary request: Change only the food texture on the RIGHT half of the plate. It currently looks like rice grains coated in curry; replace every visible rice grain on the right half with a smooth, thick, glossy amber-brown Japanese curry sauce. The curry side should be a continuous pool of sauce with a few clearly visible carrot, potato and small meat cubes. There must be zero rice grains in the curry sauce.
+Preserve exactly: the untouched bright white rice mound on the left, the crisp clean boundary with no curry on the rice, the same plate, spoon, cool mint tabletop and backdrop, camera angle, framing, scale, outline weight, pastel storybook style, lighting and all other composition details.
+Constraints: one plate only; left half white rice, right half smooth curry sauce; both generous and appetizing; no text, logo, watermark or people.
+
+CORRECTION NEGATIVE:
+curry-coated rice on the right, rice grains in curry sauce, mixed curry rice, sauce on white rice, blurred boundary, changing the plate or spoon, photorealism, 3d render, split screen, text, cartoon faces

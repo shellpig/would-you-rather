@@ -1,0 +1,5 @@
+用途:taiwan-food-wars 題庫第 12 題「肉羹湯的口感要?」選項 A「清爽少勾芡」(冷色組,4:3)。Codex built-in imagegen 單次首版；與 B 刻意採不同碗型、視角與羹料排列。
+PROMPT:
+Use case: illustration-story. Asset type: quiz option illustration. Cute cozy storybook game illustration of Taiwanese pork thick soup in its light, minimally thickened style. One wide pale-aqua bowl viewed from a higher left angle contains translucent clear amber broth that visibly flows like soup, five pale pork-fish-paste strips spaced apart, bamboo shoots and a few mushroom slivers. A small ceramic spoon rests at the right rim and the broth remains easy to see. Cool mint, sage and pale aqua minimal backdrop, gentle vignette. Rounded shapes, thick soft outlines, flat illustration, subtle shading, clean kawaii style. No text, no faces. 4:3.
+NEGATIVE:
+text, letters, typography, watermark, logo, realistic photo, 3d render, harsh shadows, saturated neon colors, cluttered background, human faces, large animals, split screen, creamy soup, opaque gravy, extremely thick gel, copied companion composition

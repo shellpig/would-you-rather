@@ -1,0 +1,5 @@
+用途:taiwan-food-wars 題庫第 15 題「雞排要不要切?」選項 A「切塊,好入口」(暖色組,4:3)。Codex built-in imagegen 單次首版；與 B 刻意採不同容器、角度與外形。
+PROMPT:
+Use case: illustration-story. Asset type: quiz option illustration. Cute cozy storybook game illustration of Taiwanese fried chicken cutlet chopped into eight generous bite-size strips, arranged slightly fanned in a small open kraft-paper food tray, viewed from a higher left angle. Golden craggy peppered crust and juicy pale meat are visible on several clean cut edges; one tiny wooden pick rests in the tray corner. Single large centered food subject. Warm cream, peach and milky beige minimal backdrop, gentle vignette. Rounded shapes, thick soft outlines, flat illustration, subtle shading, clean kawaii style. No text, no faces, no extra dishes. 4:3.
+NEGATIVE:
+text, letters, typography, watermark, logo, realistic photo, 3d render, harsh shadows, saturated neon colors, cluttered background, human faces, large animals, split screen, nuggets, bone-in wings, whole uncut cutlet, copied companion composition

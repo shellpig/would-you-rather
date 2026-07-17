@@ -1,0 +1,5 @@
+用途:taiwan-food-wars 題庫第 9 題「潤餅要甜還是鹹?」選項 B「少糖或無糖鹹口」(冷色組,4:3)。Codex built-in imagegen 單次首版；與 A 刻意採不同切法、盤型與視角。
+PROMPT:
+Use case: illustration-story. Asset type: quiz option illustration. Cute cozy storybook game illustration of one whole Taiwanese savory runbing spring roll resting diagonally on a round celadon plate, viewed from a higher near-overhead angle. One open end faces the viewer and shows cabbage, bean sprouts, carrot, dried tofu and egg strips; filling looks savory and fresh with no visible white sugar or peanut powder. The soft translucent wrapper remains pale and unfried. Single large centered subject. Cool mint, sage and pale aqua minimal backdrop with gentle vignette. Rounded shapes, thick soft outlines, flat color and subtle shading, clean kawaii storybook style. No text, no faces, no extra dishes. 4:3.
+NEGATIVE:
+text, letters, typography, watermark, logo, realistic photo, 3d render, harsh shadows, saturated neon colors, cluttered background, human faces, large animals, split screen, powdered sugar, fried spring roll, burrito, copied V-shaped halves

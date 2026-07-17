@@ -1,0 +1,5 @@
+用途:taiwan-food-wars 題庫第 14 題「主食你站哪一派?」選項 B「純粹鹹香,主食不要甜味」(冷色組,4:3)。Codex built-in imagegen 單次首版；用胡椒蒜香台式主食盤呈現純鹹香，與 A 刻意不同盛盤和視角。
+PROMPT:
+Use case: illustration-story. Asset type: quiz option illustration. Cute cozy storybook game illustration of a purely savory Taiwanese main dish: salt-and-pepper grilled pork slices beside loose white rice in a round celadon bowl-plate, viewed from a higher near-overhead right angle. Show crisp garlic chips, black pepper specks and a small scallion garnish; surfaces look dry-savory and aromatic with no sugary glaze. Single centered meal filling most of frame. Cool mint, sage and pale aqua minimal backdrop with gentle vignette. Rounded shapes, thick soft outlines, flat illustration, subtle shading, clean kawaii storybook style. No dessert, fruit, text, faces or extra dishes. 4:3.
+NEGATIVE:
+text, letters, typography, watermark, logo, realistic photo, 3d render, harsh shadows, saturated neon colors, cluttered background, human faces, large animals, split screen, caramel glaze, honey, sugar, dessert, copied oval-plate composition

@@ -1,0 +1,5 @@
+用途:taiwan-food-wars 題庫第 10 題「米糕你認哪一派?」選項 A「筒仔米糕」(暖色組,4:3)。Codex built-in imagegen 單次首版；與 B 刻意採不同造型、盛器與視角。
+PROMPT:
+Use case: illustration-story. Asset type: quiz option illustration. Cute cozy storybook game illustration of one Taiwanese tube rice cake, unmolded as a neat short upright cylinder on a small cream saucer, lower three-quarter view. Glossy sticky rice grains hold together in the cylindrical form; braised pork, shiitake and a chestnut cap the top, with a small amber sauce glaze. Single large centered subject, instantly recognizable. Warm cream, soft peach and milky beige minimal backdrop with gentle vignette. Rounded shapes, thick soft outlines, flat illustration and subtle soft shading, clean kawaii storybook style. No text, no faces, no extra dishes. 4:3.
+NEGATIVE:
+text, letters, typography, watermark, logo, realistic photo, 3d render, harsh shadows, saturated neon colors, cluttered background, human faces, large animals, split screen, loose rice mound, bamboo steamer, copied companion composition

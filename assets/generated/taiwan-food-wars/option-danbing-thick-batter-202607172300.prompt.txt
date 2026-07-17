@@ -1,0 +1,16 @@
+用途:taiwan-food-wars 題庫第 3 題「蛋餅皮你選哪一派?」選項 A「厚實軟 Q 粉漿蛋餅」(冷色組,4:3)。由 Codex built-in imagegen 單次生成,依站方規則不做二次修圖。
+
+PROMPT:
+Use case: illustration-story
+Asset type: would-you-rather Taiwanese food option card, 4:3 landscape
+Input image: use `option-curry-fully-mixed-beef-202607172250.png` as a visual-style reference only. Match its rounded food shapes, thick soft dark-brown outlines, flat pastel coloring, subtle soft shading and clean storybook game-art finish. Do not copy curry, rice, spoon or composition details.
+Primary request: Cute cozy game illustration of Taiwanese thick batter egg pancake, 粉漿蛋餅. One generous soft egg pancake made from thick rice-flour batter, folded once and cut into five broad chunky sections on a cream ceramic plate. The sections are about 1 centimeter thick, tender and slightly translucent pale-golden, with embedded chopped scallions and a soft yellow egg layer. Turn one end section slightly toward the viewer so the thick chewy cross-section is unmistakable. The surface is moist and softly pan-seared with only a few light golden patches; edges are rounded, supple and never crispy.
+Scene/backdrop: simple minimal cool pastel backdrop in soft mint green, sage and pale aqua with a gentle vignette. The plate rests firmly on a plain tabletop; no restaurant scene and no clutter.
+Style/medium: rounded shapes, thick soft dark-brown outlines, flat pastel illustration with subtle soft shading, kawaii but clean and not childish, polished storybook game art matching the established quiz illustrations.
+Composition/framing: 4:3 landscape, slightly elevated three-quarter view. One large oval cream ceramic plate fills most of the frame and is fully visible, centered. The five thick pancake sections form one tidy serving and remain readable at small card size. No extra prop and no split screen.
+Lighting/mood: fresh, soft and appetizing with gentle diffuse light.
+Color palette: cool pastel mint, sage and pale aqua background, balanced with pale golden batter, yellow egg and green scallion flecks; harmonious low saturation.
+Constraints: unmistakably thick Taiwanese batter egg pancake; thick soft chewy cross-section visible; exactly one plate; no people, hands, faces, text, letters, labels, logo or watermark.
+
+NEGATIVE:
+thin crepe, crispy wrapper, flaky pastry, crunchy browned edges, scallion pancake, omelet only, tortilla, spring roll, sushi, sauce drizzle, dipping bowl, chopsticks, fork, spoon, two plates, split screen, text, letters, typography, fake writing, watermark, logo, realistic photo, photorealistic food, 3d render, harsh shadows, saturated neon colors, cluttered restaurant background, cartoon faces, googly eyes

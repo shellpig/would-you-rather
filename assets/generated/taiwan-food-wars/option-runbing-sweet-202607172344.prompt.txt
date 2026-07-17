@@ -1,0 +1,5 @@
+用途:taiwan-food-wars 題庫第 9 題「潤餅要甜還是鹹?」選項 A「花生糖粉甜口」(暖色組,4:3)。Codex built-in imagegen 單次首版；與 B 刻意採不同切法、盤型與視角。
+PROMPT:
+Use case: illustration-story. Asset type: quiz option illustration. Cute cozy storybook game illustration of a Taiwanese runbing spring roll with sweet peanut-sugar powder, cut diagonally into two plump halves and arranged in a loose V on a small oval wooden plate, low three-quarter view. The thin soft wrapper reveals cabbage, carrot, bean sprouts and crushed peanut-sugar powder, with a light golden dusting clearly visible at the cut edges. Single centered food subject filling most of frame. Warm cream, peach and milky beige minimal backdrop, gentle vignette. Rounded shapes, thick soft outlines, flat color and subtle soft shading, clean kawaii storybook style. No text, no faces, no extra dishes. 4:3.
+NEGATIVE:
+text, letters, typography, watermark, logo, realistic photo, 3d render, harsh shadows, saturated neon colors, cluttered background, human faces, large animals, split screen, fried spring roll, tortilla burrito, copied companion composition

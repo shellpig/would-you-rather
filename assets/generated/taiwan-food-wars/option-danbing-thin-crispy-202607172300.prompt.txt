@@ -1,0 +1,16 @@
+用途:taiwan-food-wars 題庫第 3 題「蛋餅皮你選哪一派?」選項 B「酥脆薄皮蛋餅」(暖色組,4:3)。由 Codex built-in imagegen 單次生成,依站方規則不做二次修圖。
+
+PROMPT:
+Use case: illustration-story
+Asset type: would-you-rather Taiwanese food option card, 4:3 landscape
+Input image: use `option-danbing-thick-batter-202607172300.png` as the paired visual-style and composition reference only. Create a new thin crispy egg pancake image in the same oval plate, camera angle, scale, outline weight, flat pastel coloring and clean storybook game-art finish; do not edit or retain the thick soft pancake itself.
+Primary request: Cute cozy game illustration of Taiwanese crispy thin-skin egg pancake, 脆皮蛋餅. One generous paper-thin golden egg crepe, folded into a neat long rectangle and cut into five slim sections on a cream ceramic plate. The wrapper is very thin with visible delicate layers around a thin yellow egg filling. Its surface is dry, crisp and golden-brown with small blistered bubbles, toasted patches and lightly ruffled crunchy edges. Turn one end section slightly toward the viewer so the thin crisp cross-section is unmistakable. A few tiny scallion flecks may appear in the egg, but the crisp thin wrapper is the clear focus.
+Scene/backdrop: simple minimal warm pastel backdrop in cream, soft peach and milky beige with a gentle vignette. The plate rests firmly on a plain tabletop; no restaurant scene and no clutter.
+Style/medium: rounded shapes, thick soft dark-brown outlines, flat pastel illustration with subtle soft shading, kawaii but clean and not childish, polished storybook game art matching the established quiz illustrations.
+Composition/framing: 4:3 landscape, slightly elevated three-quarter view matching the companion option. One large oval cream ceramic plate fills most of the frame and is fully visible, centered. The five thin pancake sections form one tidy serving and remain readable at small card size. No extra prop and no split screen.
+Lighting/mood: warm, crisp and appetizing with gentle diffuse light.
+Color palette: warm pastel cream, soft peach and milky beige background, balanced with golden-yellow egg and toasted amber-brown crisp edges; harmonious low saturation.
+Constraints: unmistakably thin crispy Taiwanese egg pancake; paper-thin crunchy cross-section visible; exactly one plate; no people, hands, faces, text, letters, labels, logo or watermark.
+
+NEGATIVE:
+thick batter pancake, soft chewy wrapper, translucent thick dough, scallion pancake, omelet only, tortilla, spring roll, sushi, puff pastry, sauce drizzle, dipping bowl, chopsticks, fork, spoon, two plates, split screen, text, letters, typography, fake writing, watermark, logo, realistic photo, photorealistic food, 3d render, harsh shadows, saturated neon colors, cluttered restaurant background, cartoon faces, googly eyes

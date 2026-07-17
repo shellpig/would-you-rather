@@ -1,0 +1,5 @@
+用途:taiwan-food-wars 題庫第 10 題「米糕你認哪一派?」選項 B「台南散裝肉燥米糕」(冷色組,4:3)。Codex built-in imagegen 單次首版；與 A 刻意採不同造型、盛器與視角。
+PROMPT:
+Use case: illustration-story. Asset type: quiz option illustration. Cute cozy storybook game illustration of Tainan-style loose rice cake in one wide shallow blue-green bowl, viewed from a higher left-side angle. Pearly sticky rice is served as a relaxed irregular mound rather than a cylinder; glossy minced braised pork sauce runs over the upper-left, with one cucumber slice and a small pickled radish garnish at the right edge. Single large centered bowl. Cool mint, sage and pale aqua minimal backdrop, gentle vignette. Rounded shapes, thick soft outlines, flat illustration and subtle shading, clean kawaii storybook style. No text, no faces, no extra dishes. 4:3.
+NEGATIVE:
+text, letters, typography, watermark, logo, realistic photo, 3d render, harsh shadows, saturated neon colors, cluttered background, human faces, large animals, split screen, cylinder shape, tube mold, copied saucer composition

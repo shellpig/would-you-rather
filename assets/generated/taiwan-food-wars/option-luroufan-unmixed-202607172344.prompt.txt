@@ -1,0 +1,5 @@
+用途:taiwan-food-wars 題庫第 13 題「滷肉飯上桌後?」選項 B「不拌才有層次」(冷色組,4:3)。Codex built-in imagegen 單次首版；與 A 刻意採不同碗型、視角與飯肉分布。
+PROMPT:
+Use case: illustration-story. Asset type: quiz option illustration. Cute cozy storybook game illustration of one untouched Taiwanese braised pork rice bowl with distinct layers. Use a deeper celadon bowl at a lower right three-quarter angle; bright white rice remains clearly visible across most of the front and left, while glossy dark braised minced pork sits as a concentrated mound only on the upper-right, with a little sauce naturally soaking just beneath it. No spoon and nothing mixed. Cool mint, sage and pale aqua minimal backdrop, gentle vignette. Rounded forms, thick soft outlines, flat illustration, subtle shading, clean kawaii style. No text, no faces. 4:3.
+NEGATIVE:
+text, letters, typography, watermark, logo, realistic photo, 3d render, harsh shadows, saturated neon colors, cluttered background, human faces, large animals, split screen, fully brown mixed rice, dispersed pork bits, copied shallow-bowl composition

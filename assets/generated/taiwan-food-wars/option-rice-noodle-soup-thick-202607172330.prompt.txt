@@ -1,0 +1,16 @@
+用途:taiwan-food-wars 題庫第 6 題「米粉湯要哪種米粉?」選項 A「粗米粉」(暖色組,4:3)。由 Codex built-in imagegen 單次生成；同基底選項刻意使用不同構圖,不做複製貼上或二次修圖。
+
+PROMPT:
+Use case: illustration-story
+Asset type: would-you-rather Taiwanese food option card, 4:3 landscape
+Input image: use `option-cold-noodles-sesame-garlic-202607172315.png` as a visual-style reference only. Match its rounded food shapes, thick soft dark-brown outlines, flat pastel coloring, subtle soft shading and clean storybook game-art finish. Create a new hot soup composition; do not copy the cold-noodle mound, bowl angle or garnish arrangement.
+Primary request: Cute cozy game illustration of Taiwanese thick rice-noodle soup, 粗米粉湯. Use short thick off-white rice-noodle strands, each about 5 to 7 millimeters wide, soft and slightly porous, clearly thicker than vermicelli but distinctly not udon. The thick noodles lie in loose separated arcs inside clear pale-golden broth, with several blunt noodle ends visible near the front. Add exactly two thin pork slices, a small pinch of fried shallots and a few chopped celery rounds as modest toppings, all grouped mainly along the right side so the thick noodles remain the focus.
+Scene/backdrop: simple minimal warm pastel backdrop in cream, soft peach and milky beige with a gentle vignette. A deep round cream ceramic soup bowl rests firmly on a plain tabletop; no restaurant scene and no clutter.
+Style/medium: rounded shapes, thick soft dark-brown outlines, flat pastel illustration with subtle soft shading, kawaii but clean and not childish, polished storybook game art matching the established quiz illustrations.
+Composition/framing: 4:3 landscape. Use a slightly lower three-quarter view from the left, showing the front outer wall of the deep bowl and the broth surface. Place the bowl slightly left of center, large and fully visible. The loose thick noodles sweep diagonally from lower-left to upper-right; toppings form a small crescent on the right. This composition must differ from the thin-noodle companion.
+Lighting/mood: warm, hearty and comforting with gentle steam and diffuse light.
+Color palette: warm pastel cream, soft peach and milky beige background, clear pale-golden broth, off-white rice noodles, muted pork brown and celery green; harmonious low saturation.
+Constraints: unmistakably Taiwanese thick rice noodles in soup; short thick rice-noodle strands with blunt ends; clear broth remains visible; exactly two pork slices; one bowl only; no people, hands, faces, text, letters, labels, logo or watermark.
+
+NEGATIVE:
+thin rice vermicelli, fine hairlike noodles, noodle nest, udon, ramen, wheat noodles, spaghetti, pho, flat rice ribbons, glass noodles, instant noodles, dry noodles, no broth, creamy soup, red soup, excessive meat, meatballs, shrimp, egg, chopsticks, fork, spoon, second bowl, copied centered mound composition, split screen, text, letters, typography, fake writing, watermark, logo, realistic photo, photorealistic food, 3d render, harsh shadows, saturated neon colors, cluttered restaurant background, cartoon faces, googly eyes
