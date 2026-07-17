@@ -1,11 +1,14 @@
 import "./styles/main.css";
 import { registerRoute, startRouter } from "./router.js";
+import { HOME_ROUTE, QUIZ_ROUTE } from "./routes.js";
 import { renderHome } from "./pages/home.js";
 import { renderQuizFlow } from "./pages/quizFlow.js";
 import { flushPendingVotes } from "./lib/voteQueue.js";
 
-registerRoute(/^\/$/, renderHome);
-registerRoute(/^\/quiz\/(?<slug>[^/]+)$/, renderQuizFlow);
+registerRoute(HOME_ROUTE, renderHome);
+// 尾斜線契約(開發設計方針.md > per-quiz OG meta / canonical「尾斜線契約」):
+// pattern 定義於 src/routes.js(供 tests/router.test.js 直接引用同一份 regex)。
+registerRoute(QUIZ_ROUTE, renderQuizFlow);
 
 startRouter();
 

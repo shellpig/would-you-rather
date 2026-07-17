@@ -262,9 +262,13 @@ export async function renderQuizFlow(app, { slug }) {
 
   // ---- 完成頁:正式總結卡(規格書 §2.4;開發設計方針.md > Phase 3) ----
   function showComplete() {
-    // 資料一律取自 progress.answers(第一次真正送出統計的選擇)與 snapshot(開始作答時的
-    // 快照)——與答題頁 selectChoice 用同一套 computeRatio,口徑一致(§2.4 驗收)。
-    const results = computeQuestionResults(quiz, progress.answers, snapshot);
+    // 總結卡用「本輪選擇」覆蓋 answers(2026-07-17 code review 修正,推翻原「一律取
+    // progress.answers」決策;見 開發設計方針.md > 資料推導:src/lib/resultSummary.js):
+    // { ...progress.answers, ...currentChoices } 讓重玩時本輪選了不同答案也能反映在總結卡,
+    // 首次作答兩者同值不受影響。snapshot 仍是開始作答時抓的快照,與答題頁 selectChoice
+    // 用同一套 computeRatio,口徑一致(§2.4 驗收)。送票邏輯(recordAnswer/hasAnswered/
+    // progress.answers 本身)完全不受影響,「已答不重送」語意不變。
+    const results = computeQuestionResults(quiz, { ...progress.answers, ...currentChoices }, snapshot);
     const total = results.length;
     const minorityCount = results.filter((r) => r.isMinority).length;
     const identityLabel = deriveIdentityLabel(minorityCount, total);

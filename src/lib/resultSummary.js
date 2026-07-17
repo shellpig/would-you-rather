@@ -1,19 +1,22 @@
 // 總結卡資料推導(純函式,規格書 §2.4;開發設計方針.md > Phase 3)。
-// 輸入為題庫定義、作答記錄(progress.answers)與開始作答時抓的統計快照——與答題頁
-// 用的是同一份快照與同一個 computeRatio,確保「主標區所有比例與答題頁口徑一致」
-// (規格書 §2.4 驗收)。
+// 輸入為題庫定義、作答記錄與開始作答時抓的統計快照——與答題頁用的是同一份快照與
+// 同一個 computeRatio,確保「主標區所有比例與答題頁口徑一致」(規格書 §2.4 驗收)。
 //
-// 決策(答題記錄取哪一份):採用 progress.answers(規格書 §6「第一次真正送出統計的
-// 選擇」),不是本輪 UI 暫存的 currentChoices。理由:answers 是唯一被計入後端 stats 的
-// 選擇,總結卡呈現的「你是多數派/少數派」「匹配度」都必須對應到真正被計票的那一票;
-// 重玩時就算使用者這輪選了不同答案,總結卡仍顯示原始計票結果,與「你上次選的是這個」
-// 提示、recordAnswer 的「已答不重送」設計精神一致。
+// 決策(總結卡用「本輪選擇」覆蓋 answers;2026-07-17 推翻原決策):呼叫端(quizFlow.js
+// 的 showComplete)傳入 `{ ...progress.answers, ...currentChoices }`,不是單純的
+// progress.answers。理由:規格書 §6 明寫重玩可看到「新的總結卡」,§2.4 驗收也要求主標
+// 區比例與答題頁口徑一致(答題頁重玩時本來就是用 currentChoices 算比例、顯示「你上次
+// 選的是這個」提示的同時仍可改選);若總結卡固定顯示第一輪的舊答案,會與答題頁畫面
+// 對不上。原決策(採用 progress.answers,理由是 answers 才是真正被計票的那一票)已被
+// 上述規格條文推翻——但這只影響總結卡「顯示」哪一輪答案,不影響送票:recordAnswer 的
+// 「第一次答案不覆寫、已答不重送」語意、progress.answers 本身完全不受影響。
 
 import { computeRatio } from "./ratio.js";
 
 /**
  * @param {{questions: Array<{id:string, a:{text:string}, b:{text:string}}>}} quiz
- * @param {Record<string, "a"|"b">} answers progress.answers
+ * @param {Record<string, "a"|"b">} answers 答題記錄;呼叫端傳入 `{ ...progress.answers,
+ *   ...currentChoices }`(總結卡以本輪選擇覆蓋,見檔頭決策),而非單純的 progress.answers
  * @param {Record<string, {a:number,b:number}>} snapshot 開始作答時的統計快照
  * @returns {Array<{id:string, index:number, choice:"a"|"b", text:string, percent:number, isMinority:boolean}>}
  */

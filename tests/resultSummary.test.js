@@ -37,6 +37,35 @@ test("computeQuestionResults: 快照缺該題 key 時防呆為 {a:0,b:0}", () =>
   assert.equal(result.percent, 100); // 快照 0/0,自己一票 → a=1,total=1 → 100%
 });
 
+// ---- 重玩情境:總結卡用「本輪選擇」覆蓋 answers(2026-07-17 code review 修正) ----
+// quizFlow.js 的 showComplete() 實際傳入 computeQuestionResults 的 answers 是
+// `{ ...progress.answers, ...currentChoices }`,以下測試直接驗證這個 merge 後的物件
+// 餵給 computeQuestionResults 會反映本輪選擇,而非固定顯示第一輪的舊 answers。
+
+test("computeQuestionResults: 重玩時 currentChoices 覆蓋同一題的 answers,choice/text/percent/isMinority 反映本輪選擇", () => {
+  const quiz = makeQuiz(1);
+  const firstRoundAnswers = { q0: "a" }; // progress.answers:第一輪選 a
+  const currentChoices = { q0: "b" }; // 本輪重玩改選 b
+  const snapshot = { q0: { a: 9, b: 1 } }; // a=9,b=1+1=2,total=11 → b 約 18%(少數派)
+  const merged = { ...firstRoundAnswers, ...currentChoices };
+
+  const [result] = computeQuestionResults(quiz, merged, snapshot);
+  assert.equal(result.choice, "b");
+  assert.equal(result.text, "選項B-0");
+  assert.equal(result.percent, Math.round((2 / 11) * 100));
+  assert.equal(result.isMinority, true);
+});
+
+test("merge 語意:currentChoices 覆蓋同一 key,首玩情境(兩者相同)結果不受影響", () => {
+  const answers = { q0: "a", q1: "b" };
+
+  const replayMerged = { ...answers, ...{ q0: "b" } }; // 只有 q0 這題重玩改選
+  assert.deepEqual(replayMerged, { q0: "b", q1: "b" });
+
+  const firstPlayMerged = { ...answers, ...answers }; // 首玩:currentChoices 與 answers 同值
+  assert.deepEqual(firstPlayMerged, answers);
+});
+
 test("deriveIdentityLabel: 四檔邊界(以 demo 6 題為例,規格書 §2.4 / 測試指南 #2)", () => {
   assert.equal(deriveIdentityLabel(0, 6), "大眾品味代言人");
   assert.equal(deriveIdentityLabel(1, 6), "有主見的主流派"); // 1/6 ≈ 16.7% (1–24%)
