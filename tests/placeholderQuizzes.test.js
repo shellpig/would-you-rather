@@ -12,9 +12,19 @@ import { PLACEHOLDER_QUIZZES, renderPlaceholderCard } from "../src/lib/placehold
 
 const PROJECT_ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 
-test("PLACEHOLDER_QUIZZES 含美食、娛樂兩張佔位卡", () => {
+test("PLACEHOLDER_QUIZZES 含已定名的美食與娛樂兩張佔位卡", () => {
   const titles = PLACEHOLDER_QUIZZES.map((q) => q.title);
-  assert.deepEqual(titles, ["美食", "娛樂"]);
+  assert.deepEqual(titles, ["美食戰爭二選一：你是哪一派？", "娛樂"]);
+});
+
+test("美食佔位卡使用已完成的正式封面,娛樂仍使用圖示", () => {
+  const food = PLACEHOLDER_QUIZZES.find((q) => q.id === "placeholder-food");
+  const entertainment = PLACEHOLDER_QUIZZES.find((q) => q.id === "placeholder-entertainment");
+
+  assert.equal(food.cover, "/img/taiwan-food-wars/cover.webp");
+  assert.equal(entertainment.icon, "🎬");
+  assert.match(renderPlaceholderCard(food), /<img\b[^>]*src="\/img\/taiwan-food-wars\/cover\.webp"/);
+  assert.match(renderPlaceholderCard(entertainment), /quiz-card__placeholder-icon/);
 });
 
 test("PLACEHOLDER_QUIZZES 的 id 不與 manifest.json 既有題庫 id 撞名", () => {
@@ -39,7 +49,7 @@ test("renderPlaceholderCard 產出的 HTML 不含連結、不可點擊", () => {
 test("renderPlaceholderCard 產出的 HTML 含「建設中」標示與題庫名稱", () => {
   const html = renderPlaceholderCard(PLACEHOLDER_QUIZZES[0]);
   assert.match(html, /建設中/);
-  assert.match(html, /美食/);
+  assert.match(html, /美食戰爭二選一：你是哪一派？/);
 });
 
 test("renderPlaceholderCard 不含「N 人玩過」字樣(佔位卡無統計資料)", () => {
