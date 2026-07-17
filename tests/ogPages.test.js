@@ -16,16 +16,22 @@ before(() => {
   execSync("node scripts/generate-og-pages.mjs", { cwd: PROJECT_ROOT, stdio: "ignore" });
 });
 
-test("dist/quiz/demo/index.html 含完整 og:title / og:description / og:image(絕對網址) / canonical", () => {
-  const htmlPath = path.join(PROJECT_ROOT, "dist", "quiz", "demo", "index.html");
-  assert.ok(existsSync(htmlPath), "dist/quiz/demo/index.html 應存在");
+test("dist/quiz/daily-life/index.html 含完整 og:title / og:description / og:image(絕對網址) / canonical", () => {
+  const htmlPath = path.join(PROJECT_ROOT, "dist", "quiz", "daily-life", "index.html");
+  assert.ok(existsSync(htmlPath), "dist/quiz/daily-life/index.html 應存在");
   const html = readFileSync(htmlPath, "utf-8");
 
   assert.match(html, /<meta property="og:title" content="[^"]+"/);
   assert.match(html, /<meta property="og:description" content="[^"]+"/);
   assert.match(html, /<meta property="og:image" content="https?:\/\/[^"]+"/);
-  assert.match(html, /<meta property="og:url" content="https?:\/\/[^"]+\/quiz\/demo"/);
-  assert.match(html, /<link rel="canonical" href="https?:\/\/[^"]+\/quiz\/demo"/);
+  assert.match(html, /<meta property="og:url" content="https?:\/\/[^"]+\/quiz\/daily-life"/);
+  assert.match(html, /<link rel="canonical" href="https?:\/\/[^"]+\/quiz\/daily-life"/);
+  // og 專用欄位(daily-life 定稿文案)套用,不是 Phase 3 的 title/description fallback 公式。
+  assert.match(html, /<meta property="og:title" content="日常生活二選一\|你真的和大家一樣嗎\?"/);
+  assert.match(
+    html,
+    /<meta property="og:description" content="15 題沒有標準答案的二選一,每題立刻看到全站比例。測完告訴你是主流派還是少數派,還有最孤獨的那一題。"/
+  );
   // 仍保留 build 後帶 hash 的 script/link,確保這份客製 head 的頁面點進去照樣是可互動的 SPA。
   assert.match(html, /<script type="module"[^>]*src="\/assets\/[^"]+\.js"><\/script>/);
   assert.match(html, /<link rel="stylesheet"[^>]*href="\/assets\/[^"]+\.css"/);

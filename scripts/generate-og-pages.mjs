@@ -70,8 +70,11 @@ let count = 0;
 for (const { id } of manifest.quizzes) {
   const quiz = JSON.parse(readFileSync(path.join(dataDir, "quizzes", `${id}.json`), "utf-8"));
 
-  const title = `${quiz.title} — Would You Rather`;
-  const description = quiz.description;
+  // ogTitle/ogDescription 為選配欄位(開發設計方針.md > Phase 4 > OG 文案):有定稿
+  // OG 文案的題庫直接整段套用(不再疊加「— Would You Rather」後綴,定稿文案本身已是
+  // 完整標題);沒有這兩個欄位的題庫 fallback 回 Phase 3 既有公式,行為不變。
+  const title = quiz.ogTitle ?? `${quiz.title} — Would You Rather`;
+  const description = quiz.ogDescription ?? quiz.description;
   const imageUrl = `${SITE_URL}${quiz.cover}`;
   const canonicalUrl = `${SITE_URL}/quiz/${id}`;
 

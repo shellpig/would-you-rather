@@ -1,0 +1,104 @@
+{
+  "id": "daily-life",
+  "title": "日常生活二選一:你是哪一派?",
+  "description": "貓派狗派、無糖全糖、睡到自然醒還是早睡早起——15 個日常選擇,你真的和大家一樣嗎?",
+  "cover": "/img/daily-life/cover.webp",
+  "category": "life",
+  "ogTitle": "日常生活二選一|你真的和大家一樣嗎?",
+  "ogDescription": "15 題沒有標準答案的二選一,每題立刻看到全站比例。測完告訴你是主流派還是少數派,還有最孤獨的那一題。",
+  "questions": [
+    {
+      "id": "cat-dog",
+      "a": { "text": "貓派", "img": "/img/daily-life/cat.webp" },
+      "b": { "text": "狗派", "img": "/img/daily-life/dog.webp" }
+    },
+    {
+      "id": "romcom-horror",
+      "a": { "text": "愛情喜劇", "img": "/img/daily-life/romcom.webp" },
+      "b": { "text": "恐怖片", "img": "/img/daily-life/horror.webp" }
+    },
+    {
+      "id": "coffee-tea",
+      "a": { "text": "喝咖啡", "img": "/img/daily-life/latte.webp" },
+      "b": { "text": "喝茶", "img": "/img/daily-life/tea.webp" }
+    },
+    {
+      "id": "cook-dine-out",
+      "a": { "text": "自己煮", "img": "/img/daily-life/cook.webp" },
+      "b": { "text": "外食", "img": "/img/daily-life/dine-out.webp" }
+    },
+    {
+      "id": "movie-book",
+      "a": { "text": "看電影", "img": "/img/daily-life/movie.webp" },
+      "b": { "text": "看書", "img": "/img/daily-life/book.webp" }
+    },
+    {
+      "id": "stay-home-go-out",
+      "a": { "text": "宅在家", "img": "/img/daily-life/stay-home.webp" },
+      "b": { "text": "出門玩", "img": "/img/daily-life/go-out.webp" }
+    },
+    {
+      "id": "sleep-in-early-bird",
+      "a": { "text": "睡到自然醒", "img": "/img/daily-life/sleep-in.webp" },
+      "b": { "text": "早睡早起", "img": "/img/daily-life/early-bird.webp" }
+    },
+    {
+      "id": "sushi-pasta",
+      "a": { "text": "壽司", "img": "/img/daily-life/sushi.webp" },
+      "b": { "text": "義大利麵", "img": "/img/daily-life/pasta.webp" }
+    },
+    {
+      "id": "beach-mountain",
+      "a": { "text": "去海邊", "img": "/img/daily-life/beach.webp" },
+      "b": { "text": "去山上", "img": "/img/daily-life/mountain.webp" }
+    },
+    {
+      "id": "park-home-date",
+      "a": { "text": "約會衝遊樂園", "img": "/img/daily-life/amusement-park-date.webp" },
+      "b": { "text": "約會在家追劇", "img": "/img/daily-life/home-date.webp" }
+    },
+    {
+      "id": "world-local-travel",
+      "a": { "text": "環遊世界", "img": "/img/daily-life/world-travel.webp" },
+      "b": { "text": "在地小旅行", "img": "/img/daily-life/local-travel.webp" }
+    },
+    {
+      "id": "sugar-free-full-sugar",
+      "a": { "text": "手搖飲無糖", "img": "/img/daily-life/sugar-free.webp" },
+      "b": { "text": "手搖飲全糖", "img": "/img/daily-life/full-sugar.webp" }
+    },
+    {
+      "id": "country-city",
+      "a": { "text": "住鄉下", "img": "/img/daily-life/country.webp" },
+      "b": { "text": "住城市", "img": "/img/daily-life/city.webp" }
+    },
+    {
+      "id": "favorite-first-last",
+      "a": { "text": "最愛的先吃", "img": "/img/daily-life/favorite-first.webp" },
+      "b": { "text": "最愛的留最後", "img": "/img/daily-life/favorite-last.webp" }
+    },
+    {
+      "id": "summer-winter",
+      "a": { "text": "夏天", "img": "/img/daily-life/summer.webp" },
+      "b": { "text": "冬天", "img": "/img/daily-life/winter.webp" }
+    }
+  ],
+  "titles": {
+    "cat-dog": { "name": "毛孩孤勇者", "blurb": "在最大的戰場上,你站了人少的那邊。" },
+    "romcom-horror": { "name": "戲院獨行俠", "blurb": "散場燈亮起,只有你看的是另一部片。" },
+    "coffee-tea": { "name": "杯中異類", "blurb": "全辦公室的飲料,就你那杯不一樣。" },
+    "cook-dine-out": { "name": "餐桌孤味家", "blurb": "大家排隊的店,你不排;你的味道自己定。" },
+    "movie-book": { "name": "故事偏食者", "blurb": "同一個故事,你偏要用另一種方式打開。" },
+    "stay-home-go-out": { "name": "門檻逆行者", "blurb": "人潮往哪去,你就往反方向走。" },
+    "sleep-in-early-bird": { "name": "時差星人", "blurb": "你的生理時鐘,跟這個世界隔了一個時區。" },
+    "sushi-pasta": { "name": "孤獨的老饕", "blurb": "菜單上眾人略過的那頁,是你的主場。" },
+    "beach-mountain": { "name": "絕景獨行者", "blurb": "最美的風景,你總是一個人先看到。" },
+    "park-home-date": { "name": "戀愛非主流", "blurb": "你的浪漫,大多數人還沒學會欣賞。" },
+    "world-local-travel": { "name": "地圖邊緣人", "blurb": "大家的旅行清單上,沒有你要去的那格。" },
+    "sugar-free-full-sugar": { "name": "糖度異端", "blurb": "手搖店店員記得你,因為只有你這樣點。" },
+    "country-city": { "name": "落腳浪漫派", "blurb": "你想定居的地方,別人只當風景路過。" },
+    "favorite-first-last": { "name": "餐序哲學家", "blurb": "一口食物的順序,你有一整套別人不懂的道理。" },
+    "summer-winter": { "name": "反季節生物", "blurb": "大家喊冷的時候,你正覺得剛剛好。" },
+    "mainstream": { "name": "人間平均值", "blurb": "15 題,題題與大家同行——你就是「大家」本人。" }
+  }
+}

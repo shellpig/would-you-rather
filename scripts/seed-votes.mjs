@@ -1,14 +1,21 @@
-// 種子票 script(規格書 §5.3):每題預填「每邊 20–50 票隨機分佈」,避免新題庫早期
-// 出現「100% vs 0%」的尷尬。可安全重跑:用 INSERT ... ON CONFLICT ... DO UPDATE
-// 覆寫既有 row(而非累加或報錯),重跑只會換一組新的隨機種子值,不會產生重複 row、
+// 種子票 script(規格書 §5.3):每題預填種子票,避免新題庫早期出現「100% vs 0%」的
+// 尷尬。優先使用逐題定稿值(見下方「定稿種子值」),沒有定稿值的題目 fallback 回
+// 「每邊 20–50 票隨機分佈」。可安全重跑:用 INSERT ... ON CONFLICT ... DO UPDATE
+// 覆寫既有 row(而非累加或報錯),重跑只會換一組新的種子值,不會產生重複 row、
 // 不會疊加爆量(見 開發設計方針.md > Phase 2 > 種子票)。
+//
+// 定稿種子值:`scripts/seeds/<quizId>.json`(選配,`{ "<questionId>": {a, b}, ... }`),
+// 內容為站方逐題拍板的分佈(單一事實來源在 `subdocs/題庫/<id>.md`),不放在
+// `src/data/quizzes/` 是因為那個目錄會被打進前端 bundle,種子分佈不該讓使用者從
+// devtools 看到(見 開發設計方針.md > Phase 4 > 種子票資料)。逐題 fallback:定稿檔
+// 不存在,或存在但缺某一題,該題就地 fallback 回隨機值,不影響同庫其他已定稿的題目。
 //
 // 用法:
 //   node scripts/seed-votes.mjs            # 種本機 D1(--local)
 //   node scripts/seed-votes.mjs --remote    # 種正式 D1(Phase 5 上線後才用)
 
 import { execSync } from "node:child_process";
-import { readFileSync, writeFileSync, unlinkSync } from "node:fs";
+import { readFileSync, writeFileSync, unlinkSync, existsSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
 import os from "node:os";
@@ -30,11 +37,20 @@ function randCount() {
   return 20 + Math.floor(Math.random() * 31); // 20–50(含)
 }
 
+const seedsDir = path.join(projectRoot, "scripts", "seeds");
+function loadSeedFile(quizId) {
+  const seedPath = path.join(seedsDir, `${quizId}.json`);
+  if (!existsSync(seedPath)) return null;
+  return JSON.parse(readFileSync(seedPath, "utf-8"));
+}
+
 const statements = [];
 for (const [quizId, { questionIds }] of Object.entries(legalList)) {
+  const seedData = loadSeedFile(quizId);
   for (const questionId of questionIds) {
-    const a = randCount();
-    const b = randCount();
+    const fixed = seedData?.[questionId];
+    const a = fixed ? fixed.a : randCount();
+    const b = fixed ? fixed.b : randCount();
     statements.push(
       `INSERT INTO stats (quiz_id, question_id, a_count, b_count) VALUES ('${escapeSql(
         quizId

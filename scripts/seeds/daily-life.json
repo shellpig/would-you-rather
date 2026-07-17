@@ -1,0 +1,17 @@
+{
+  "cat-dog": { "a": 52, "b": 48 },
+  "romcom-horror": { "a": 62, "b": 38 },
+  "coffee-tea": { "a": 57, "b": 43 },
+  "cook-dine-out": { "a": 36, "b": 64 },
+  "movie-book": { "a": 68, "b": 32 },
+  "stay-home-go-out": { "a": 58, "b": 42 },
+  "sleep-in-early-bird": { "a": 76, "b": 24 },
+  "sushi-pasta": { "a": 51, "b": 49 },
+  "beach-mountain": { "a": 53, "b": 47 },
+  "park-home-date": { "a": 44, "b": 56 },
+  "world-local-travel": { "a": 66, "b": 34 },
+  "sugar-free-full-sugar": { "a": 47, "b": 53 },
+  "country-city": { "a": 41, "b": 59 },
+  "favorite-first-last": { "a": 46, "b": 54 },
+  "summer-winter": { "a": 39, "b": 61 }
+}

@@ -1,11 +1,11 @@
 {
   "quizzes": [
     {
-      "id": "demo",
-      "title": "咖啡 vs 茶:二選一測驗",
-      "cover": "/img/demo/cover.jpg",
+      "id": "daily-life",
+      "title": "日常生活二選一:你是哪一派?",
+      "cover": "/img/daily-life/cover.webp",
       "category": "life",
-      "questionCount": 6
+      "questionCount": 15
     }
   ]
 }
