@@ -362,9 +362,9 @@ button {
 }
 .result-badge__name {
   margin: 0 0 6px;
-  font-size: 15px;
+  font-size: 20px;
   font-weight: 800;
-  color: var(--color-primary);
+  color: var(--color-text);
   letter-spacing: 0.02em;
 }
 .result-badge__blurb {
