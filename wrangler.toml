@@ -1,16 +1,15 @@
-name = "would-you-rather"
+# Pages 專案名 = 正式子網域(2026-07-17 站方定案:would-you-rather 子網域被佔,選用 -tw)。
+name = "would-you-rather-tw"
 compatibility_date = "2026-07-16"
 pages_build_output_dir = "dist"
 
-# Phase 2 本機開發用 D1 綁定。database_id 為本機佔位值:
-# `wrangler d1 migrations apply` / `wrangler pages dev` 在 --local 模式下只用它
-# 命名 .wrangler/state 內的本機 SQLite 檔,不會連線 Cloudflare 帳號驗證,故本機開發可直接使用。
-# Phase 5 正式部署前需執行 `wrangler d1 create would-you-rather-db` 取得正式 database_id 並替換此值,
-# 詳見 開發設計方針.md > Phase 2 > 本機開發與部署備忘。
+# D1 綁定。database_id 為正式庫(2026-07-17 `wrangler d1 create` 建立,region APAC)。
+# --local 模式只用此 id 命名 .wrangler/state 內的本機 SQLite 檔(換 id 後本機空庫,
+# 重跑 db:migrate + db:seed 即可),不會誤連正式庫;寫入正式庫一律要 --remote。
 [[d1_databases]]
 binding = "DB"
 database_name = "would-you-rather-db"
-database_id = "516fda74-99bf-479f-843a-91fb759e67e9"
+database_id = "aadf5c61-a415-4eaa-a894-80de5e96c0d4"
 
 # Phase 3:WAE 產品事件(quiz_start / question_answered / quiz_completed / share_clicked,
 # functions/api/event.js)。本機 `wrangler pages dev` 在 local 模式下會提供這個 binding 的

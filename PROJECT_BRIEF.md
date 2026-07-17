@@ -24,7 +24,13 @@
 > 清單常數 + 渲染純函式,不進 manifest、資料管線零感知、不可點;測試 87/87 全綠,
 > 本機實走通過,樣式觀感待站方本機過目)。測試指南 Phase 4 驗收清單已展開
 > (13 條,含佔位卡 2 條),回應 verifier P2 發現。**Phase 4 至此全部完成**。
-> 下一步:安排 verifier 覆核累積 phase → Phase 5 上線。
+> verifier 已完成 Phase 1–4 正式覆核(2026-07-17,65 條清單 63 通過 0 缺陷,詳見
+> `驗證後已知問題.md`)。**Phase 5 已於 2026-07-17 首次上線**:站名定案「你是哪一派?」、
+> 正式網址 https://would-you-rather-tw.pages.dev;production D1 建庫 + migration + 種子票
+> 灌入驗證一致、WAE dataset 啟用、線上實走(直訪路由 / stats / 比例 / 佔位卡)通過,
+> 部署記錄與命令見方針 Phase 5。剩:Web Analytics 開通、真機分享實測(站方)、
+> rate limit(順延至自訂網域)。P6 前置:美食庫題目 / 種子票 / 稱號已定稿,剩插圖與接前端。
+> 下一步:站方真機實測分享 → 關閉 Phase 5;之後 P6 美食庫插圖。
 
 ---
 
@@ -56,7 +62,7 @@
 | 2.6 | 可靠送票(pending queue + 冪等收據) | ✅ 實作完成,待 verifier 覆核 |
 | 3 | 總結卡 + 分享 + WAE 產品事件(含 3.5 孤獨稱號勳章) | ✅ 實作完成,待 verifier 覆核 |
 | 4 | 題庫內容(站方決策縮減為單庫 + 佔位卡) | ✅ 實作完成(daily-life + demo 下架 + 佔位卡),待 verifier 覆核 |
-| 5 | 上線(部署 / 網域 / rate limit / 實測) | ⬜ |
+| 5 | 上線(部署 / 網域 / rate limit / 實測) | 🔶 已上線 `would-you-rather-tw.pages.dev`(2026-07-17);剩 Web Analytics 開通、真機分享實測;rate limit 順延至自訂網域 |
 | 6 | 題庫擴充 ×2(美食、娛樂;上線後) | ⬜ 暫緩至上線後,逐庫與站方討論 |
 
 Flag off 待開(不排 Phase):分類 chips、點選後 2 秒自動下一題。
@@ -77,7 +83,7 @@ Flag off 待開(不排 Phase):分類 chips、點選後 2 秒自動下一題。
 
 ## 待決事項
 
-- 網站名稱與網域(影響 OG 品牌感,不阻擋開發)。
+- ~~網站名稱與網域~~ → 已定案(2026-07-17):名稱「你是哪一派?」,網址 `would-you-rather-tw.pages.dev`(自訂網域未購,屆時改 `SITE_URL` 重 build 即可)。
 
 ## 下一步建議
 

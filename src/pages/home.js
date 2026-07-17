@@ -25,7 +25,7 @@ export async function renderHome(app) {
 
   app.innerHTML = `
     <header class="site-header">
-      <h1>Would You Rather</h1>
+      <h1>你是哪一派?</h1>
       <p class="tagline">逐題二選一,看看你和大家的選擇差多少</p>
     </header>
     ${FEATURE_FLAGS.categoryChips ? renderChips(categories) : ""}

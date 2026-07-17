@@ -331,7 +331,7 @@ export async function renderQuizFlow(app, { slug }) {
           <div class="result-recommend__list" data-recommend-list></div>
         </div>
 
-        <p class="result-channel"><a href="/" data-link>Would You Rather · 更多趣味測驗</a></p>
+        <p class="result-channel"><a href="/" data-link>你是哪一派?· 更多趣味測驗</a></p>
 
         <div class="result-actions">
           <button type="button" class="btn-secondary" data-replay>再玩一次</button>
