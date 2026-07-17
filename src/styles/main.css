@@ -139,6 +139,37 @@ button {
   color: var(--color-muted);
 }
 
+/* 入口頁「建設中」佔位卡(規格書 §2.1 佔位卡):降飽和 + 半透明區隔正式卡,
+   pointer-events: none 確保無 hover 反應、點擊無任何副作用。 */
+.quiz-list + .quiz-list {
+  margin-top: 16px;
+}
+.quiz-card--placeholder {
+  opacity: 0.55;
+  filter: grayscale(60%);
+  cursor: default;
+  pointer-events: none;
+}
+.quiz-card__cover--placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-muted);
+}
+.quiz-card__placeholder-icon {
+  font-size: 40px;
+  line-height: 1;
+}
+.quiz-card__badge {
+  display: inline-block;
+  margin-top: 4px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--color-text);
+  color: var(--color-bg);
+  font-size: 12px;
+}
+
 /* ---- 題庫首頁(intro) ---- */
 .quiz-intro__cover {
   width: 100%;

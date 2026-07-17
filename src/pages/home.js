@@ -4,6 +4,7 @@ import { fetchManifest } from "../lib/quizData.js";
 import { fetchPlayedCount } from "../lib/statsClient.js";
 import { shouldShowPlayedCount } from "../lib/ratio.js";
 import { FEATURE_FLAGS, PLAYED_COUNT_THRESHOLD } from "../config.js";
+import { PLACEHOLDER_QUIZZES, renderPlaceholderCard } from "../lib/placeholderQuizzes.js";
 
 const CATEGORY_LABELS = {
   life: "生活",
@@ -30,6 +31,9 @@ export async function renderHome(app) {
     ${FEATURE_FLAGS.categoryChips ? renderChips(categories) : ""}
     <section class="quiz-list" data-quiz-list>
       ${quizzes.map(renderCard).join("")}
+    </section>
+    <section class="quiz-list" data-placeholder-list>
+      ${PLACEHOLDER_QUIZZES.map(renderPlaceholderCard).join("")}
     </section>
   `;
 
