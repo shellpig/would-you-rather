@@ -1,0 +1,23 @@
+台灣美食信仰大戰題庫封面(16:9,雙門二選一構圖,芋頭火鍋 vs 清爽無芋頭火鍋)。
+參考 public/img/daily-life/cover.webp 的對稱雙門構圖與整體筆觸,但不複製夏冬物件。
+PROMPT:
+Use case: stylized-concept
+Asset type: 16:9 website quiz cover illustration
+Input images: Image 1 is a style and composition reference only. Preserve its perfectly symmetrical two-door choice concept, straight-on eye level, rounded wooden architecture, warm-versus-cool palette, soft outlines, and clean storybook-game-art finish. Create a new Taiwanese food-war scene; do not copy the summer or winter objects.
+
+Primary request: Cute cozy game illustration for a Taiwanese “Would You Rather” food battle quiz, centered on the question of whether taro belongs in hot pot.
+
+Scene and composition: A perfectly symmetrical choice composition with two large identical open rounded wooden restaurant doorways standing side by side on a shared warm tiled floor, seen straight on from the same eye level. Leave a soft strip of neutral cream wall between the doors. Each doorway reveals a matching Taiwanese hot-pot dining nook with the same table, the same copper hot-pot shape, and the same camera angle. The two scenes must read instantly as two opposing choices.
+
+LEFT doorway: warm pastel tones—cream, soft peach, honey, and warm terracotta. A cozy bubbling hot pot with several clearly visible pale-purple taro cubes, some softening into the rich golden broth, gentle steam, and a small bowl beside it. The scene feels comforting, rich, and hearty.
+
+RIGHT doorway: cool pastel tones—soft mint green, sage, pale aqua, and muted teal. A clean clear-broth hot pot with napa cabbage, mushrooms, corn, and green vegetables, visibly free of taro, gentle steam, and a matching small bowl. The scene feels fresh, clear, and light.
+
+Style: Soft pastel palette overall; both sides clearly different in hue but harmonious. Rounded shapes, thick soft brown outlines, flat illustration with subtle soft shading, charming and clean, stylish adult animation look, kawaii but not childish. Storybook game art style. Food must look appetizing and recognizable at small card size.
+
+Composition constraints: Both doorways identical in size and shape; both hot pots equally large and equally prominent; foreground completely clear; balanced mirrored layout; no people; no visual winner; no weapons or literal battle imagery.
+
+No text, no letters, no fake writing, no signs, no menu text, no logo, no watermark. 16:9 landscape aspect ratio.
+
+NEGATIVE:
+text, letters, typography, fake letters, gibberish writing, watermark, logo, realistic photo, 3D render, saturated neon colors, harsh shadows, cluttered background, visible human faces, cartoon faces on food or objects, googly eyes, chibi, baby-toy style, nursery style, single doorway, three or more doorways, asymmetric doors, unequal hot pots, split-screen line, weapons, flags, furniture blocking the doorways

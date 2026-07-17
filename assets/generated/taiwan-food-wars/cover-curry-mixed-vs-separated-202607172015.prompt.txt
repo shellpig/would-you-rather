@@ -1,0 +1,27 @@
+台灣美食信仰大戰題庫封面試稿(16:9,同一餐廳與餐桌背景,咖哩飯拌勻 vs 咖哩白飯分開)。
+參考 public/img/daily-life/cover.webp 的色彩與筆觸,不沿用門或夏冬構圖。
+PROMPT:
+Use case: stylized-concept
+Asset type: 16:9 website quiz cover illustration
+Input images: Image 1 is a visual-style reference only. Match its soft pastel palette, rounded shapes, thick soft brown outlines, flat coloring, subtle shading, and clean storybook game-art finish. Do not copy its doors, architecture, or summer/winter composition.
+
+Primary request: A clear Taiwanese food-choice cover showing “curry rice fully mixed” versus “curry and rice kept separate,” with no text.
+
+Scene/backdrop: One continuous, believable cozy curry café interior across the entire canvas—not two rooms and not a split screen. A single shared honey-colored wooden dining table fills the foreground. Behind it is one continuous cream wall with one softly rounded central window, a small plant, and minimal café decoration. The background, camera angle, perspective, and lighting must be exactly the same on both sides.
+
+Main composition: Two identical large cream ceramic curry plates sit side by side on the same table, equal in size, distance, prominence, and food quantity. Use a slightly elevated three-quarter view so the food surfaces are immediately readable. Leave a clean natural gap between the plates.
+
+LEFT plate—fully mixed: Every grain of rice is thoroughly coated in glossy golden-brown curry sauce. The entire serving is a uniform warm curry color with a visibly stirred, slightly swirled texture. Absolutely no white rice remains visible. A spoon rests beside the plate.
+
+RIGHT plate—kept separate: A bright snow-white mound of rice occupies one side of the plate, while glossy amber-brown curry occupies the other side. The boundary between white rice and curry must be crisp, obvious, and untouched. A matching spoon rests beside the plate.
+
+Visual distinction: Put a muted warm-peach cloth napkin beneath the left place setting and a muted sage-green cloth napkin beneath the right place setting. These are subtle secondary cues only; the mixed-versus-separated food must remain the primary difference.
+
+Style: Cute cozy game illustration, soft pastel colors, rounded forms, thick soft outlines, flat illustration with subtle soft shading, appetizing food, stylish adult animation look, kawaii but clean and not childish. Match the established daily-life quiz illustration family.
+
+Constraints: one shared realistic background; no doors; no arches around either choice; no walls or panels dividing the image; no people or hands; no visual winner; no extra dishes competing for attention; both plates fully visible and uncropped; readable when reduced to a small website card.
+
+No text, no letters, no fake writing, no signs, no menu, no logo, no watermark. 16:9 landscape.
+
+NEGATIVE:
+doors, doorways, arches framing choices, split screen, divider line, two different rooms, mismatched backgrounds, text, letters, typography, fake writing, watermark, logo, realistic photo, 3D render, saturated neon colors, harsh shadows, clutter, people, hands, faces, cartoon faces on food, googly eyes, chibi, baby-toy style, nursery style, unequal plates, cropped plates, white rice visible on the mixed side, curry covering the white rice on the separated side
