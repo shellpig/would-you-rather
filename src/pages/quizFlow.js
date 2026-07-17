@@ -13,6 +13,7 @@ import {
   markCompleted,
   ensureSessionId,
   queuePendingVote,
+  recordQuestionTime,
 } from "../lib/progressStore.js";
 import { sendVote } from "../lib/voteQueue.js";
 import { generateSessionId } from "../lib/sessionId.js";
@@ -20,7 +21,7 @@ import { PLAYED_COUNT_THRESHOLD } from "../config.js";
 import {
   computeQuestionResults,
   deriveIdentityLabel,
-  pickLoneliestQuestion,
+  pickTitleQuestion,
   computeMatchScore,
   buildShareSummary,
   lookupLoneliestTitle,
@@ -44,6 +45,9 @@ export async function renderQuizFlow(app, { slug }) {
   const animatedQuestions = new Set();
   /** 本次瀏覽中,使用者這一輪的選擇(每題最新選的一邊,不一定等於 localStorage 已存的答案)。 */
   const currentChoices = {};
+  /** 目前這題「進入題目頁面」的時間戳(performance.now()),供 goNext 算作答耗時
+   *  (孤獨稱號選題新規則,規格書 §2.4 擴充,2026-07-17 定案)。 */
+  let questionStartedAt = null;
 
   showIntro();
 
@@ -98,6 +102,7 @@ export async function renderQuizFlow(app, { slug }) {
     const question = quiz.questions[currentIndex];
     const total = questionIds.length;
     const previousChoice = progress.answers[question.id]; // 重玩情境下才會有值
+    questionStartedAt = performance.now(); // 計時起點:進入這題的時間戳。
 
     app.innerHTML = `
       <section class="question-page">
@@ -227,6 +232,15 @@ export async function renderQuizFlow(app, { slug }) {
     const { progress: nextProgress, isFirstAnswer } = recordAnswer(progress, question.id, choice);
     progress = nextProgress;
 
+    // 計時(孤獨稱號選題新規則,規格書 §2.4 擴充,2026-07-17 定案):只在這題「本輪」
+    // 實際點選過選項時才記錄/覆寫耗時,避免中斷續玩或重玩時已答但沒重新點選的題被
+    // 誤記成假的短時間(目前 UI 下「下一題」按鈕須點選才會啟用,此判斷恆為 true,
+    // 但仍照規格明確判斷,避免未來 UI 改動後行為跑掉)。
+    if (Object.prototype.hasOwnProperty.call(currentChoices, question.id)) {
+      const elapsedMs = Math.round(performance.now() - questionStartedAt);
+      progress = recordQuestionTime(progress, question.id, elapsedMs);
+    }
+
     if (isFirstAnswer) {
       // pendingVotes 可能已被前一題背景送票的成功回呼直接改寫 localStorage(見
       // src/lib/voteQueue.js 的 sendVote),但那個回呼不會更新這裡的記憶體內 progress
@@ -272,24 +286,42 @@ export async function renderQuizFlow(app, { slug }) {
     const total = results.length;
     const minorityCount = results.filter((r) => r.isMinority).length;
     const identityLabel = deriveIdentityLabel(minorityCount, total);
-    const loneliest = pickLoneliestQuestion(results);
+    // 孤獨稱號選題新規則(規格書 §2.4 擴充,2026-07-17 定案,取代單純比 percent 的舊制;
+    // 決策背景見 開發設計方針.md > Phase 3.5 補充):選題池內比作答耗時
+    // (progress.questionTimes),最短者得稱號;池內無計時資料時 fallback 回 percent
+    // 最低者;全站多數派時 mainstream fallback 完全不變。
+    const loneliest = pickTitleQuestion(results, progress.questionTimes);
     const matchScore = computeMatchScore(results);
     // 孤獨稱號查表(規格書 §2.4 擴充,Phase 3.5):題庫無 titles 欄位時回傳 null,
     // 勳章元件不顯示、分享文字沿用 Phase 3 原格式(降級,demo 等舊題庫零改動)。
     const loneliestTitle = lookupLoneliestTitle(quiz, loneliest);
-    const shareText = buildShareSummary(minorityCount, total, loneliest, identityLabel, loneliestTitle);
+    // 分享文字計時句(規格書 §2.4 擴充,2026-07-17 定案):非 fallback 時才查耗時,
+    // 沒有這題計時資料(池內 fallback 到 percent 最低者的情境)時 elapsedMs 為
+    // undefined,buildShareSummary 內部據此不加計時句。
+    const elapsedMs = loneliest.isFallback ? undefined : progress.questionTimes[loneliest.id];
+    const shareText = buildShareSummary(
+      minorityCount,
+      total,
+      loneliest,
+      identityLabel,
+      loneliestTitle,
+      elapsedMs
+    );
     const shareUrl = `${location.origin}/quiz/${slug}`;
     const shareLabel = canUseWebShare() ? "分享結果" : "複製連結";
 
+    // 標籤文字(規格書 §2.4 擴充,2026-07-17 定案):新規則選出的題不一定是絕對最低 %,
+    // 少數派分支的標籤文字改為「你的孤獨代表作」;mainstream fallback 分支「你最大眾
+    // 的一題」不變。
     const loneliestHtml = loneliest.isFallback
       ? `<p class="result-hero__lonely-label">你最大眾的一題</p>
          <p class="result-hero__lonely-text">${loneliest.text}</p>
          <p class="result-hero__lonely-percent"><strong>${loneliest.percent}%</strong> 的人都和你一樣</p>`
-      : `<p class="result-hero__lonely-label">最孤獨的一題</p>
+      : `<p class="result-hero__lonely-label">你的孤獨代表作</p>
          <p class="result-hero__lonely-text">${loneliest.text}</p>
          <p class="result-hero__lonely-percent">只有 <strong>${loneliest.percent}%</strong> 的人和你一樣</p>`;
 
-    // 勳章元件(規格書 §2.4 擴充):有稱號時在原「最孤獨的一題」內容外包一層稱號名 +
+    // 勳章元件(規格書 §2.4 擴充):有稱號時在原「你的孤獨代表作」內容外包一層稱號名 +
     // 判詞;無稱號(loneliestTitle 為 null)時 badgeHtml 就是原本的 loneliestHtml,
     // 版面與 Phase 3 完全一致(規格書 §2.4 擴充「降級」)。
     const badgeHtml = loneliestTitle

@@ -51,6 +51,12 @@ export function deriveIdentityLabel(minorityCount, total) {
  * - 有少數派題時:取其中所選邊比例最低者,同率取題序在前。
  * - 全站多數派(無少數派題,含全部恰 50% 的邊界情況)時:改取全部題目中比例最高者,
  *   同率一樣取題序在前,並標記 isFallback=true 供呼叫端切換文案,不留空白區塊。
+ *
+ * 註(2026-07-17,孤獨稱號選題新規則定案):`quizFlow.js` 已改用下方 `pickTitleQuestion`
+ * 決定總結卡勳章要顯示哪一題,不再直接呼叫本函式——但本函式的 mainstream 分支被
+ * `pickTitleQuestion` 在「全站多數派」情境直接委派呼叫(fallback 行為完全不變),
+ * 少數派分支的邏輯也等價於 `pickTitleQuestion` 選題池全無計時資料時的 fallback 結果。
+ * 本函式保留、獨立測試語意不變,理由見 開發設計方針.md > Phase 3.5 補充。
  * @returns {{id:string,index:number,choice:string,text:string,percent:number,isMinority:boolean,isFallback:boolean}}
  */
 export function pickLoneliestQuestion(results) {
@@ -69,6 +75,55 @@ export function pickLoneliestQuestion(results) {
   return { ...best, isFallback };
 }
 
+/**
+ * 孤獨稱號選題新規則(規格書 §2.4 擴充,2026-07-17 定案,取代單純比 percent 的舊制;
+ * 決策背景與模擬數據見 開發設計方針.md > Phase 3.5 補充)。問題:種子分佈極端的題永遠
+ * 是 percent 最低者,導致模擬結果集中在少數幾個稱號(前兩個稱號吃掉近半使用者)。
+ * 新規則改為「選題池內比作答耗時」,把稱號分散到耗時最短(通常代表直覺反應)的那題。
+ *
+ * 規則(不足處一律 fallback,最終仍與 pickLoneliestQuestion 相容):
+ * 1. 選題池:少數派題(percent<50)依 percent 升冪、同 % 依題序排序,取前 3 題
+ *    (不足 3 題取全部)。
+ * 2. 池內有計時資料(`times[questionId]` 有值)的題比時間,最短者得稱號;
+ *    平手依序比 percent(低者優先)、題序(前者優先)。
+ * 3. 池內全部沒有計時資料:fallback 用「現行規則」——pool 已依 percent 升冪排序,
+ *    pool[0] 即 percent 最低者,等同 pickLoneliestQuestion 少數派分支的結果。
+ * 4. 全站多數派(無少數派題):完全委派 pickLoneliestQuestion,mainstream fallback
+ *    行為維持不變(規格明定)。
+ *
+ * @param {Array} results computeQuestionResults 的回傳值
+ * @param {Record<string, number>} [times] 該題庫的 questionTimes map(questionId → 作答耗時
+ *   毫秒),對應 progress.questionTimes;省略時視為空 map(等同全部走步驟 3 的 fallback)。
+ * @returns {{id:string,index:number,choice:string,text:string,percent:number,isMinority:boolean,isFallback:boolean}}
+ *   回傳形狀與 pickLoneliestQuestion 相容。
+ */
+export function pickTitleQuestion(results, times = {}) {
+  const minorityResults = results.filter((r) => r.isMinority);
+  if (minorityResults.length === 0) {
+    return pickLoneliestQuestion(results); // 全多數派:mainstream fallback,完全不變。
+  }
+
+  const pool = [...minorityResults]
+    .sort((a, b) => a.percent - b.percent || a.index - b.index)
+    .slice(0, 3);
+
+  const timed = pool.filter((r) => times[r.id] != null);
+  if (timed.length === 0) {
+    return { ...pool[0], isFallback: false }; // 池內全無計時:fallback 用 percent 最低者。
+  }
+
+  // timed 沿用 pool 的排序(percent 升冪、同率題序在前),用嚴格不等式比較讓先出現者
+  // 在同率(含時間平手需再比 percent/題序)時保留,天然滿足「平手→percent 低者→題序
+  // 前者」(與 pickLoneliestQuestion 同一套技巧)。
+  let best = timed[0];
+  for (const r of timed.slice(1)) {
+    if (times[r.id] < times[best.id]) {
+      best = r;
+    }
+  }
+  return { ...best, isFallback: false };
+}
+
 /** 匹配度(規格書 §2.4):使用者所選那邊的全站比例平均,整數顯示。 */
 export function computeMatchScore(results) {
   const sum = results.reduce((acc, r) => acc + r.percent, 0);
@@ -76,7 +131,8 @@ export function computeMatchScore(results) {
 }
 
 /**
- * 分享文字(規格書 §2.4:「分享文字帶結果摘要」;§2.4 擴充:「分享文字帶稱號」,Phase 3.5)。
+ * 分享文字(規格書 §2.4:「分享文字帶結果摘要」;§2.4 擴充:「分享文字帶稱號」,Phase 3.5;
+ * 「分享文字加計時句」,孤獨稱號選題新規則,2026-07-17 定案)。
  *
  * `title` 為 `lookupLoneliestTitle` 的查表結果(可省略):
  * - 不傳 / 傳 `null`(題庫無 `titles` 欄位,或該 questionId 未收錄):維持 Phase 3 原格式,
@@ -84,8 +140,14 @@ export function computeMatchScore(results) {
  * - 有值:改用規格書 §2.4 擴充例句格式(「我是『少數派冒險家』,還拿到『糖度異端』
  *   稱號——只有 7% 和我一樣。換你選看看?」),需要呼叫端一併傳入 `identityLabel`
  *   (`deriveIdentityLabel` 的結果,本函式不重算)。
+ *
+ * `elapsedMs`(選配,尾端新增參數,舊呼叫不帶此參數行為不變):`loneliest` 那題本輪的
+ * 作答耗時毫秒(對應 progress.questionTimes)。非 fallback 且 `elapsedMs` 有值且
+ * < 10000(10 秒)時,在稱號句的百分比後面加「,這題我 N.N 秒就選了」(毫秒轉秒,
+ * 一位小數);否則(≥10 秒、無計時資料、或 isFallback)維持原句不變——mainstream
+ * fallback 分支的句子完全不受此參數影響。
  */
-export function buildShareSummary(minorityCount, total, loneliest, identityLabel, title) {
+export function buildShareSummary(minorityCount, total, loneliest, identityLabel, title, elapsedMs) {
   if (!title) {
     const line = loneliest.isFallback
       ? `你最大眾的一題有 ${loneliest.percent}% 的人都和你一樣`
@@ -97,7 +159,11 @@ export function buildShareSummary(minorityCount, total, loneliest, identityLabel
   const percentLine = loneliest.isFallback
     ? `${loneliest.percent}% 的人都和我一樣`
     : `只有 ${loneliest.percent}% 和我一樣`;
-  return `我是『${identityLabel}』,還拿到『${title.name}』稱號——${percentLine}。換你選看看?`;
+  const timeSuffix =
+    !loneliest.isFallback && elapsedMs != null && elapsedMs < 10000
+      ? `,這題我 ${(elapsedMs / 1000).toFixed(1)} 秒就選了`
+      : "";
+  return `我是『${identityLabel}』,還拿到『${title.name}』稱號——${percentLine}${timeSuffix}。換你選看看?`;
 }
 
 /**

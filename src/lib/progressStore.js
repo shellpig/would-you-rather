@@ -1,11 +1,13 @@
 // 單一題庫的作答進度邏輯(純函式,不碰 localStorage)。
-// 資料結構照規格書 §6(Phase 2.6 擴充 sessionId / pendingVotes):
+// 資料結構照規格書 §6(Phase 2.6 擴充 sessionId / pendingVotes;孤獨稱號選題新規則
+// 2026-07-17 擴充 questionTimes):
 // { answers: { questionId: "a"|"b" }, sessionId: string|null,
-//   pendingVotes: { questionId: { choice, queuedAt } }, completedAt: number|null }
+//   pendingVotes: { questionId: { choice, queuedAt } }, completedAt: number|null,
+//   questionTimes: { questionId: ms } }
 // 由 src/lib/storage.js 負責讀寫 localStorage、呼叫這裡的純函式做狀態轉換。
 
 export function createEmptyQuizProgress() {
-  return { answers: {}, sessionId: null, pendingVotes: {}, completedAt: null };
+  return { answers: {}, sessionId: null, pendingVotes: {}, completedAt: null, questionTimes: {} };
 }
 
 export function hasAnswered(quizProgress, questionId) {
@@ -94,4 +96,18 @@ export function prunePendingVotes(quizProgress, now) {
   }
   if (!droppedAny) return quizProgress;
   return { ...quizProgress, pendingVotes: kept };
+}
+
+// ---- 孤獨稱號選題新規則(questionTimes),規格書 §2.4 擴充,2026-07-17 定案 ----
+
+/**
+ * 記錄一題「進入題目頁面 → 按下下一題」的作答耗時(毫秒)。呼叫端(quizFlow.js)只在
+ * 該題本輪實際點選過選項時才呼叫本函式,避免中斷續玩 / 重玩時已答但沒重新點選的題被
+ * 記成假的短時間;無條件覆寫舊值,滿足「重新點選則覆寫、沒重新點選則保留上一輪時間」。
+ */
+export function recordQuestionTime(quizProgress, questionId, ms) {
+  return {
+    ...quizProgress,
+    questionTimes: { ...quizProgress.questionTimes, [questionId]: ms },
+  };
 }

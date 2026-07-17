@@ -11,6 +11,7 @@ import {
   queuePendingVote,
   clearPendingVote,
   prunePendingVotes,
+  recordQuestionTime,
 } from "../src/lib/progressStore.js";
 
 test("recordAnswer: 首次作答會記錄且 isFirstAnswer=true", () => {
@@ -117,4 +118,24 @@ test("prunePendingVotes: 沒有過期項目時原樣回傳(呼叫端可用 === �
   progress = queuePendingVote(progress, "fresh", "a", now);
   const pruned = prunePendingVotes(progress, now);
   assert.equal(pruned, progress);
+});
+
+// ---- 孤獨稱號選題新規則:questionTimes(規格書 §2.4 擴充,2026-07-17 定案) ----
+
+test("createEmptyQuizProgress: 預設含空的 questionTimes map", () => {
+  assert.deepEqual(createEmptyQuizProgress().questionTimes, {});
+});
+
+test("recordQuestionTime: 寫入 { questionId: ms }", () => {
+  const empty = createEmptyQuizProgress();
+  const progress = recordQuestionTime(empty, "q1", 1800);
+  assert.deepEqual(progress.questionTimes, { q1: 1800 });
+});
+
+test("recordQuestionTime: 重玩時重新點選會覆寫舊時間,其餘題目不受影響", () => {
+  let progress = createEmptyQuizProgress();
+  progress = recordQuestionTime(progress, "q1", 5000);
+  progress = recordQuestionTime(progress, "q2", 2000);
+  progress = recordQuestionTime(progress, "q1", 900); // 重玩 q1 重新點選,新時間覆寫舊時間
+  assert.deepEqual(progress.questionTimes, { q1: 900, q2: 2000 });
 });
