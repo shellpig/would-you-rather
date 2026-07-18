@@ -443,7 +443,8 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
+  /* gap 撐開圖與文字(站方 2026-07-18:圖偏左、字偏右);整組仍置中,兩側不貼框。 */
+  gap: 26px;
 }
 .result-badge__img {
   flex: none;
