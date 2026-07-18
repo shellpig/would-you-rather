@@ -353,14 +353,9 @@ button {
 }
 .result-hero__label {
   margin: 0;
-  font-size: 26px;
-  font-weight: 800;
-  color: var(--color-primary);
-}
-.result-hero__subtitle {
-  margin: 6px 0 0;
   font-size: 14px;
-  color: var(--color-text);
+  font-weight: 600;
+  color: var(--color-primary);
 }
 .result-hero__lonely {
   margin-top: 18px;
@@ -442,48 +437,86 @@ button {
   font-style: italic;
 }
 
+/* 勳章圖版面(有 titles[].img 時的第三態):徽章圖 + 稱號名/標籤/代表作題目橫向並排,
+   整組置中;圖片用雙層 box-shadow 畫雙環框(內環細淺色、外環粗主題色),不使用生圖的框。 */
+.result-badge__top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+.result-badge__img {
+  flex: none;
+  width: 104px;
+  height: 104px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  box-shadow: 0 0 0 2px #fce4dc, 0 0 0 6px var(--color-primary);
+}
+.result-badge__info {
+  min-width: 0;
+}
+.result-badge__info p {
+  text-align: left;
+}
+.result-badge__info .result-badge__name {
+  margin: 0 0 2px;
+}
+.result-badge__info .result-hero__lonely-label {
+  margin: 0;
+}
+.result-badge__info .result-hero__lonely-text {
+  margin: 2px 0 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .result-list {
   list-style: none;
   margin: 16px 0 0;
   padding: 0;
-  background: var(--color-card-bg);
-  border-radius: var(--radius);
-  overflow: hidden;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px;
 }
 .result-list__item {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
-  padding: 10px 14px;
-  font-size: 14px;
-  border-bottom: 1px solid #f3ece7;
+  gap: 6px;
+  min-width: 0;
+  padding: 8px 10px;
+  font-size: 13px;
+  border-radius: 8px;
+  background: var(--color-card-bg);
+  border: 1px solid #f0e7e1;
 }
-.result-list__item:last-child {
-  border-bottom: none;
+.result-list__item.is-minority {
+  background: #fdeceb;
+  border-color: #f3b8b2;
 }
 .result-list__text {
+  min-width: 0;
   flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .result-list__percent {
   flex: none;
-  font-size: 13px;
   font-weight: 700;
   color: var(--color-muted);
 }
-.result-list__tag {
-  flex: none;
-  font-size: 11px;
+.result-list__item.is-minority .result-list__percent {
+  color: var(--color-primary);
+}
+.result-list__flag {
+  margin-left: 3px;
+  font-size: 10px;
   font-weight: 700;
-  padding: 3px 8px;
-  border-radius: 999px;
-  color: #fff;
-}
-.result-list__tag.is-minority {
-  background: var(--color-primary);
-}
-.result-list__tag.is-majority {
-  background: var(--color-muted);
+  color: var(--color-primary);
 }
 
 .result-share {

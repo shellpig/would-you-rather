@@ -1,0 +1,27 @@
+用途:daily-life / 稱號徽章圖 / 稱號「時差星人」(sleep-in-early-bird)/ 1:1 / 配色:柔和午夜藍紫 × 暖金星光
+說明:稱號徽章為新素材類別(2026-07-18 站方定案):畫風沿用站內 kawaii storybook 家族,
+配色比 pastel 稍深做「稱號感」;圖不含外框(徽章雙環框由前端 CSS 固定繪製,確保 16 款一致)。
+正式檔:public/img/daily-life/titles/sleep-in-early-bird.webp(512×512 WebP,ffmpeg -quality 80)。
+
+PROMPT:
+Cute cozy game illustration, 1:1 square, one single centered subject
+filling most of the frame: a chubby rounded crescent moon cradling a
+small round alarm clock, tiny stars and sparkles floating around, the
+clock face marked with tick marks only. Night-sky color palette: soft
+midnight blue and gentle lavender purple, with warm golden accents on
+the stars and clock, slightly deeper than pastel but still soft and
+cozy, harmonious not flashy. Rounded shapes, thick soft outlines, flat
+illustration with subtle soft shading, kawaii style but clean and not
+childish. Storybook game art style. Simple plain night backdrop with
+gentle vignette, no clutter. The artwork fills the whole square edge
+to edge. No circular frame, no border, no ring, no text, no letters,
+no numbers, no watermark. 1:1 aspect ratio.
+
+NEGATIVE:
+text, letters, numbers, typography, watermark, logo, badge frame,
+circular border, metal ring, gold frame, realistic photo, 3d render,
+harsh shadows, saturated neon colors, cluttered background, human
+faces, animals, split screen
+
+已知瑕疵與接受決定:月亮帶睡臉(prompt 未要求臉;站方看圖後接受,kawaii 家族內不違和)。
+時鐘面為刻度線無數字,符合要求。

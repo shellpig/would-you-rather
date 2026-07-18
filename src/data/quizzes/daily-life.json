@@ -90,7 +90,7 @@
     "cook-dine-out": { "name": "餐桌孤味家", "blurb": "大家排隊的店,你不排;你的味道自己定。" },
     "movie-book": { "name": "故事偏食者", "blurb": "同一個故事,你偏要用另一種方式打開。" },
     "stay-home-go-out": { "name": "門檻逆行者", "blurb": "人潮往哪去,你就往反方向走。" },
-    "sleep-in-early-bird": { "name": "時差星人", "blurb": "你的生理時鐘,跟這個世界隔了一個時區。" },
+    "sleep-in-early-bird": { "name": "時差星人", "blurb": "你的生理時鐘,跟這個世界隔了一個時區。", "img": "/img/daily-life/titles/sleep-in-early-bird.webp" },
     "sushi-pasta": { "name": "孤獨的老饕", "blurb": "菜單上眾人略過的那頁,是你的主場。" },
     "beach-mountain": { "name": "絕景獨行者", "blurb": "最美的風景,你總是一個人先看到。" },
     "park-home-date": { "name": "戀愛非主流", "blurb": "你的浪漫,大多數人還沒學會欣賞。" },

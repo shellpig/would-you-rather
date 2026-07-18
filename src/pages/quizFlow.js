@@ -313,28 +313,44 @@ export async function renderQuizFlow(app, { slug }) {
     // 標籤文字(規格書 §2.4 擴充,2026-07-17 定案):新規則選出的題不一定是絕對最低 %,
     // 少數派分支的標籤文字改為「你的孤獨代表作」;mainstream fallback 分支「你最大眾
     // 的一題」不變。
-    const loneliestHtml = loneliest.isFallback
-      ? `<p class="result-hero__lonely-label">你最大眾的一題</p>
+    const percentLabel = loneliest.isFallback ? "你最大眾的一題" : "你的孤獨代表作";
+    const percentLine = loneliest.isFallback
+      ? `<strong>${loneliest.percent}%</strong> 的人都和你一樣`
+      : `只有 <strong>${loneliest.percent}%</strong> 的人和你一樣`;
+    const loneliestHtml = `<p class="result-hero__lonely-label">${percentLabel}</p>
          <p class="result-hero__lonely-text">${loneliest.text}</p>
-         <p class="result-hero__lonely-percent"><strong>${loneliest.percent}%</strong> 的人都和你一樣</p>`
-      : `<p class="result-hero__lonely-label">你的孤獨代表作</p>
-         <p class="result-hero__lonely-text">${loneliest.text}</p>
-         <p class="result-hero__lonely-percent">只有 <strong>${loneliest.percent}%</strong> 的人和你一樣</p>`;
+         <p class="result-hero__lonely-percent">${percentLine}</p>`;
 
-    // 勳章元件(規格書 §2.4 擴充):有稱號時在原「你的孤獨代表作」內容外包一層稱號名 +
-    // 判詞;無稱號(loneliestTitle 為 null)時 badgeHtml 就是原本的 loneliestHtml,
-    // 版面與 Phase 3 完全一致(規格書 §2.4 擴充「降級」)。
-    const badgeHtml = loneliestTitle
-      ? `<p class="result-badge__name">${loneliestTitle.name}</p>
+    // 勳章元件三態(總結卡改版,2026-07-18 站方拍板):
+    // 1. loneliestTitle 為 null:維持原樣,badgeHtml 就是 loneliestHtml(零改動)。
+    // 2. loneliestTitle 有值但無 img:維持現有版面(稱號名 + loneliestHtml + 判詞,零改動)。
+    // 3. loneliestTitle.img 有值:上半改成「徽章圖(雙環框)+ 稱號名/標籤/代表作題目」
+    //    橫向並排、整組置中的新版面;下半(比例句 + 判詞)照舊置中,fallback 文案邏輯不變。
+    let badgeHtml;
+    if (!loneliestTitle) {
+      badgeHtml = loneliestHtml;
+    } else if (!loneliestTitle.img) {
+      badgeHtml = `<p class="result-badge__name">${loneliestTitle.name}</p>
          ${loneliestHtml}
-         <p class="result-badge__blurb">${loneliestTitle.blurb}</p>`
-      : loneliestHtml;
+         <p class="result-badge__blurb">${loneliestTitle.blurb}</p>`;
+    } else {
+      badgeHtml = `
+        <div class="result-badge__top">
+          <img class="result-badge__img" src="${loneliestTitle.img}" alt="${loneliestTitle.name}" />
+          <div class="result-badge__info">
+            <p class="result-badge__name">${loneliestTitle.name}</p>
+            <p class="result-hero__lonely-label">${percentLabel}</p>
+            <p class="result-hero__lonely-text">${loneliest.text}</p>
+          </div>
+        </div>
+        <p class="result-hero__lonely-percent">${percentLine}</p>
+        <p class="result-badge__blurb">${loneliestTitle.blurb}</p>`;
+    }
 
     app.innerHTML = `
       <section class="result-card">
         <div class="result-hero">
-          <p class="result-hero__label">${identityLabel}</p>
-          <p class="result-hero__subtitle">你在 ${minorityCount}/${total} 題站在少數派</p>
+          <p class="result-hero__label">${identityLabel} · 你在 ${minorityCount}/${total} 題站在少數派</p>
           <div class="result-hero__lonely${loneliestTitle ? " result-badge" : ""}">${badgeHtml}</div>
           <p class="result-hero__match">你和 <strong>${matchScore}%</strong> 的人品味相同</p>
         </div>
@@ -343,11 +359,10 @@ export async function renderQuizFlow(app, { slug }) {
           ${results
             .map(
               (r) => `
-            <li class="result-list__item">
+            <li class="result-list__item ${r.isMinority ? "is-minority" : "is-majority"}">
               <span class="result-list__text">${r.text}</span>
-              <span class="result-list__percent">${r.percent}%</span>
-              <span class="result-list__tag ${r.isMinority ? "is-minority" : "is-majority"}">${
-                r.isMinority ? "少數派" : "多數派"
+              <span class="result-list__percent">${r.percent}%${
+                r.isMinority ? '<span class="result-list__flag">少數</span>' : ""
               }</span>
             </li>`
             )
