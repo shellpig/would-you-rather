@@ -3,7 +3,8 @@
 > 建立日期:2026-07-17。**題目、順序與文案定稿:2026-07-17(站方逐題拍板)**。
 > 題庫方向:收錄台灣人長期分成兩派的飲食選擇;問「你怎麼吃」,不判定哪一派正統。
 > `question.id` 已凍結,為統計 key,**定稿後永不變更**;順序調整只動 JSON 陣列排列。
-> 種子票與 16 組孤獨稱號定稿:2026-07-17。尚未進入:插圖(prompt / 生成)、接前端(見文末待辦)。
+> 種子票與 16 組孤獨稱號定稿:2026-07-17。封面、30 張選項圖與 16 張稱號徽章已完成;
+> 尚未進入:題庫 JSON、seed 檔、接前端(見文末待辦)。
 
 ## 基本資料
 
@@ -14,7 +15,7 @@
 - **簡述 / 挑戰鉤子**:南部粽還是北部粽、咖哩拌不拌、火鍋能不能放芋頭——15 場台灣人的美食信仰大戰,看你跟多少人吃不到一塊。(✅ 定稿 2026-07-17)
 - **OG title**:台灣美食信仰大戰|你跟大家吃得到一塊嗎?(✅ 定稿 2026-07-17)
 - **OG description**:15 題台灣人吵不完的美食二選一,每題立刻看到全站比例。測完看看你是主流老饕,還是餐桌異端。(✅ 定稿 2026-07-17)
-- **封面**:未生成
+- **封面**:`/img/taiwan-food-wars/cover.webp`(✅ 完成)
 
 ## 題目定稿(依出題順序)
 
@@ -82,8 +83,8 @@
 - [x] 15 題逐題保留、換題或調整文案(2026-07-17;#15 換題、#5 涼麵 B 文案調整)
 - [x] 題目順序定稿(2026-07-17;站方指定芋頭開場)
 - [x] `question.id` 凍結(2026-07-17)
-- [ ] 封面構圖與各題插圖 prompt
-- [ ] 全部插圖生成並轉為 WebP 30–50KB
+- [x] 封面構圖與各題插圖 prompt(2026-07-17)
+- [x] 封面、30 張選項圖與 16 張稱號徽章生成並轉為正式 WebP(2026-07-19)
 - [x] 種子票分佈逐題定稿(2026-07-17)
 - [x] 16 組孤獨稱號與判詞定稿(2026-07-17)
 - [ ] 建立題庫 JSON、seed 檔並接入前端
@@ -116,21 +117,26 @@
 
 依「最孤獨的一題」的 `questionId` 查表;稱號不分 A/B 邊,只綁題目主題。全程無少數派時用 `mainstream`。
 
-| questionId | 稱號 | 判詞 |
-|---|---|---|
-| `hotpot-taro` | 湯底異教徒 | 同一鍋湯,你信的教派和大家不同。 |
-| `curry-mix` | 咖哩異議者 | 一盤咖哩,你吃出了別人看不懂的儀式。 |
-| `danbing-batter-crispy` | 餅皮少數派 | 同一家早餐店,你點的皮跟大家不同掛。 |
-| `meatball-fried-steamed` | 肉圓獨行俠 | 同一顆肉圓,你偏要走另一種做法。 |
-| `cold-noodle-sauce` | 醬料邊緣人 | 全桌的涼麵,只有你淋的是另一種醬。 |
-| `rice-noodle-thick-thin` | 米粉異鄉人 | 同一碗湯,你堅持的粗細只有你懂。 |
-| `north-south-zongzi` | 粽葉裡的少數派 | 每年端午開戰,你都站在人少的那隊。 |
-| `beef-noodle-braised-clear` | 湯頭孤傲家 | 整間麵店的人,只有你的湯色不一樣。 |
-| `runbing-sweet-savory` | 潤餅逆行者 | 同一張餅皮,你包的是另一種人生。 |
-| `rice-cake-style` | 米糕考據派 | 你認的那一味,多數人連聽都沒聽過。 |
-| `coriander` | 香菜孤勇者 | 在全國最大的餐桌戰爭裡,你選了人少的那邊。 |
-| `meat-soup-thickness` | 羹湯異見者 | 一碗羹的濃稠,你有自己的堅持。 |
-| `luroufan-mix` | 滷肉飯修行者 | 一碗國民美食,你吃出了自己的門派。 |
-| `savory-food-sweetness` | 味覺越界者 | 你的舌頭,住在跟大家不同的緯度。 |
-| `fried-chicken-cut` | 雞排基本教義派 | 一塊雞排的切法,你堅守少數人的信仰。 |
-| `mainstream` | 國民舌頭 | 15 場美食大戰,場場與大家同行——你的舌頭就是台灣平均值。 |
+稱號徽章於 2026-07-19 由 Google Flow 匯出,原始 JPEG 歸檔於
+`assets/generated/taiwan-food-wars/title-*.jpeg`;該批 prompt 未隨檔保存,不補造 prompt 檔。
+正式檔皆為 512×512 WebP。未採用的另一張蛋餅候選保留於
+`assets/generated/taiwan-food-wars/nouse/`。
+
+| questionId | 稱號 | 判詞 | 正式圖 |
+|---|---|---|---|
+| `hotpot-taro` | 湯底異教徒 | 同一鍋湯,你信的教派和大家不同。 | `/img/taiwan-food-wars/titles/hotpot-taro.webp` |
+| `curry-mix` | 咖哩異議者 | 一盤咖哩,你吃出了別人看不懂的儀式。 | `/img/taiwan-food-wars/titles/curry-mix.webp` |
+| `danbing-batter-crispy` | 餅皮少數派 | 同一家早餐店,你點的皮跟大家不同掛。 | `/img/taiwan-food-wars/titles/danbing-batter-crispy.webp` |
+| `meatball-fried-steamed` | 肉圓獨行俠 | 同一顆肉圓,你偏要走另一種做法。 | `/img/taiwan-food-wars/titles/meatball-fried-steamed.webp` |
+| `cold-noodle-sauce` | 醬料邊緣人 | 全桌的涼麵,只有你淋的是另一種醬。 | `/img/taiwan-food-wars/titles/cold-noodle-sauce.webp` |
+| `rice-noodle-thick-thin` | 米粉異鄉人 | 同一碗湯,你堅持的粗細只有你懂。 | `/img/taiwan-food-wars/titles/rice-noodle-thick-thin.webp` |
+| `north-south-zongzi` | 粽葉裡的少數派 | 每年端午開戰,你都站在人少的那隊。 | `/img/taiwan-food-wars/titles/north-south-zongzi.webp` |
+| `beef-noodle-braised-clear` | 湯頭孤傲家 | 整間麵店的人,只有你的湯色不一樣。 | `/img/taiwan-food-wars/titles/beef-noodle-braised-clear.webp` |
+| `runbing-sweet-savory` | 潤餅逆行者 | 同一張餅皮,你包的是另一種人生。 | `/img/taiwan-food-wars/titles/runbing-sweet-savory.webp` |
+| `rice-cake-style` | 米糕考據派 | 你認的那一味,多數人連聽都沒聽過。 | `/img/taiwan-food-wars/titles/rice-cake-style.webp` |
+| `coriander` | 香菜孤勇者 | 在全國最大的餐桌戰爭裡,你選了人少的那邊。 | `/img/taiwan-food-wars/titles/coriander.webp` |
+| `meat-soup-thickness` | 羹湯異見者 | 一碗羹的濃稠,你有自己的堅持。 | `/img/taiwan-food-wars/titles/meat-soup-thickness.webp` |
+| `luroufan-mix` | 滷肉飯修行者 | 一碗國民美食,你吃出了自己的門派。 | `/img/taiwan-food-wars/titles/luroufan-mix.webp` |
+| `savory-food-sweetness` | 味覺越界者 | 你的舌頭,住在跟大家不同的緯度。 | `/img/taiwan-food-wars/titles/savory-food-sweetness.webp` |
+| `fried-chicken-cut` | 雞排基本教義派 | 一塊雞排的切法,你堅守少數人的信仰。 | `/img/taiwan-food-wars/titles/fried-chicken-cut.webp` |
+| `mainstream` | 國民舌頭 | 15 場美食大戰,場場與大家同行——你的舌頭就是台灣平均值。 | `/img/taiwan-food-wars/titles/mainstream.webp` |
