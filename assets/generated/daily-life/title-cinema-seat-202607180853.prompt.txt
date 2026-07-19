@@ -1,0 +1,13 @@
+用途:daily-life / 稱號徽章圖 / 稱號「戲院獨行俠」(romcom-horror)/ 1:1 / 配色:深紫 × 銀白
+說明:稱號徽章為新素材類別(2026-07-18 站方定案):畫風沿用站內 kawaii storybook 家族,
+配色比 pastel 稍深做「稱號感」;圖不含外框(徽章雙環框由前端 CSS 固定繪製,確保 16 款一致)。
+正式檔:public/img/daily-life/titles/romcom-horror.webp(512×512 WebP,ffmpeg -quality 80)。
+
+PROMPT:
+Cute cozy game illustration, 1:1 square, one single centered subject filling most of the frame: a chubby rounded cinema armchair with a plump popcorn bucket resting on its armrest, lit from above by a soft glowing projector beam, tiny film reel and sparkles floating around. Theater color palette: deep violet purple and dusky plum, with silvery white and soft silver-gray accents on the beam and popcorn, slightly deeper than pastel but still soft and cozy, harmonious not flashy. Rounded shapes, thick soft outlines, flat illustration with subtle soft shading, kawaii style but clean and not childish. Storybook game art style. Simple plain dim backdrop with gentle vignette, no clutter. The artwork fills the whole square edge to edge. No circular frame, no border, no ring, no text, no letters, no numbers, no watermark. 1:1 aspect ratio.
+
+NEGATIVE:
+text, letters, numbers, typography, watermark, logo, badge frame,
+circular border, metal ring, gold frame, realistic photo, 3d render,
+harsh shadows, saturated neon colors, cluttered background, human
+faces, animals, split screen

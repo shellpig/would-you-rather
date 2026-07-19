@@ -84,21 +84,21 @@
     }
   ],
   "titles": {
-    "cat-dog": { "name": "毛孩孤勇者", "blurb": "在最大的戰場上,你站了人少的那邊。" },
-    "romcom-horror": { "name": "戲院獨行俠", "blurb": "散場燈亮起,只有你看的是另一部片。" },
-    "coffee-tea": { "name": "杯中異類", "blurb": "全辦公室的飲料,就你那杯不一樣。" },
-    "cook-dine-out": { "name": "餐桌孤味家", "blurb": "大家排隊的店,你不排;你的味道自己定。" },
-    "movie-book": { "name": "故事偏食者", "blurb": "同一個故事,你偏要用另一種方式打開。" },
-    "stay-home-go-out": { "name": "門檻逆行者", "blurb": "人潮往哪去,你就往反方向走。" },
+    "cat-dog": { "name": "毛孩孤勇者", "blurb": "在最大的戰場上,你站了人少的那邊。", "img": "/img/daily-life/titles/cat-dog.webp" },
+    "romcom-horror": { "name": "戲院獨行俠", "blurb": "散場燈亮起,只有你看的是另一部片。", "img": "/img/daily-life/titles/romcom-horror.webp" },
+    "coffee-tea": { "name": "杯中異類", "blurb": "全辦公室的飲料,就你那杯不一樣。", "img": "/img/daily-life/titles/coffee-tea.webp" },
+    "cook-dine-out": { "name": "餐桌孤味家", "blurb": "大家排隊的店,你不排;你的味道自己定。", "img": "/img/daily-life/titles/cook-dine-out.webp" },
+    "movie-book": { "name": "故事偏食者", "blurb": "同一個故事,你偏要用另一種方式打開。", "img": "/img/daily-life/titles/movie-book.webp" },
+    "stay-home-go-out": { "name": "門檻逆行者", "blurb": "人潮往哪去,你就往反方向走。", "img": "/img/daily-life/titles/stay-home-go-out.webp" },
     "sleep-in-early-bird": { "name": "時差星人", "blurb": "你的生理時鐘,跟這個世界隔了一個時區。", "img": "/img/daily-life/titles/sleep-in-early-bird.webp" },
-    "sushi-pasta": { "name": "孤獨的老饕", "blurb": "菜單上眾人略過的那頁,是你的主場。" },
-    "beach-mountain": { "name": "絕景獨行者", "blurb": "最美的風景,你總是一個人先看到。" },
-    "park-home-date": { "name": "戀愛非主流", "blurb": "你的浪漫,大多數人還沒學會欣賞。" },
-    "world-local-travel": { "name": "地圖邊緣人", "blurb": "大家的旅行清單上,沒有你要去的那格。" },
-    "sugar-free-full-sugar": { "name": "糖度異端", "blurb": "手搖店店員記得你,因為只有你這樣點。" },
-    "country-city": { "name": "落腳浪漫派", "blurb": "你想定居的地方,別人只當風景路過。" },
-    "favorite-first-last": { "name": "餐序哲學家", "blurb": "一口食物的順序,你有一整套別人不懂的道理。" },
-    "summer-winter": { "name": "反季節生物", "blurb": "大家喊冷的時候,你正覺得剛剛好。" },
-    "mainstream": { "name": "人間平均值", "blurb": "15 題,題題與大家同行——你就是「大家」本人。" }
+    "sushi-pasta": { "name": "孤獨的老饕", "blurb": "菜單上眾人略過的那頁,是你的主場。", "img": "/img/daily-life/titles/sushi-pasta.webp" },
+    "beach-mountain": { "name": "絕景獨行者", "blurb": "最美的風景,你總是一個人先看到。", "img": "/img/daily-life/titles/beach-mountain.webp" },
+    "park-home-date": { "name": "戀愛非主流", "blurb": "你的浪漫,大多數人還沒學會欣賞。", "img": "/img/daily-life/titles/park-home-date.webp" },
+    "world-local-travel": { "name": "地圖邊緣人", "blurb": "大家的旅行清單上,沒有你要去的那格。", "img": "/img/daily-life/titles/world-local-travel.webp" },
+    "sugar-free-full-sugar": { "name": "糖度異端", "blurb": "手搖店店員記得你,因為只有你這樣點。", "img": "/img/daily-life/titles/sugar-free-full-sugar.webp" },
+    "country-city": { "name": "落腳浪漫派", "blurb": "你想定居的地方,別人只當風景路過。", "img": "/img/daily-life/titles/country-city.webp" },
+    "favorite-first-last": { "name": "餐序哲學家", "blurb": "一口食物的順序,你有一整套別人不懂的道理。", "img": "/img/daily-life/titles/favorite-first-last.webp" },
+    "summer-winter": { "name": "反季節生物", "blurb": "大家喊冷的時候,你正覺得剛剛好。", "img": "/img/daily-life/titles/summer-winter.webp" },
+    "mainstream": { "name": "人間平均值", "blurb": "15 題,題題與大家同行——你就是「大家」本人。", "img": "/img/daily-life/titles/mainstream.webp" }
   }
 }

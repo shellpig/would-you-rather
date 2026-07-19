@@ -1,0 +1,14 @@
+用途:daily-life / 稱號徽章圖 / 稱號「門檻逆行者」(stay-home-go-out)/ 1:1 / 配色:石墨灰 × 亮青
+說明:稱號徽章為新素材類別(2026-07-18 站方定案):畫風沿用站內 kawaii storybook 家族,
+配色比 pastel 稍深做「稱號感」;圖不含外框(徽章雙環框由前端 CSS 固定繪製,確保 16 款一致)。
+v2(首版抽象箭頭構圖棄用)。
+正式檔:public/img/daily-life/titles/stay-home-go-out.webp(512×512 WebP,ffmpeg -quality 80)。
+
+PROMPT:
+Cute cozy game illustration, 1:1 square, one single centered subject filling most of the frame: a chubby rounded wooden door standing slightly ajar, cool luminous aqua-cyan starlight spilling through the gap, a small round doormat in front of it, tiny stars and sparkles drifting through the opening. Cool twilight color palette: soft graphite gray and slate blue on the door and backdrop, gentle glowing aqua cyan light through the gap, cream accents on the doormat, soft glow not neon, slightly deeper than pastel but still soft and cozy. Rounded shapes, thick soft outlines, flat illustration with subtle soft shading, kawaii style but clean and not childish. Storybook game art style. Simple plain backdrop with gentle vignette, no clutter. The artwork fills the whole square edge to edge. No circular frame, no border, no ring, no text, no letters, no numbers, no watermark. 1:1 aspect ratio.
+
+NEGATIVE:
+text, letters, numbers, typography, watermark, logo, badge frame,
+circular border, metal ring, gold frame, realistic photo, 3d render,
+harsh shadows, saturated neon colors, cluttered background, human
+faces, animals, split screen

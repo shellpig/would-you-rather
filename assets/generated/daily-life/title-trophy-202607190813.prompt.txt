@@ -1,0 +1,8 @@
+用途:daily-life / 稱號徽章圖 / 稱號「人間平均值」(mainstream)/ 1:1 / 配色:金 × 柔彩虹(特殊款)
+說明:稱號徽章為新素材類別(2026-07-18 站方定案):畫風沿用站內 kawaii storybook 家族,
+配色比 pastel 稍深做「稱號感」;圖不含外框(徽章雙環框由前端 CSS 固定繪製,確保 16 款一致)。
+v2(首版星星獎章太單調棄用)。生成:Google Flow / Nano Banana 2。
+正式檔:public/img/daily-life/titles/mainstream.webp(512×512 WebP,ffmpeg -quality 80)。
+
+PROMPT:
+Cute cozy game illustration, 1:1 square, one single centered subject filling most of the frame: a chubby rounded golden trophy cup with a soft heart emblem embossed on its body, two silky pastel rainbow ribbons swirling around the cup, small pastel confetti and sparkles gently falling all around, a warm glow rising from inside the cup. Celebration color palette: warm golden yellow and cream base, ribbons and confetti in soft pastel rainbow hues of pink, peach, mint, sky blue and lilac, slightly deeper than pastel but still soft and cozy, harmonious not flashy. Rounded shapes, thick soft outlines, flat illustration with subtle soft shading, kawaii style but clean and not childish. Storybook game art style. Simple plain bright backdrop with gentle vignette, no clutter. The artwork fills the whole square edge to edge. No circular frame, no border, no text, no letters, no numbers, no watermark. 1:1 aspect ratio. Avoid: text, letters, numbers, typography, watermark, logo, badge frame, circular border, metal ring, realistic photo, 3d render, harsh shadows, saturated neon colors, cluttered background, human faces, animals, split screen.

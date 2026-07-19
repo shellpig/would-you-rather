@@ -1,0 +1,14 @@
+用途:daily-life / 稱號徽章圖 / 稱號「孤獨的老饕」(sushi-pasta)/ 1:1 / 配色:酒紅 × 金
+說明:稱號徽章為新素材類別(2026-07-18 站方定案):畫風沿用站內 kawaii storybook 家族,
+配色比 pastel 稍深做「稱號感」;圖不含外框(徽章雙環框由前端 CSS 固定繪製,確保 16 款一致)。
+v2(首版蓋著的餐蓋太單調棄用)。
+正式檔:public/img/daily-life/titles/sushi-pasta.webp(512×512 WebP,ffmpeg -quality 80)。
+
+PROMPT:
+Cute cozy game illustration, 1:1 square, one single centered subject filling most of the frame: a golden serving cloche lifted up to reveal a glowing star-shaped delicacy on a chubby rounded plate, warm light rays and soft steam swirling up from the dish, a tiny crown perched on the cloche knob, small sparkles floating around. Royal gourmet color palette: deep burgundy wine red and plum backdrop, warm golden yellow on the cloche, crown and glow, with cream highlights, slightly deeper than pastel but still soft and cozy, harmonious not flashy. Rounded shapes, thick soft outlines, flat illustration with subtle soft shading, kawaii style but clean and not childish. Storybook game art style. Simple plain rich backdrop with gentle vignette, no clutter. The artwork fills the whole square edge to edge. No circular frame, no border, no ring, no text, no letters, no numbers, no watermark. 1:1 aspect ratio.
+
+NEGATIVE:
+text, letters, numbers, typography, watermark, logo, badge frame,
+circular border, metal ring, gold frame, realistic photo, 3d render,
+harsh shadows, saturated neon colors, cluttered background, human
+faces, animals, split screen
