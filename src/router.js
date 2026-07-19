@@ -8,6 +8,8 @@
 //   同時不需另外攔截 popstate 做特殊阻擋,維持最簡單實作。
 // - 只有「/」→「/quiz/:slug」這一次導覽會 push 新 entry。
 
+import { DEFAULT_PAGE_TITLE } from "./lib/pageTitle.js";
+
 const routes = [];
 
 export function registerRoute(pattern, render) {
@@ -24,6 +26,9 @@ function matchRoute(pathname) {
 
 async function renderCurrentPath() {
   const app = document.getElementById("app");
+  // SPA 內部導覽不會重載頁面,分頁標題需在每次路由切換時重設,否則會停留在前一頁的值。
+  // 這裡先設回 index.html 的預設標題;題庫頁(renderQuizFlow)載入題庫資料後再覆寫。
+  document.title = DEFAULT_PAGE_TITLE;
   const match = matchRoute(location.pathname);
   if (!match) {
     app.innerHTML = `<p class="not-found">找不到頁面</p>`;

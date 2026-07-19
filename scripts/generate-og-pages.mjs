@@ -19,17 +19,17 @@
 import { readFileSync, writeFileSync, mkdirSync, rmSync, existsSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
+import { quizPageTitle } from "../src/lib/pageTitle.js";
 
 const scriptsDir = path.dirname(fileURLToPath(import.meta.url));
 const rootDir = path.join(scriptsDir, "..");
 const distDir = path.join(rootDir, "dist");
 const dataDir = path.join(rootDir, "src", "data");
 
-// 網站正式網域尚未拍板(見 PROJECT_BRIEF.md > 待決事項)。用可覆寫的環境變數 SITE_URL,
-// Phase 5 網域定案後只需在部署設定填入正式值即可,不需改程式碼;本機/未設定時用格式正確
-// 的佔位網域,og:image / canonical 仍是合法絕對網址,只是網域待換(Phase 5 真網域預覽
-// 實測時一併確認)。
-const SITE_URL = (process.env.SITE_URL ?? "https://would-you-rather.pages.dev").replace(/\/+$/, "");
+// 正式網址已定案(2026-07-17,規格書 §5):Pages 專案 would-you-rather-tw 的免費子網域,
+// 預設值即正式網址。仍保留可覆寫的環境變數 SITE_URL——日後購入自訂網域時只需在部署設定
+// 填入新值即可,不需改程式碼。
+const SITE_URL = (process.env.SITE_URL ?? "https://would-you-rather-tw.pages.dev").replace(/\/+$/, "");
 
 const indexHtmlPath = path.join(distDir, "index.html");
 if (!existsSync(indexHtmlPath)) {
@@ -73,7 +73,8 @@ for (const { id } of manifest.quizzes) {
   // ogTitle/ogDescription 為選配欄位(開發設計方針.md > Phase 4 > OG 文案):有定稿
   // OG 文案的題庫直接整段套用(不再疊加「— Would You Rather」後綴,定稿文案本身已是
   // 完整標題);沒有這兩個欄位的題庫 fallback 回 Phase 3 既有公式,行為不變。
-  const title = quiz.ogTitle ?? `${quiz.title} — 你是哪一派?`;
+  // 標題組法抽至 src/lib/pageTitle.js,與 SPA 路由切換的 document.title 共用(2026-07-19)。
+  const title = quizPageTitle(quiz);
   const description = quiz.ogDescription ?? quiz.description;
   const imageUrl = `${SITE_URL}${quiz.cover}`;
   const canonicalUrl = `${SITE_URL}/quiz/${id}`;

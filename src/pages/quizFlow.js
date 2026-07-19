@@ -29,9 +29,12 @@ import {
 import { pickRecommendedQuizzes } from "../lib/recommend.js";
 import { canUseWebShare, shareResult, copyResultLink } from "../lib/share.js";
 import { trackEvent } from "../lib/analytics.js";
+import { quizPageTitle } from "../lib/pageTitle.js";
 
 export async function renderQuizFlow(app, { slug }) {
   const quiz = await fetchQuiz(slug);
+  // 分頁標題與該題庫的 OG 靜態頁 <title> 一致(共用 pageTitle.js,見 router.js 註解)。
+  document.title = quizPageTitle(quiz);
   const playedCount = await fetchPlayedCount(slug);
   const questionIds = quiz.questions.map((q) => q.id);
 
