@@ -6,6 +6,13 @@
       "cover": "/img/daily-life/cover.webp",
       "category": "life",
       "questionCount": 15
+    },
+    {
+      "id": "taiwan-food-wars",
+      "title": "台灣美食信仰大戰:你是哪一派?",
+      "cover": "/img/taiwan-food-wars/cover.webp",
+      "category": "food",
+      "questionCount": 15
     }
   ]
 }

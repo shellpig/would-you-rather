@@ -1,0 +1,104 @@
+{
+  "id": "taiwan-food-wars",
+  "title": "台灣美食信仰大戰:你是哪一派?",
+  "description": "南部粽還是北部粽、咖哩拌不拌、火鍋能不能放芋頭——15 場台灣人的美食信仰大戰,看你跟多少人吃不到一塊。",
+  "cover": "/img/taiwan-food-wars/cover.webp",
+  "category": "food",
+  "ogTitle": "台灣美食信仰大戰|你跟大家吃得到一塊嗎?",
+  "ogDescription": "15 題台灣人吵不完的美食二選一,每題立刻看到全站比例。測完看看你是主流老饕,還是餐桌異端。",
+  "questions": [
+    {
+      "id": "hotpot-taro",
+      "a": { "text": "要,煮到鬆化融入湯頭", "img": "/img/taiwan-food-wars/hotpot-taro.webp" },
+      "b": { "text": "不要,湯頭保持清爽", "img": "/img/taiwan-food-wars/hotpot-clear-broth.webp" }
+    },
+    {
+      "id": "curry-mix",
+      "a": { "text": "全部拌勻", "img": "/img/taiwan-food-wars/curry-mixed.webp" },
+      "b": { "text": "一口飯配一口咖哩", "img": "/img/taiwan-food-wars/curry-separated.webp" }
+    },
+    {
+      "id": "danbing-batter-crispy",
+      "a": { "text": "厚實軟 Q 粉漿蛋餅", "img": "/img/taiwan-food-wars/danbing-thick-batter.webp" },
+      "b": { "text": "酥脆薄皮蛋餅", "img": "/img/taiwan-food-wars/danbing-thin-crispy.webp" }
+    },
+    {
+      "id": "meatball-fried-steamed",
+      "a": { "text": "炸肉圓", "img": "/img/taiwan-food-wars/rouyuan-deep-fried.webp" },
+      "b": { "text": "蒸肉圓", "img": "/img/taiwan-food-wars/rouyuan-steamed.webp" }
+    },
+    {
+      "id": "cold-noodle-sauce",
+      "a": { "text": "麻醬蒜泥", "img": "/img/taiwan-food-wars/cold-noodles-sesame-garlic.webp" },
+      "b": { "text": "白醋美乃滋(嘉義派)", "img": "/img/taiwan-food-wars/cold-noodles-white-vinegar-mayo.webp" }
+    },
+    {
+      "id": "rice-noodle-thick-thin",
+      "a": { "text": "粗米粉", "img": "/img/taiwan-food-wars/rice-noodle-thick.webp" },
+      "b": { "text": "細米粉", "img": "/img/taiwan-food-wars/rice-noodle-thin.webp" }
+    },
+    {
+      "id": "north-south-zongzi",
+      "a": { "text": "北部粽:粒粒分明、先炒後蒸", "img": "/img/taiwan-food-wars/zongzi-northern.webp" },
+      "b": { "text": "南部粽:軟糯入味、水煮粽葉香", "img": "/img/taiwan-food-wars/zongzi-southern.webp" }
+    },
+    {
+      "id": "beef-noodle-braised-clear",
+      "a": { "text": "濃郁紅燒", "img": "/img/taiwan-food-wars/beef-noodle-braised.webp" },
+      "b": { "text": "清爽清燉", "img": "/img/taiwan-food-wars/beef-noodle-clear.webp" }
+    },
+    {
+      "id": "runbing-sweet-savory",
+      "a": { "text": "花生糖粉甜口", "img": "/img/taiwan-food-wars/runbing-sweet.webp" },
+      "b": { "text": "少糖或無糖鹹口", "img": "/img/taiwan-food-wars/runbing-savory.webp" }
+    },
+    {
+      "id": "rice-cake-style",
+      "a": { "text": "筒仔米糕", "img": "/img/taiwan-food-wars/rice-cake-tube.webp" },
+      "b": { "text": "台南散裝肉燥米糕", "img": "/img/taiwan-food-wars/rice-cake-tainan-loose.webp" }
+    },
+    {
+      "id": "coriander",
+      "a": { "text": "香菜加爆", "img": "/img/taiwan-food-wars/coriander-extra.webp" },
+      "b": { "text": "完全不要香菜", "img": "/img/taiwan-food-wars/coriander-none.webp" }
+    },
+    {
+      "id": "meat-soup-thickness",
+      "a": { "text": "清爽少勾芡", "img": "/img/taiwan-food-wars/meat-soup-light.webp" },
+      "b": { "text": "濃稠重勾芡", "img": "/img/taiwan-food-wars/meat-soup-thick.webp" }
+    },
+    {
+      "id": "luroufan-mix",
+      "a": { "text": "先拌開才入味", "img": "/img/taiwan-food-wars/luroufan-mixed.webp" },
+      "b": { "text": "不拌才有層次", "img": "/img/taiwan-food-wars/luroufan-unmixed.webp" }
+    },
+    {
+      "id": "savory-food-sweetness",
+      "a": { "text": "鹹中帶甜,味道才有層次", "img": "/img/taiwan-food-wars/main-dish-sweet-savory.webp" },
+      "b": { "text": "純粹鹹香,主食不要甜味", "img": "/img/taiwan-food-wars/main-dish-pure-savory.webp" }
+    },
+    {
+      "id": "fried-chicken-cut",
+      "a": { "text": "切塊,好入口", "img": "/img/taiwan-food-wars/fried-chicken-cut.webp" },
+      "b": { "text": "整片不切,肉汁不流失", "img": "/img/taiwan-food-wars/fried-chicken-whole.webp" }
+    }
+  ],
+  "titles": {
+    "hotpot-taro": { "name": "湯底異教徒", "blurb": "同一鍋湯,你信的教派和大家不同。", "img": "/img/taiwan-food-wars/titles/hotpot-taro.webp" },
+    "curry-mix": { "name": "咖哩異議者", "blurb": "一盤咖哩,你吃出了別人看不懂的儀式。", "img": "/img/taiwan-food-wars/titles/curry-mix.webp" },
+    "danbing-batter-crispy": { "name": "餅皮少數派", "blurb": "同一家早餐店,你點的皮跟大家不同掛。", "img": "/img/taiwan-food-wars/titles/danbing-batter-crispy.webp" },
+    "meatball-fried-steamed": { "name": "肉圓獨行俠", "blurb": "同一顆肉圓,你偏要走另一種做法。", "img": "/img/taiwan-food-wars/titles/meatball-fried-steamed.webp" },
+    "cold-noodle-sauce": { "name": "醬料邊緣人", "blurb": "全桌的涼麵,只有你淋的是另一種醬。", "img": "/img/taiwan-food-wars/titles/cold-noodle-sauce.webp" },
+    "rice-noodle-thick-thin": { "name": "米粉異鄉人", "blurb": "同一碗湯,你堅持的粗細只有你懂。", "img": "/img/taiwan-food-wars/titles/rice-noodle-thick-thin.webp" },
+    "north-south-zongzi": { "name": "粽葉裡的少數派", "blurb": "每年端午開戰,你都站在人少的那隊。", "img": "/img/taiwan-food-wars/titles/north-south-zongzi.webp" },
+    "beef-noodle-braised-clear": { "name": "湯頭孤傲家", "blurb": "整間麵店的人,只有你的湯色不一樣。", "img": "/img/taiwan-food-wars/titles/beef-noodle-braised-clear.webp" },
+    "runbing-sweet-savory": { "name": "潤餅逆行者", "blurb": "同一張餅皮,你包的是另一種人生。", "img": "/img/taiwan-food-wars/titles/runbing-sweet-savory.webp" },
+    "rice-cake-style": { "name": "米糕考據派", "blurb": "你認的那一味,多數人連聽都沒聽過。", "img": "/img/taiwan-food-wars/titles/rice-cake-style.webp" },
+    "coriander": { "name": "香菜孤勇者", "blurb": "在全國最大的餐桌戰爭裡,你選了人少的那邊。", "img": "/img/taiwan-food-wars/titles/coriander.webp" },
+    "meat-soup-thickness": { "name": "羹湯異見者", "blurb": "一碗羹的濃稠,你有自己的堅持。", "img": "/img/taiwan-food-wars/titles/meat-soup-thickness.webp" },
+    "luroufan-mix": { "name": "滷肉飯修行者", "blurb": "一碗國民美食,你吃出了自己的門派。", "img": "/img/taiwan-food-wars/titles/luroufan-mix.webp" },
+    "savory-food-sweetness": { "name": "味覺越界者", "blurb": "你的舌頭,住在跟大家不同的緯度。", "img": "/img/taiwan-food-wars/titles/savory-food-sweetness.webp" },
+    "fried-chicken-cut": { "name": "雞排基本教義派", "blurb": "一塊雞排的切法,你堅守少數人的信仰。", "img": "/img/taiwan-food-wars/titles/fried-chicken-cut.webp" },
+    "mainstream": { "name": "國民舌頭", "blurb": "15 場美食大戰,場場與大家同行——你的舌頭就是台灣平均值。", "img": "/img/taiwan-food-wars/titles/mainstream.webp" }
+  }
+}

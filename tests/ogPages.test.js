@@ -36,3 +36,18 @@ test("dist/quiz/daily-life/index.html 含完整 og:title / og:description / og:i
   assert.match(html, /<script type="module"[^>]*src="\/assets\/[^"]+\.js"><\/script>/);
   assert.match(html, /<link rel="stylesheet"[^>]*href="\/assets\/[^"]+\.css"/);
 });
+
+test("dist/quiz/taiwan-food-wars/index.html 使用美食題庫定稿 OG 文案", () => {
+  const htmlPath = path.join(PROJECT_ROOT, "dist", "quiz", "taiwan-food-wars", "index.html");
+  assert.ok(existsSync(htmlPath), "dist/quiz/taiwan-food-wars/index.html 應存在");
+  const html = readFileSync(htmlPath, "utf-8");
+
+  assert.match(html, /<meta property="og:title" content="台灣美食信仰大戰\|你跟大家吃得到一塊嗎\?"/);
+  assert.match(
+    html,
+    /<meta property="og:description" content="15 題台灣人吵不完的美食二選一,每題立刻看到全站比例。測完看看你是主流老饕,還是餐桌異端。"/
+  );
+  assert.match(html, /<meta property="og:image" content="https?:\/\/[^"]+\/img\/taiwan-food-wars\/cover\.webp"/);
+  assert.match(html, /<meta property="og:url" content="https?:\/\/[^"]+\/quiz\/taiwan-food-wars"/);
+  assert.match(html, /<link rel="canonical" href="https?:\/\/[^"]+\/quiz\/taiwan-food-wars"/);
+});

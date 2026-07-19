@@ -8,15 +8,10 @@
 // (seed-votes.mjs)、OG 靜態頁(generate-og-pages.mjs)、導流卡(recommend.js)皆只讀
 // manifest,維持零改動、零感知佔位卡。
 
-/** 佔位題庫清單(正式名稱與封面可在 Phase 6 建題期間逐庫補上)。
+/** 尚未上線題庫的佔位清單(正式名稱與封面可在 Phase 6 建題期間逐庫補上)。
  *  id 只用於前端渲染(如 map 的 key),刻意不與正式 manifest id 撞名,避免未來
  *  Phase 6 上線同名題庫時混淆。 */
 export const PLACEHOLDER_QUIZZES = [
-  {
-    id: "placeholder-food",
-    title: "美食戰爭二選一：你是哪一派？",
-    cover: "/img/taiwan-food-wars/cover.webp",
-  },
   { id: "placeholder-entertainment", title: "娛樂", icon: "🎬" },
 ];
 
