@@ -2,6 +2,7 @@
 // (規格書 §2.2、§2.3、§3;返回鍵決策見 src/router.js 開頭註解)。
 
 import { fetchQuiz, fetchManifest } from "../lib/quizData.js";
+import { QuizNotFoundError } from "../lib/quizNotFoundError.js";
 import { fetchStats, fetchPlayedCount } from "../lib/statsClient.js";
 import { computeRatio, shouldShowPlayedCount } from "../lib/ratio.js";
 import { getQuizProgress, saveQuizProgress } from "../lib/storage.js";
@@ -32,7 +33,21 @@ import { trackEvent } from "../lib/analytics.js";
 import { quizPageTitle } from "../lib/pageTitle.js";
 
 export async function renderQuizFlow(app, { slug }) {
-  const quiz = await fetchQuiz(slug);
+  let quiz;
+  try {
+    quiz = await fetchQuiz(slug);
+  } catch (err) {
+    // 只有「題庫不存在」(含已下架的 slug,如 /quiz/demo)走此提示;其他錯誤照舊
+    // 往外拋,不吞掉。它與 stats 抓取失敗(showStatsError)是兩條獨立錯誤路徑。
+    if (!(err instanceof QuizNotFoundError)) throw err;
+    app.innerHTML = `
+      <section class="not-found">
+        <p>找不到題庫</p>
+        <a class="btn-secondary" href="/" data-link>回首頁</a>
+      </section>
+    `;
+    return;
+  }
   // 分頁標題與該題庫的 OG 靜態頁 <title> 一致(共用 pageTitle.js,見 router.js 註解)。
   document.title = quizPageTitle(quiz);
   const playedCount = await fetchPlayedCount(slug);

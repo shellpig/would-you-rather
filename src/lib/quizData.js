@@ -2,6 +2,7 @@
 // 未來若改為 fetch(`/quizzes/${id}.json`) 對呼叫端介面不變(皆為 async)。
 
 import manifest from "../data/manifest.json";
+import { QuizNotFoundError } from "./quizNotFoundError.js";
 
 const quizModules = import.meta.glob("../data/quizzes/*.json", { eager: true });
 
@@ -16,6 +17,6 @@ export async function fetchManifest() {
 
 export async function fetchQuiz(quizId) {
   const quiz = quizById(quizId);
-  if (!quiz) throw new Error(`quiz not found: ${quizId}`);
+  if (!quiz) throw new QuizNotFoundError(quizId);
   return quiz;
 }
