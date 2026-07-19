@@ -38,6 +38,11 @@
 2. **送出鈕座標漂移**:頁面上生成中的圖磚列會把輸入框和按鈕往下推,座標隨內容增加而變。
    每組重新定位;點擊前可用 `document.elementFromPoint(x, y)` 確認座標下就是該按鈕
    (若回傳其他元素 = 座標換算錯或被蓋住;注意 devicePixelRatio,點擊要用 CSS 像素座標)。
+   **關鍵:兩個座標系不能混用**——`elementFromPoint` 吃的是 **CSS 座標**,`computer` 點擊工具
+   吃的是**截圖像素座標**,兩者因 devicePixelRatio 而不同(實測 dpr=1.6875 時,按鈕 CSS 中心
+   `(1035,603)` 對應截圖座標約 `(1069,622)`)。驗證按鈕請用按鈕的 `getBoundingClientRect()`
+   中心(CSS 座標)丟給 `elementFromPoint`;點擊才換算成截圖座標。拿截圖座標丟 `elementFromPoint`
+   會誤判「按鈕不在這」。
 3. **合成事件按不動送出鈕**:Flow 是 React app,送出鈕忽略 `isTrusted: false` 的事件——
    `element.click()` / `dispatchEvent(new MouseEvent(...))` 只會讓按鈕取得焦點,不會送出;
    對按鈕按 Enter 也無效(它不是 form submit)。必須用原生滑鼠事件。最後手段是 dispatch
