@@ -28,10 +28,13 @@
 > 正式網址 https://would-you-rather-tw.pages.dev;production D1 建庫 + migration + 種子票
 > 灌入驗證一致、WAE dataset 啟用、線上實走(直訪路由 / stats / 比例 / 佔位卡)通過,
 > 部署記錄與命令見方針 Phase 5。剩:Web Analytics 開通、真機分享實測(站方)、
-> rate limit(順延至自訂網域)。P6 美食庫已完成題目 / 種子票 / 稱號定稿,封面、30 張選項圖與
-> 16 張稱號徽章,並已完成題庫 JSON、seed、manifest 與前端接線;本機自動化測試 110/110、D1
-> seed 逐題比對、15 題瀏覽器實走與答完推薦卡驗收皆通過。娛樂庫仍維持建設中佔位卡,待後續討論。
-> 下一步:站方真機實測分享 → 關閉 Phase 5;P6 美食子階段已完成,之後再逐題討論娛樂庫。
+> rate limit(順延至自訂網域)。**P6 美食庫已於 2026-07-19 部署 production 上線**:verifier
+> 依測試指南 Phase 6 清單(當日展開,11 條)驗收全數通過;種子票以單庫 SQL 灌入正式 D1
+> (15/15 一致,daily-life 既有計數未動);線上驗證(stats API、played-counts、OG 靜態頁、
+> 首頁雙卡 + 娛樂佔位卡、SPA 直訪)通過。同日修復兩項 P3:SPA 路由切換更新分頁標題
+> (`src/lib/pageTitle.js` 與 OG 靜態頁共用組法)、OG script `SITE_URL` 預設值改為正式網址。
+> 娛樂庫仍維持建設中佔位卡,待後續討論。
+> 下一步:站方真機實測分享 → 關閉 Phase 5;之後再逐題討論娛樂庫。
 
 ---
 
@@ -64,7 +67,7 @@
 | 3 | 總結卡 + 分享 + WAE 產品事件(含 3.5 孤獨稱號勳章) | ✅ 完成並通過 verifier 覆核 |
 | 4 | 題庫內容(站方決策縮減為單庫 + 佔位卡) | ✅ 完成並通過 verifier 覆核(daily-life + demo 下架 + 佔位卡) |
 | 5 | 上線(部署 / 網域 / rate limit / 實測) | 🔶 已上線 `would-you-rather-tw.pages.dev`(2026-07-17);剩 Web Analytics 開通、真機分享實測;rate limit 順延至自訂網域 |
-| 6 | 題庫擴充 ×2(美食、娛樂;上線後) | 🔶 美食庫已接入並通過自動化、本機 D1 與瀏覽器驗收;娛樂庫待討論 |
+| 6 | 題庫擴充 ×2(美食、娛樂;上線後) | 🔶 美食庫已上線 production(2026-07-19,驗收與線上驗證通過);娛樂庫待討論 |
 
 Flag off 待開(不排 Phase):分類 chips、點選後 2 秒自動下一題。
 
