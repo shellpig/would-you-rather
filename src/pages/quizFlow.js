@@ -29,7 +29,7 @@ import {
 } from "../lib/resultSummary.js";
 import { pickRecommendedQuizzes } from "../lib/recommend.js";
 import { canUseWebShare, shareResult, copyResultLink } from "../lib/share.js";
-import { encodeChoices, buildResultUrl } from "../lib/resultCode.js";
+import { buildResultUrl } from "../lib/resultUrl.js";
 import { trackEvent } from "../lib/analytics.js";
 import { quizPageTitle } from "../lib/pageTitle.js";
 
@@ -326,17 +326,13 @@ export async function renderQuizFlow(app, { slug }) {
       loneliestTitle,
       elapsedMs
     );
-    // 分享連結(規格書 §9 Phase 7):有稱號的題庫改指向結果分享頁
-    // /quiz/<id>/r/<稱號id>?d=<編碼結果>(編碼格式見 src/lib/resultCode.js);
-    // 分享「文字」維持現狀不動。無 titles 的題庫沒有稱號 id 可指,降級沿用題庫首頁連結。
+    // 分享連結(規格書 §9 Phase 7,2026-07-20 修訂):有稱號的題庫指向
+    // /quiz/<id>/r/<稱號id>(無 query;組法見 src/lib/resultUrl.js)——稱號路徑只為
+    // LINE/FB 抓對應 OG 卡,點開直接落題庫首頁;分享「文字」維持現狀不動。
+    // 無 titles 的題庫沒有稱號 id 可指,降級沿用題庫首頁連結。
     const titleKey = loneliest.isFallback ? "mainstream" : loneliest.id;
     const shareUrl = loneliestTitle
-      ? buildResultUrl(
-          location.origin,
-          slug,
-          titleKey,
-          encodeChoices(results.map((r) => r.choice))
-        )
+      ? buildResultUrl(location.origin, slug, titleKey)
       : `${location.origin}/quiz/${slug}`;
     const shareLabel = canUseWebShare() ? "分享結果" : "複製連結";
 

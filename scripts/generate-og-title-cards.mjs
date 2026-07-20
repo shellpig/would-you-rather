@@ -95,23 +95,33 @@ function wrapText(text, fontSize, maxWidth, maxLines) {
   return lines;
 }
 
-/** 右欄文字區(徽章右側)。 */
-const TEXT_X = 468;
-const TEXT_MAX_WIDTH = 1090 - TEXT_X;
+// 字級放大約 150%(規格書 §9 Phase 7 修訂,2026-07-20 LINE 真機實測後站方拍板:
+// 原字級在手機 LINE 預覽卡尺寸下肉眼難讀)。版面同步重新平衡:徽章縮小(300→250px)
+// 並左移上移,右欄文字區加寬;兩行定稿文案改為卡片下緣「整幅置中」,可用寬度由右欄
+// 622px 放大到 1000px——最長戰場行(遊樂園約會 vs 在家追劇約會)才裝得下 150% 字級。
+// fitFontSize 縮字機制保留,文案仍一字不刪改。
+
+/** 右欄文字區(徽章右側:稱號名 + 判詞)。 */
+const TEXT_X = 400;
+const TEXT_MAX_WIDTH = 1100 - TEXT_X;
+/** 下緣兩行定稿文案:整幅置中,可用寬度為內框扣左右留白。 */
+const LINE_CENTER_X = 600;
+const LINE_MAX_WIDTH = 1000;
 
 function buildCardSvg({ titleName, blurb, line1, line2 }) {
-  // 稱號名:68px 起跳,過長縮級。
-  const nameSize = fitFontSize(titleName, TEXT_MAX_WIDTH, 68, 40);
-  // 判詞:30px,至多兩行。
-  const blurbLines = wrapText(blurb, 30, TEXT_MAX_WIDTH, 2);
-  // 兩行定稿文案:33px / 30px 起跳,過長縮級(文案不可刪改,只縮字級)。
-  const line1Size = fitFontSize(line1, TEXT_MAX_WIDTH, 33, 20);
-  const line2Size = fitFontSize(line2, TEXT_MAX_WIDTH, 30, 20);
+  // 稱號名:100px 起跳(原 68px),過長縮級。
+  const nameSize = fitFontSize(titleName, TEXT_MAX_WIDTH, 100, 56);
+  // 判詞:45px(原 30px),至多兩行。
+  const BLURB_SIZE = 45;
+  const blurbLines = wrapText(blurb, BLURB_SIZE, TEXT_MAX_WIDTH, 2);
+  // 兩行定稿文案:50px / 45px 起跳(原 33px / 30px),過長縮級(文案不可刪改,只縮字級)。
+  const line1Size = fitFontSize(line1, LINE_MAX_WIDTH, 50, 30);
+  const line2Size = fitFontSize(line2, LINE_MAX_WIDTH, 45, 28);
 
   const blurbSvg = blurbLines
     .map(
       (line, i) =>
-        `<text x="${TEXT_X}" y="${288 + i * 44}" font-family="${FONT}" font-size="30" fill="${COLOR_MUTED}">${escapeXml(line)}</text>`
+        `<text x="${TEXT_X}" y="${305 + i * 62}" font-family="${FONT}" font-size="${BLURB_SIZE}" fill="${COLOR_MUTED}">${escapeXml(line)}</text>`
     )
     .join("\n  ");
 
@@ -127,35 +137,35 @@ function buildCardSvg({ titleName, blurb, line1, line2 }) {
   <rect x="56" y="84" width="1088" height="478" rx="30" fill="url(#frameGrad)" stroke="${COLOR_PRIMARY}" stroke-width="5" />
   <rect x="70" y="98" width="1060" height="450" rx="20" fill="none" stroke="rgba(255,107,94,0.4)" stroke-width="2.5" stroke-dasharray="10 8" />
   <!-- 「孤獨稱號」標籤(仿 .result-badge::after;mainstream 現網站同樣顯示此字樣) -->
-  <rect x="490" y="56" width="220" height="56" rx="28" fill="${COLOR_PRIMARY}" />
-  <text x="600" y="95" text-anchor="middle" font-family="${FONT}" font-size="30" font-weight="700" fill="#ffffff" letter-spacing="4">孤獨稱號</text>
+  <rect x="445" y="44" width="310" height="80" rx="40" fill="${COLOR_PRIMARY}" />
+  <text x="600" y="100" text-anchor="middle" font-family="${FONT}" font-size="45" font-weight="700" fill="#ffffff" letter-spacing="5">孤獨稱號</text>
   <!-- 徽章雙環框(仿 .result-badge__img 的 box-shadow:內細淺色環 + 外粗珊瑚紅環) -->
-  <circle cx="256" cy="323" r="150" fill="#ffffff" />
-  <circle cx="256" cy="323" r="153" fill="none" stroke="${COLOR_RING_INNER}" stroke-width="6" />
-  <circle cx="256" cy="323" r="161" fill="none" stroke="${COLOR_PRIMARY}" stroke-width="11" />
+  <circle cx="220" cy="270" r="125" fill="#ffffff" />
+  <circle cx="220" cy="270" r="128" fill="none" stroke="${COLOR_RING_INNER}" stroke-width="6" />
+  <circle cx="220" cy="270" r="135" fill="none" stroke="${COLOR_PRIMARY}" stroke-width="10" />
   <!-- 右欄:稱號名(大字)+ 判詞 -->
-  <text x="${TEXT_X}" y="228" font-family="${FONT}" font-size="${nameSize}" font-weight="700" fill="${COLOR_TEXT}">${escapeXml(titleName)}</text>
+  <text x="${TEXT_X}" y="225" font-family="${FONT}" font-size="${nameSize}" font-weight="700" fill="${COLOR_TEXT}">${escapeXml(titleName)}</text>
   ${blurbSvg}
-  <!-- 兩行定稿文案 -->
-  <text x="${TEXT_X}" y="452" font-family="${FONT}" font-size="${line1Size}" font-weight="700" fill="${COLOR_TEXT}">${escapeXml(line1)}</text>
-  <text x="${TEXT_X}" y="510" font-family="${FONT}" font-size="${line2Size}" font-weight="700" fill="${COLOR_PRIMARY}">${escapeXml(line2)}</text>
+  <!-- 兩行定稿文案(整幅置中) -->
+  <text x="${LINE_CENTER_X}" y="472" text-anchor="middle" font-family="${FONT}" font-size="${line1Size}" font-weight="700" fill="${COLOR_TEXT}">${escapeXml(line1)}</text>
+  <text x="${LINE_CENTER_X}" y="530" text-anchor="middle" font-family="${FONT}" font-size="${line2Size}" font-weight="700" fill="${COLOR_PRIMARY}">${escapeXml(line2)}</text>
 </svg>`);
 }
 
-/** 徽章圖:縮至 300px 後圓形裁切(卡圖不用生圖自帶的方框,與網站呈現一致)。 */
+/** 徽章圖:縮至 250px 後圓形裁切(卡圖不用生圖自帶的方框,與網站呈現一致)。 */
 async function circularBadge(badgePath) {
   const mask = Buffer.from(
-    `<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300"><circle cx="150" cy="150" r="150" fill="#fff"/></svg>`
+    `<svg xmlns="http://www.w3.org/2000/svg" width="250" height="250"><circle cx="125" cy="125" r="125" fill="#fff"/></svg>`
   );
   return sharp(badgePath)
-    .resize(300, 300)
+    .resize(250, 250)
     .composite([{ input: mask, blend: "dest-in" }])
     .png()
     .toBuffer();
 }
 
 async function renderCard({ svg, badgePng, outPath }) {
-  const base = sharp(svg).composite([{ input: badgePng, left: 106, top: 173 }]);
+  const base = sharp(svg).composite([{ input: badgePng, left: 95, top: 145 }]);
   // 目標 ≤80KB:由高品質往下試,取第一個達標的品質(插畫 + 素面底通常 q80 即過)。
   for (const quality of [82, 72, 62, 50]) {
     const buf = await base.clone().webp({ quality }).toBuffer();

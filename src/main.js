@@ -3,7 +3,6 @@ import { registerRoute, startRouter } from "./router.js";
 import { HOME_ROUTE, QUIZ_ROUTE, RESULT_ROUTE } from "./routes.js";
 import { renderHome } from "./pages/home.js";
 import { renderQuizFlow } from "./pages/quizFlow.js";
-import { renderSharedResult } from "./pages/sharedResult.js";
 import { flushPendingVotes } from "./lib/voteQueue.js";
 
 registerRoute(HOME_ROUTE, renderHome);
@@ -12,7 +11,16 @@ registerRoute(HOME_ROUTE, renderHome);
 // RESULT_ROUTE 需先註冊?不需要——QUIZ_ROUTE 的 slug 用 [^/]+ 不吃斜線,
 // /quiz/<id>/r/<稱號id> 只會匹配 RESULT_ROUTE,兩者無註冊順序依賴。
 registerRoute(QUIZ_ROUTE, renderQuizFlow);
-registerRoute(RESULT_ROUTE, renderSharedResult);
+// 結果分享連結(規格書 §9 Phase 7 修訂,2026-07-20 LINE 真機實測後站方拍板):
+// /quiz/<id>/r/<稱號id> 一律直接顯示該題庫首頁——稱號段只為讓 LINE/FB 抓對應
+// OG 卡,不驗證(任意字串同樣落題庫首頁);query(含已散出去的舊格式 ?d=xzq)
+// 一律忽略——router 只用 location.pathname 匹配,天然向後相容。進頁先把 URL
+// replaceState 正規化回 /quiz/<slug>(不多產生 history entry),之後行為與直訪
+// 題庫頁完全一致;題庫 id 無效維持既有「找不到題庫」(renderQuizFlow 內建)。
+registerRoute(RESULT_ROUTE, (app, { slug }) => {
+  history.replaceState({}, "", `/quiz/${slug}`);
+  return renderQuizFlow(app, { slug });
+});
 
 startRouter();
 

@@ -37,6 +37,21 @@ test("RESULT_ROUTE:結果分享頁匹配 slug 與 titleId,尾斜線契約同 QUI
   assert.equal("/quiz/daily-life/r/cat-dog//".match(RESULT_ROUTE), null, "雙尾斜線不需要支援");
 });
 
+test("RESULT_ROUTE:稱號段不驗證——任意字串一樣匹配、由 SPA 落題庫首頁(Phase 7 修訂 2026-07-20)", () => {
+  const match = "/quiz/daily-life/r/%E4%BA%82%E5%AD%97%E4%B8%B2".match(RESULT_ROUTE);
+  assert.ok(match, "亂字串稱號段也應匹配 result route(main.js 一律委派 renderQuizFlow)");
+  assert.equal(match.groups.slug, "daily-life");
+});
+
+test("RESULT_ROUTE:舊格式連結(已散出去的 ?d=xzq)向後相容——router 只用 pathname 匹配,query 一律忽略", () => {
+  // 模擬 router.js 的匹配方式:matchRoute(location.pathname),query 不進 regex。
+  const oldLink = new URL("https://example.com/quiz/daily-life/r/cat-dog?d=xzq");
+  const match = oldLink.pathname.match(RESULT_ROUTE);
+  assert.ok(match, "舊 ?d= 連結的 pathname 應照常匹配 result route");
+  assert.equal(match.groups.slug, "daily-life");
+  assert.equal(match.groups.titleId, "cat-dog");
+});
+
 test("RESULT_ROUTE 與 QUIZ_ROUTE 互不搶匹配(slug 的 [^/]+ 不吃斜線)", () => {
   assert.equal("/quiz/daily-life/r/cat-dog".match(QUIZ_ROUTE), null);
   assert.equal("/quiz/daily-life".match(RESULT_ROUTE), null);
