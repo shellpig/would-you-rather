@@ -29,6 +29,7 @@ import {
 } from "../lib/resultSummary.js";
 import { pickRecommendedQuizzes } from "../lib/recommend.js";
 import { canUseWebShare, shareResult, copyResultLink } from "../lib/share.js";
+import { encodeChoices, buildResultUrl } from "../lib/resultCode.js";
 import { trackEvent } from "../lib/analytics.js";
 import { quizPageTitle } from "../lib/pageTitle.js";
 
@@ -325,7 +326,18 @@ export async function renderQuizFlow(app, { slug }) {
       loneliestTitle,
       elapsedMs
     );
-    const shareUrl = `${location.origin}/quiz/${slug}`;
+    // 分享連結(規格書 §9 Phase 7):有稱號的題庫改指向結果分享頁
+    // /quiz/<id>/r/<稱號id>?d=<編碼結果>(編碼格式見 src/lib/resultCode.js);
+    // 分享「文字」維持現狀不動。無 titles 的題庫沒有稱號 id 可指,降級沿用題庫首頁連結。
+    const titleKey = loneliest.isFallback ? "mainstream" : loneliest.id;
+    const shareUrl = loneliestTitle
+      ? buildResultUrl(
+          location.origin,
+          slug,
+          titleKey,
+          encodeChoices(results.map((r) => r.choice))
+        )
+      : `${location.origin}/quiz/${slug}`;
     const shareLabel = canUseWebShare() ? "分享結果" : "複製連結";
 
     // 標籤文字(規格書 §2.4 擴充,2026-07-17 定案):新規則選出的題不一定是絕對最低 %,

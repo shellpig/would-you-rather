@@ -9,3 +9,7 @@ export const HOME_ROUTE = /^\/$/;
 // [^/]+ 排除斜線,故尾斜線不會被吃進 group;不支援 /quiz/<id>// 這種雙斜線。
 // SPA 內部 navigate() 產生的無尾斜線 URL 一樣能匹配,不受影響。
 export const QUIZ_ROUTE = /^\/quiz\/(?<slug>[^/]+)\/?$/;
+
+// 結果分享頁(規格書 §9 Phase 7):/quiz/<id>/r/<稱號id>,尾斜線契約同 QUIZ_ROUTE
+// (Cloudflare Pages 對 dist/quiz/<id>/r/<稱號id>/index.html 一樣 308 轉址到帶尾斜線)。
+export const RESULT_ROUTE = /^\/quiz\/(?<slug>[^/]+)\/r\/(?<titleId>[^/]+)\/?$/;

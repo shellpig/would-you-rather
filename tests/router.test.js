@@ -10,7 +10,7 @@
 
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { HOME_ROUTE, QUIZ_ROUTE } from "../src/routes.js";
+import { HOME_ROUTE, QUIZ_ROUTE, RESULT_ROUTE } from "../src/routes.js";
 
 test("QUIZ_ROUTE:無尾斜線與帶尾斜線皆匹配,slug 均不含尾斜線", () => {
   const withoutSlash = "/quiz/demo".match(QUIZ_ROUTE);
@@ -23,6 +23,25 @@ test("QUIZ_ROUTE:無尾斜線與帶尾斜線皆匹配,slug 均不含尾斜線", 
 
 test("QUIZ_ROUTE:雙尾斜線不需要支援", () => {
   assert.equal("/quiz/demo//".match(QUIZ_ROUTE), null);
+});
+
+test("RESULT_ROUTE:結果分享頁匹配 slug 與 titleId,尾斜線契約同 QUIZ_ROUTE(Phase 7)", () => {
+  const withoutSlash = "/quiz/daily-life/r/cat-dog".match(RESULT_ROUTE);
+  const withSlash = "/quiz/daily-life/r/cat-dog/".match(RESULT_ROUTE);
+  assert.ok(withoutSlash, "/quiz/daily-life/r/cat-dog 應匹配 result route");
+  assert.ok(withSlash, "帶尾斜線(Cloudflare Pages 308 轉址落地的 URL)應匹配");
+  assert.equal(withoutSlash.groups.slug, "daily-life");
+  assert.equal(withoutSlash.groups.titleId, "cat-dog");
+  assert.equal(withSlash.groups.slug, "daily-life");
+  assert.equal(withSlash.groups.titleId, "cat-dog");
+  assert.equal("/quiz/daily-life/r/cat-dog//".match(RESULT_ROUTE), null, "雙尾斜線不需要支援");
+});
+
+test("RESULT_ROUTE 與 QUIZ_ROUTE 互不搶匹配(slug 的 [^/]+ 不吃斜線)", () => {
+  assert.equal("/quiz/daily-life/r/cat-dog".match(QUIZ_ROUTE), null);
+  assert.equal("/quiz/daily-life".match(RESULT_ROUTE), null);
+  assert.equal("/quiz/daily-life/r".match(RESULT_ROUTE), null);
+  assert.equal("/quiz/daily-life/r/".match(RESULT_ROUTE), null);
 });
 
 test("HOME_ROUTE 與不存在路徑的行為不變", () => {

@@ -1,0 +1,18 @@
+{
+  "_comment": "稱號 OG 卡「你的孤獨戰場:A vs B」短標籤(規格書 §9 Phase 7)。值取自 subdocs/題庫/daily-life.md「種子票分佈」表的 A/B 欄簡稱,供站方 review;該表若改,回改本檔保持一致(守護測試:tests/ogTitleCards.test.js)。",
+  "cat-dog": { "a": "貓派", "b": "狗派" },
+  "romcom-horror": { "a": "愛情喜劇", "b": "恐怖片" },
+  "coffee-tea": { "a": "喝咖啡", "b": "喝茶" },
+  "cook-dine-out": { "a": "自己煮", "b": "外食" },
+  "movie-book": { "a": "看電影", "b": "看書" },
+  "stay-home-go-out": { "a": "宅在家", "b": "出門玩" },
+  "sleep-in-early-bird": { "a": "睡到自然醒", "b": "早睡早起" },
+  "sushi-pasta": { "a": "壽司", "b": "義大利麵" },
+  "beach-mountain": { "a": "去海邊", "b": "去山上" },
+  "park-home-date": { "a": "遊樂園約會", "b": "在家追劇約會" },
+  "world-local-travel": { "a": "環遊世界", "b": "在地小旅行" },
+  "sugar-free-full-sugar": { "a": "手搖飲無糖", "b": "手搖飲全糖" },
+  "country-city": { "a": "住鄉下", "b": "住城市" },
+  "favorite-first-last": { "a": "最愛的先吃", "b": "留最後" },
+  "summer-winter": { "a": "夏天", "b": "冬天" }
+}

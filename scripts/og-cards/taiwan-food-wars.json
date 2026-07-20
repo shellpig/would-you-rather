@@ -1,0 +1,18 @@
+{
+  "_comment": "稱號 OG 卡「你的孤獨戰場:A vs B」短標籤(規格書 §9 Phase 7)。值取自 subdocs/題庫/taiwan-food-wars.md「種子票分佈」表的 A/B 欄簡稱,供站方 review;該表若改,回改本檔保持一致(守護測試:tests/ogTitleCards.test.js)。",
+  "hotpot-taro": { "a": "要芋頭", "b": "不要芋頭" },
+  "curry-mix": { "a": "全部拌勻", "b": "分開吃" },
+  "danbing-batter-crispy": { "a": "粉漿蛋餅", "b": "脆皮蛋餅" },
+  "meatball-fried-steamed": { "a": "炸肉圓", "b": "蒸肉圓" },
+  "cold-noodle-sauce": { "a": "麻醬蒜泥", "b": "白醋美乃滋" },
+  "rice-noodle-thick-thin": { "a": "粗米粉", "b": "細米粉" },
+  "north-south-zongzi": { "a": "北部粽", "b": "南部粽" },
+  "beef-noodle-braised-clear": { "a": "紅燒", "b": "清燉" },
+  "runbing-sweet-savory": { "a": "甜口", "b": "鹹口" },
+  "rice-cake-style": { "a": "筒仔米糕", "b": "散裝米糕" },
+  "coriander": { "a": "香菜加爆", "b": "完全不要" },
+  "meat-soup-thickness": { "a": "清爽少勾芡", "b": "濃稠重勾芡" },
+  "luroufan-mix": { "a": "先拌開", "b": "不拌" },
+  "savory-food-sweetness": { "a": "鹹中帶甜", "b": "純粹鹹香" },
+  "fried-chicken-cut": { "a": "切塊", "b": "整片不切" }
+}

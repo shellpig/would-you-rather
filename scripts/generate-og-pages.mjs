@@ -66,19 +66,8 @@ const manifest = JSON.parse(readFileSync(path.join(dataDir, "manifest.json"), "u
 const quizDir = path.join(distDir, "quiz");
 rmSync(quizDir, { recursive: true, force: true }); // 每次重新產生,避免題庫下架後殘留舊頁面
 
-let count = 0;
-for (const { id } of manifest.quizzes) {
-  const quiz = JSON.parse(readFileSync(path.join(dataDir, "quizzes", `${id}.json`), "utf-8"));
-
-  // ogTitle/ogDescription 為選配欄位(開發設計方針.md > Phase 4 > OG 文案):有定稿
-  // OG 文案的題庫直接整段套用(不再疊加「— Would You Rather」後綴,定稿文案本身已是
-  // 完整標題);沒有這兩個欄位的題庫 fallback 回 Phase 3 既有公式,行為不變。
-  // 標題組法抽至 src/lib/pageTitle.js,與 SPA 路由切換的 document.title 共用(2026-07-19)。
-  const title = quizPageTitle(quiz);
-  const description = quiz.ogDescription ?? quiz.description;
-  const imageUrl = `${SITE_URL}${quiz.cover}`;
-  const canonicalUrl = `${SITE_URL}/quiz/${id}`;
-
+/** 組一份完整 OG 靜態頁 HTML 並寫入 outDir/index.html(per-quiz 頁與稱號頁共用)。 */
+function writeOgPage(outDir, { title, description, imageUrl, canonicalUrl }) {
   const headTags = [
     `<meta charset="UTF-8" />`,
     `<meta name="viewport" content="width=device-width, initial-scale=1.0" />`,
@@ -96,10 +85,45 @@ for (const { id } of manifest.quizzes) {
   const html =
     `<!doctype html>\n<html lang="zh-Hant">\n  <head>\n    ${headTags.join("\n    ")}\n  </head>\n  ${bodyHtml}\n</html>\n`;
 
-  const outDir = path.join(quizDir, id);
   mkdirSync(outDir, { recursive: true });
   writeFileSync(path.join(outDir, "index.html"), html, "utf-8");
-  count += 1;
 }
 
-console.log(`已產生 ${count} 個題庫的 OG 靜態頁面於 ${quizDir}(SITE_URL=${SITE_URL})`);
+let count = 0;
+let titleCount = 0;
+for (const { id } of manifest.quizzes) {
+  const quiz = JSON.parse(readFileSync(path.join(dataDir, "quizzes", `${id}.json`), "utf-8"));
+
+  // ogTitle/ogDescription 為選配欄位(開發設計方針.md > Phase 4 > OG 文案):有定稿
+  // OG 文案的題庫直接整段套用(不再疊加「— Would You Rather」後綴,定稿文案本身已是
+  // 完整標題);沒有這兩個欄位的題庫 fallback 回 Phase 3 既有公式,行為不變。
+  // 標題組法抽至 src/lib/pageTitle.js,與 SPA 路由切換的 document.title 共用(2026-07-19)。
+  writeOgPage(path.join(quizDir, id), {
+    title: quizPageTitle(quiz),
+    description: quiz.ogDescription ?? quiz.description,
+    imageUrl: `${SITE_URL}${quiz.cover}`,
+    canonicalUrl: `${SITE_URL}/quiz/${id}`,
+  });
+  count += 1;
+
+  // 稱號 OG 靜態頁(規格書 §9 Phase 7):每題庫每稱號一頁 dist/quiz/<id>/r/<稱號id>/,
+  // og:image 指向 generate-og-title-cards.mjs 產出的稱號卡圖;og:title 定稿格式
+  // (mainstream 不帶「孤獨」字眼);og:description 用判詞。無 titles 的題庫自然跳過。
+  for (const [titleId, t] of Object.entries(quiz.titles ?? {})) {
+    const ogTitle =
+      titleId === "mainstream"
+        ? `我拿到稱號『${t.name}』|${quiz.title}`
+        : `我拿到孤獨稱號『${t.name}』|${quiz.title}`;
+    writeOgPage(path.join(quizDir, id, "r", titleId), {
+      title: ogTitle,
+      description: t.blurb,
+      imageUrl: `${SITE_URL}/img/${id}/og-titles/${titleId}.webp`,
+      canonicalUrl: `${SITE_URL}/quiz/${id}/r/${titleId}`,
+    });
+    titleCount += 1;
+  }
+}
+
+console.log(
+  `已產生 ${count} 個題庫的 OG 靜態頁面與 ${titleCount} 個稱號 OG 頁面於 ${quizDir}(SITE_URL=${SITE_URL})`
+);

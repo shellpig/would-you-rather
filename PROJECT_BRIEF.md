@@ -68,6 +68,7 @@
 | 4 | 題庫內容(站方決策縮減為單庫 + 佔位卡) | ✅ 完成並通過 verifier 覆核(daily-life + demo 下架 + 佔位卡) |
 | 5 | 上線(部署 / 網域 / rate limit / 實測) | 🔶 已上線 `would-you-rather-tw.pages.dev`(2026-07-17);剩 Web Analytics 開通、真機分享實測;rate limit 順延至自訂網域 |
 | 6 | 題庫擴充 ×2(美食、娛樂;上線後) | 🔶 美食庫已上線 production(2026-07-19,驗收與線上驗證通過);娛樂庫待討論 |
+| 7 | 稱號分享頁(結果連結 + 稱號 OG 卡,全靜態) | 🔶 2026-07-20 立項(規格書 §9 Phase 7),實作中 |
 
 Flag off 待開(不排 Phase):分類 chips、點選後 2 秒自動下一題。
 
