@@ -78,6 +78,9 @@ function writeOgPage(outDir, { title, description, imageUrl, canonicalUrl }) {
     `<meta property="og:description" content="${escapeHtml(description)}" />`,
     `<meta property="og:image" content="${escapeHtml(imageUrl)}" />`,
     `<meta property="og:url" content="${escapeHtml(canonicalUrl)}" />`,
+    // Discord 只在頁面帶 twitter:card=summary_large_image 時才顯示全寬大圖,
+    // 否則 og:image 被縮成右側小縮圖;LINE / FB 只看 og:* 標籤,不受影響。
+    `<meta name="twitter:card" content="summary_large_image" />`,
     `<link rel="canonical" href="${escapeHtml(canonicalUrl)}" />`,
     ...assetTags,
   ];
