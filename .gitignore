@@ -16,3 +16,6 @@ src/data/legalList.generated.json
 # misc
 *.log
 Thumbs.db
+
+# 生圖草稿 / 未採用素材,不進 repo
+assets/generated/daily-life/nouse/
