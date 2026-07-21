@@ -445,6 +445,12 @@ button {
   justify-content: center;
   /* gap 撐開圖與文字(站方 2026-07-18:圖偏左、字偏右);整組仍置中,兩側不貼框。 */
   gap: 26px;
+  /* 圖片 104px + box-shadow 雙環最外圈 6px 的視覺占位(box-shadow 不計入版面高度,
+     若不保留這圈高度,右側文字欄較短的稱號會讓 flex row 高度貼齊圖片本體,
+     外環視覺上凸出到下方 .result-hero__lonely-percent 那行造成疊字);固定 min-height
+     讓不同稱號(不論代表作文字長短)這一列高度一致,不再依內容忽高忽低。116px 為外環
+     視覺邊界精確值,另加 6px 呼吸空間避免緊貼下一行。 */
+  min-height: 122px;
 }
 .result-badge__img {
   flex: none;
